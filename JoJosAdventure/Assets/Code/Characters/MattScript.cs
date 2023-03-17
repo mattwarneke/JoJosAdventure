@@ -1,6 +1,5 @@
 ﻿using Assets.Code.Logic;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,72 +9,74 @@ public class MattScript : MonoBehaviour
     public SpeechBubble speechBubble;
     public bool IsFollowing { get; private set; }
     public Transform transformFollowing;
-	// Use this for initialization
-	void Start ()
+
+    // Use this for initialization
+    private void Start()
     {
-        animator = GetComponent<Animator>();
+        this.animator = this.GetComponent<Animator>();
 
         string repeatedSpeechText = "Jojo, Jojo!" + Environment.NewLine + "Where are you ?";
         List<Speech> startSpeech = new List<Speech>();
         startSpeech.Add(new Speech(repeatedSpeechText, 2));
         startSpeech.Add(new Speech(null, 1));
         startSpeech.Add(new Speech(repeatedSpeechText, 2));
-        Speak(startSpeech);
+        this.Speak(startSpeech);
     }
 
-    Queue<Vector3> followingPositions = new Queue<Vector3>();
-    Vector3? currentTarget;
-    float minDistanceY = 1.75f;
-    float minDistanceX = 2f;
-    void Update ()
+    private Queue<Vector3> followingPositions = new Queue<Vector3>();
+    private Vector3? currentTarget;
+    private float minDistanceY = 1.75f;
+    private float minDistanceX = 2f;
+
+    private void Update()
     {
-        if (!IsFollowing || this.transformFollowing == null)
+        if (!this.IsFollowing || this.transformFollowing == null)
             return;
         // will follow the queue always even when close.
         bool IsExactFollow = false;// cant get it working smooth
 
         bool isMoreThanMinDistanceFromFollowing =// object to follow is far enough away, add waypoint to follow path.
-            Math.Abs(this.transform.position.x - this.transformFollowing.position.x) > minDistanceX
-            || Math.Abs(this.transform.position.y - this.transformFollowing.position.y) > minDistanceY;
-       
+            Math.Abs(this.transform.position.x - this.transformFollowing.position.x) > this.minDistanceX
+            || Math.Abs(this.transform.position.y - this.transformFollowing.position.y) > this.minDistanceY;
+
         if (IsExactFollow || isMoreThanMinDistanceFromFollowing)
         {
-            followingPositions.Enqueue(this.transformFollowing.position);
-            if (currentTarget == null)
-                currentTarget = followingPositions.Dequeue();
+            this.followingPositions.Enqueue(this.transformFollowing.position);
+            if (this.currentTarget == null)
+                this.currentTarget = this.followingPositions.Dequeue();
         }
 
-        bool isAtCurrentTarget = 
-            currentTarget.HasValue
-            && Math.Abs(this.transform.position.x - this.currentTarget.Value.x) <= minDistanceX + 0.25f
-            && Math.Abs(this.transform.position.y - this.currentTarget.Value.y) <= minDistanceY + 0.25f;
-    
-        // close enough to current target, look for next target or stop.
-        if (isAtCurrentTarget && followingPositions.Count > 0)
-            currentTarget = followingPositions.Dequeue();
-        else if (isAtCurrentTarget && followingPositions.Count == 0)
-            currentTarget = null;
+        bool isAtCurrentTarget =
+            this.currentTarget.HasValue
+            && Math.Abs(this.transform.position.x - this.currentTarget.Value.x) <= this.minDistanceX + 0.25f
+            && Math.Abs(this.transform.position.y - this.currentTarget.Value.y) <= this.minDistanceY + 0.25f;
 
-        if (currentTarget.HasValue)
+        // close enough to current target, look for next target or stop.
+        if (isAtCurrentTarget && this.followingPositions.Count > 0)
+            this.currentTarget = this.followingPositions.Dequeue();
+        else if (isAtCurrentTarget && this.followingPositions.Count == 0)
+            this.currentTarget = null;
+
+        if (this.currentTarget.HasValue)
         {
-            animator.SetBool("IsWalking", true);
-            animator.SetFloat("WalkSpeed", 0.75f);
+            this.animator.SetBool("IsWalking", true);
+            this.animator.SetFloat("WalkSpeed", 0.75f);
             if (isMoreThanMinDistanceFromFollowing)
                 this.transform.position = Vector2.Lerp(this.transform.position, this.currentTarget.Value, Time.deltaTime * 2);
         }
         else
         {
-            animator.SetFloat("WalkSpeed", 0);
-            animator.SetBool("IsWalking", false);
+            this.animator.SetFloat("WalkSpeed", 0);
+            this.animator.SetBool("IsWalking", false);
         }
     }
-    
+
     public void ActivateFollow(Transform transformToFollow)
     {
-        FollowTransform(transformToFollow);
-        speechBubble.EmptySpeechQueue();
-        animator.SetFloat("WalkSpeed", 0.75f);
-        animator.SetBool("IsWalking", true);
+        this.FollowTransform(transformToFollow);
+        this.speechBubble.EmptySpeechQueue();
+        this.animator.SetFloat("WalkSpeed", 0.75f);
+        this.animator.SetBool("IsWalking", true);
     }
 
     private void FollowTransform(Transform transformToFollow)
@@ -84,14 +85,14 @@ public class MattScript : MonoBehaviour
         this.transformFollowing = transformToFollow;
         this.currentTarget = transformToFollow.position;
     }
-    
+
     public void Speak(List<Speech> speech)
     {
-        speechBubble.AddToSpeechQueue(speech);
+        this.speechBubble.AddToSpeechQueue(speech);
     }
 
     public void ShowRing()
     {
-        animator.SetTrigger("Ring");
+        this.animator.SetTrigger("Ring");
     }
 }

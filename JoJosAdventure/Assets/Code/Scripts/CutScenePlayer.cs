@@ -1,20 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class CutScenePlayer : MonoBehaviour {
+public class CutScenePlayer : MonoBehaviour
+{
+    // Use this for initialization
+    private void Start()
+    {
+    }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    // Update is called once per frame
+    private void Update()
+    {
+    }
 
-    void OnTriggerEnter(Collider collider)
+    private void OnTriggerEnter(Collider collider)
     {
         if (collider.CompareTag("Player"))
         {

@@ -11,129 +11,130 @@ namespace Assets.Code.GUI
         public GameObject Jojo;
         public GameObject Matt;
         public GameObject Paige;
-
-        public PlayerJojo PlayerJojo;
-        public MattScript MattScript;
-        public PaigeScript PaigeScript;
-
         public CameraFollow CameraScript;
-
         public GameObject DialogCanvasGO;
-        
-        void Start()
+
+        private PlayerJojo PlayerJojo;
+        private MattScript MattScript;
+        private PaigeScript PaigeScript;
+
+        private void Start()
         {
-            PlayerJojo = Jojo.GetComponent<PlayerJojo>();
-            MattScript = Matt.GetComponent<MattScript>();
-            PaigeScript = Paige.GetComponent<PaigeScript>();
+            this.PlayerJojo = this.Jojo.GetComponent<PlayerJojo>();
+            this.MattScript = this.Matt.GetComponent<MattScript>();
+            this.PaigeScript = this.Paige.GetComponent<PaigeScript>();
         }
 
         public void SetMattFollowJojo()
         {
-            MattScript.ActivateFollow(Jojo.transform);
+            this.MattScript.ActivateFollow(this.Jojo.transform);
         }
 
         public void MattSpeakWithCallBack(List<Speech> speech, Action callback)
         {
-            MattSpeak(speech);
-            DoActionAfterSpeech(callback);
+            this.MattSpeak(speech);
+            this.DoActionAfterSpeech(callback);
         }
 
         public void MattSpeak(List<Speech> speech)
         {
-            MattScript.Speak(speech);
+            this.MattScript.Speak(speech);
         }
-        
+
         public void PauseJojoMovement(float timePaused)
         {
-            PlayerJojo.PauseWalking(timePaused);
+            this.PlayerJojo.PauseWalking(timePaused);
         }
 
         public void PauseJojoMovement()
         {
-            PlayerJojo.PauseWalking();
+            this.PlayerJojo.PauseWalking();
         }
 
         public void RestartJoJoMovement()
         {
-            PlayerJojo.RestartWalking();
+            this.PlayerJojo.RestartWalking();
         }
-        
+
         public Transform[] demonPositions;
+
         public void PanToDemons()
         {
-            if (CameraScript == null)
+            if (this.CameraScript == null)
                 return;
 
-            if (demonPositions.Length > 0)
-                CameraScript.SetCustomPanTarget(demonPositions[0].position);
+            if (this.demonPositions.Length > 0)
+                this.CameraScript.SetCustomPanTarget(this.demonPositions[0].position);
 
-            CameraScript.RunActionOnCustomPanFinished(() =>
+            this.CameraScript.RunActionOnCustomPanFinished(() =>
             {
-                CameraScript.SetCustomPanTarget(demonPositions[1].position);
+                this.CameraScript.SetCustomPanTarget(this.demonPositions[1].position);
             });
         }
 
         public void PanToBedroomDoor()
         {
-            if (BedroomDoor != null)
-                CameraScript.SetCustomPanTarget(BedroomDoor.transform.position);
+            if (this.BedroomDoor != null)
+                this.CameraScript.SetCustomPanTarget(this.BedroomDoor.transform.position);
         }
 
         public void PanToPaigeWithCallBack(Action callback)
         {
-            PanToPaige();
-            DoActionAfterPanFinished(callback);
+            this.PanToPaige();
+            this.DoActionAfterPanFinished(callback);
         }
 
         public void PanToPaige()
         {
-            CameraScript.SetCustomPanTarget(Paige.transform.position);
+            this.CameraScript.SetCustomPanTarget(this.Paige.transform.position);
         }
 
         public void JoJoSwipAnimation()
         {
-            PlayerJojo.PlaySwipAnimation();
+            this.PlayerJojo.PlaySwipAnimation();
         }
-        
+
         public GameObject BedroomDoor;
+
         public void RemoveBedroomDoor()
         {
-            if (BedroomDoor != null)
-                BedroomDoor.SetActive(false);
+            if (this.BedroomDoor != null)
+                this.BedroomDoor.SetActive(false);
         }
-        
+
         public void NearJar()
         {
-            PlayerJojo.PlaySwipAnimation();
+            this.PlayerJojo.PlaySwipAnimation();
         }
 
         public void ShowRingAnimation()
         {
-            MattScript.ShowRing();
+            this.MattScript.ShowRing();
         }
 
         public void ShowMarryMeCanvasDialog()
         {
-            DialogCanvasGO.SetActive(true);
+            this.DialogCanvasGO.SetActive(true);
         }
 
         public void MarryMeYes()
         {
-            DialogCanvasGO.SetActive(false);
+            this.DialogCanvasGO.SetActive(false);
             GameService.Instance().SheSaidYesFuckYeah();
         }
 
         public GameObject JarContainer;
+
         public void RemoveJar()
         {
-            JarContainer.SetActive(false);
-            PaigeScript.Speak(SpeechRepository.PaigeFreedom());
+            this.JarContainer.SetActive(false);
+            this.PaigeScript.Speak(SpeechRepository.PaigeFreedom());
             // stop paige animating and kiss???
         }
 
         public void DoActionAfterXTime(float waitTime, Action callback)
         {
-            StartCoroutine(RunCallbackAfterWait(waitTime, callback));
+            this.StartCoroutine(this.RunCallbackAfterWait(waitTime, callback));
         }
 
         private IEnumerator RunCallbackAfterWait(float waitTime, Action callback)
@@ -145,14 +146,14 @@ namespace Assets.Code.GUI
 
         public void DoActionAfterSpeech(Action callback)
         {
-            MattScript.speechBubble.RunActionOnSpeechFinished(callback);
+            this.MattScript.speechBubble.RunActionOnSpeechFinished(callback);
         }
 
         public void DoActionAfterPanFinished(Action callback)
         {
-            if (CameraScript == null)
+            if (this.CameraScript == null)
                 return;
-            CameraScript.RunActionOnCustomPanFinished(callback);
+            this.CameraScript.RunActionOnCustomPanFinished(callback);
         }
     }
 }

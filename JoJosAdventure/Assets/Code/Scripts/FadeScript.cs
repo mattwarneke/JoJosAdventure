@@ -1,107 +1,109 @@
-﻿using UnityEngine;
-using System.Collections;
-using Assets.Code;
+﻿using Assets.Code;
+using UnityEngine;
 
 public class FadeScript : MonoBehaviour
 {
-	#region Member Variables
-	/// <summary>
-	/// The sprite that represents the fade on screen
-	/// </summary>
-	private SpriteRenderer spriteRenderer;
+    #region Member Variables
 
-	/// <summary>
-	/// The alpha value of the fade
-	/// </summary>
-	private float AlphaValue;
-	
-	/// <summary>
-	/// A toggle for turning this tiles functionality on or off
-	/// </summary>
-	public enum FADETYPE
-	{
-		IN = 0,
-		OUT = 1,
-		NONE = 2,
-		RESPAWN = 3,
-	}
-	public FADETYPE FadeType;
-	#endregion
+    /// <summary>
+    /// The sprite that represents the fade on screen
+    /// </summary>
+    private SpriteRenderer spriteRenderer;
 
-	// Use this for initialization
-	void Start () 
-	{
-		spriteRenderer = GetComponent<SpriteRenderer>();
-		FadeType = FADETYPE.IN;
-		AlphaValue = 1.0f;
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-		// fade in or fade out based on the objects state
-		if(FadeType == FADETYPE.IN)
-		{
-			AlphaValue -= 0.25f * Time.deltaTime;
-			// limit the possible alpha value
-			if(AlphaValue < 0.0f)
-			{
-				AlphaValue = 0.0f;
-				FadeType = FADETYPE.NONE;
-			}
-		}
-		else if(FadeType == FADETYPE.OUT)
-		{
-			AlphaValue += Time.deltaTime;
+    /// <summary>
+    /// The alpha value of the fade
+    /// </summary>
+    private float AlphaValue;
 
-			// limit the possible alpha value
-			if(AlphaValue > 1.0f)
-			{
-				AlphaValue = 1.0f;
-				FadeType = FADETYPE.NONE;
-				ChangeLevel();
-			}
-		}
-		else if(FadeType == FADETYPE.RESPAWN)
-		{
-			AlphaValue += (2.0f * Time.deltaTime);
-			// limit the possible alpha value
-			if(AlphaValue > 1.0f)
-			{
-				AlphaValue = 1.0f;
-				FadeType = FADETYPE.IN;
-				GameObject.Find("PlayerCharacter").GetComponent<PlayerJojo>().RespawnPlayerAtCheckpoint();
-			}
-		}
+    /// <summary>
+    /// A toggle for turning this tiles functionality on or off
+    /// </summary>
+    public enum FADETYPE
+    {
+        IN = 0,
+        OUT = 1,
+        NONE = 2,
+        RESPAWN = 3,
+    }
 
-		// set the objects new colour
-		spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, AlphaValue);
-	}
+    public FADETYPE FadeType;
 
-	/// <summary>
-	/// Set the fade out state	
-	/// </summary>
-	public void FadeOut()
-	{
-		FadeType = FADETYPE.OUT;
-	}
+    #endregion Member Variables
 
-	/// <summary>
-	/// Respawns the fade
-	/// </summary>
-	public void RespawnFade()
-	{
-		// set the respawn state
-		FadeType = FADETYPE.RESPAWN;
-	}
+    // Use this for initialization
+    private void Start()
+    {
+        this.spriteRenderer = this.GetComponent<SpriteRenderer>();
+        this.FadeType = FADETYPE.IN;
+        this.AlphaValue = 1.0f;
+    }
 
-	/// <summary>
-	/// Changes the level to the next level in the list
-	/// </summary>
-	private void ChangeLevel()
-	{
-		int levelID = Application.loadedLevel + 1;
-		if(levelID > Application.levelCount - 1){ levelID = 0; }
-		Application.LoadLevel(levelID);
-	}
+    // Update is called once per frame
+    private void Update()
+    {
+        // fade in or fade out based on the objects state
+        if (this.FadeType == FADETYPE.IN)
+        {
+            this.AlphaValue -= 0.25f * Time.deltaTime;
+            // limit the possible alpha value
+            if (this.AlphaValue < 0.0f)
+            {
+                this.AlphaValue = 0.0f;
+                this.FadeType = FADETYPE.NONE;
+            }
+        }
+        else if (this.FadeType == FADETYPE.OUT)
+        {
+            this.AlphaValue += Time.deltaTime;
+
+            // limit the possible alpha value
+            if (this.AlphaValue > 1.0f)
+            {
+                this.AlphaValue = 1.0f;
+                this.FadeType = FADETYPE.NONE;
+                this.ChangeLevel();
+            }
+        }
+        else if (this.FadeType == FADETYPE.RESPAWN)
+        {
+            this.AlphaValue += 2.0f * Time.deltaTime;
+            // limit the possible alpha value
+            if (this.AlphaValue > 1.0f)
+            {
+                this.AlphaValue = 1.0f;
+                this.FadeType = FADETYPE.IN;
+                GameObject.Find("PlayerCharacter").GetComponent<PlayerJojo>().RespawnPlayerAtCheckpoint();
+            }
+        }
+
+        // set the objects new colour
+        this.spriteRenderer.color = new Color(this.spriteRenderer.color.r, this.spriteRenderer.color.g, this.spriteRenderer.color.b, this.AlphaValue);
+    }
+
+    /// <summary>
+    /// Set the fade out state
+    /// </summary>
+    public void FadeOut()
+    {
+        this.FadeType = FADETYPE.OUT;
+    }
+
+    /// <summary>
+    /// Respawns the fade
+    /// </summary>
+    public void RespawnFade()
+    {
+        // set the respawn state
+        this.FadeType = FADETYPE.RESPAWN;
+    }
+
+    /// <summary>
+    /// Changes the level to the next level in the list
+    /// </summary>
+    private void ChangeLevel()
+    {
+        int levelID = Application.loadedLevel + 1;
+        if (levelID > Application.levelCount - 1) { levelID = 0; }
+        Application.LoadLevel(levelID);
+    }
 }

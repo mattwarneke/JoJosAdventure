@@ -1,20 +1,18 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-using Assets.Code.Logic;
+﻿using Assets.Code.Logic;
+using UnityEngine;
 
-public class Trigger : MonoBehaviour 
+public class Trigger : MonoBehaviour
 {
     public EventEnum eventToTrigger;
     public bool CanBeRepeated;
-    
-	void OnTriggerEnter2D(Collider2D collider)
-	{
-		if(collider.gameObject.name == "PlayerCharacter")
-		{
-            GameService.Instance().HandleEvent(eventToTrigger);
-            if (!CanBeRepeated)
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.name == "PlayerCharacter")
+        {
+            GameService.Instance().HandleEvent(this.eventToTrigger);
+            if (!this.CanBeRepeated)
                 Destroy(this.gameObject);
-		}
-	}
+        }
+    }
 }

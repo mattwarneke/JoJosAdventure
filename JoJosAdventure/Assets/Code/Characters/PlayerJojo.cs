@@ -35,46 +35,47 @@ namespace Assets.Code
         private List<SpriteRenderer> AllChildSprites;
         //public GameObject CharacterBody;
 
-        bool isFacingLeft = true;
-        #endregion
+        private bool isFacingLeft = true;
+
+        #endregion Member Variables
 
         // Use this for initialization
-        void Start()
+        private void Start()
         {
             // get the local reference
-            animator = GetComponent<Animator>();
+            this.animator = this.GetComponent<Animator>();
 
             // set initial position
-            lastPosition = transform.position;
-            CheckPointPosition = transform.position;
+            this.lastPosition = this.transform.position;
+            this.CheckPointPosition = this.transform.position;
 
-            AllChildSprites = this.GetComponentsInChildren<SpriteRenderer>().ToList();
-            
-            FlipRight();
+            this.AllChildSprites = this.GetComponentsInChildren<SpriteRenderer>().ToList();
+
+            this.FlipRight();
         }
 
         // Update is called once per frame
-        void Update()
+        private void Update()
         {
-            if (paused)
+            if (this.paused)
             {
-                movement = new Vector2(0, 0);
-                body.velocity = movement;
+                this.movement = new Vector2(0, 0);
+                this.body.velocity = this.movement;
                 return;
             }
 
-            if (IsScriptedActionPlaying)
+            if (this.IsScriptedActionPlaying)
             {
-                animator.SetFloat("WalkSpeed", 2f);
-                MoveToForActionScripted();
+                this.animator.SetFloat("WalkSpeed", 2f);
+                this.MoveToForActionScripted();
                 return;
             }
             MoveInputDirection directionX;
             MoveInputDirection directionY;
-            Vector3? inputPosition = GetInputPosition();
+            Vector3? inputPosition = this.GetInputPosition();
             if (inputPosition.HasValue)
             {
-                List<MoveInputDirection> inputDirections = getDirectionToInput(inputPosition.Value);
+                List<MoveInputDirection> inputDirections = this.getDirectionToInput(inputPosition.Value);
                 directionX = inputDirections[0];
                 directionY = inputDirections[1];
             }
@@ -84,21 +85,21 @@ namespace Assets.Code
                 directionY = InputCalculator.MovementInputY(Input.GetAxis("Vertical"));
             }
 
-            float xMovement = (speed.x * (float)directionX) * 5f;
-            float yMovement = (speed.y * (float)directionY) * 5f;
+            float xMovement = this.speed.x * (float)directionX * 5f;
+            float yMovement = this.speed.y * (float)directionY * 5f;
 
             // 4 - Movement per direction
-            movement = new Vector2(xMovement, yMovement);
+            this.movement = new Vector2(xMovement, yMovement);
 
-            body.velocity = movement;
+            this.body.velocity = this.movement;
 
-            if (directionX == MoveInputDirection.WalkRight && isFacingLeft)
+            if (directionX == MoveInputDirection.WalkRight && this.isFacingLeft)
             {
-                FlipRight();
+                this.FlipRight();
             }
-            else if (directionX == MoveInputDirection.WalkLeft && !isFacingLeft)
+            else if (directionX == MoveInputDirection.WalkLeft && !this.isFacingLeft)
             {
-                FlipLeft();
+                this.FlipLeft();
             }
 
             if (directionX == MoveInputDirection.NoMovement
@@ -106,19 +107,19 @@ namespace Assets.Code
             {
                 // we aren't moving so make sure we dont animate
                 //animator.speed = 0.0f;
-                animator.SetFloat("WalkSpeed", 0f);
+                this.animator.SetFloat("WalkSpeed", 0f);
             }
             else
             {
                 //animator.speed = 2f;
-                animator.SetFloat("WalkSpeed", 2f);
+                this.animator.SetFloat("WalkSpeed", 2f);
             }
 
             // if we are dead do not move anymore
-            if (isDead == true)
+            if (this.isDead == true)
             {
-                GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 0.0f);
-                animator.speed = 0.0f;
+                this.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, 0.0f);
+                this.animator.speed = 0.0f;
             }
         }
 
@@ -134,12 +135,13 @@ namespace Assets.Code
 
         public bool IsScriptedActionPlaying { get; set; }
 
-        void OnStart()
+        private void OnStart()
         {
-            IsScriptedActionPlaying = false;
+            this.IsScriptedActionPlaying = false;
         }
 
         private Vector3? lastInputPosition;
+
         private Vector3? GetInputPosition()
         {
             if (Input.touchSupported
@@ -147,16 +149,16 @@ namespace Assets.Code
                 && Application.platform != RuntimePlatform.WebGLPlayer)
             {
                 Touch touch = Input.GetTouch(0);
-                lastInputPosition = Camera.main.ScreenToWorldPoint(touch.position);
+                this.lastInputPosition = Camera.main.ScreenToWorldPoint(touch.position);
             }
             else if (Input.GetMouseButton(0))
             {
-                lastInputPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                this.lastInputPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             }
 
-            return lastInputPosition;
+            return this.lastInputPosition;
         }
-        
+
         private List<MoveInputDirection> getDirectionToInput(Vector3 inputPosition)
         {
             List<MoveInputDirection> inputDirections = new List<MoveInputDirection>();
@@ -187,30 +189,31 @@ namespace Assets.Code
 
         public void FlipRight()
         {
-            isFacingLeft = false;
+            this.isFacingLeft = false;
             this.transform.Rotate(0, 180, 0);
         }
 
         public void FlipLeft()
         {
-            isFacingLeft = true;
+            this.isFacingLeft = true;
             this.transform.Rotate(0, 180, 0);
         }
 
-        void FixedUpdate()
+        private void FixedUpdate()
         {
             // 5 - Move the game object
-            body.velocity = movement;
+            this.body.velocity = this.movement;
         }
 
         public void StartPlayBedroomEnter(Transform transform)
         {
-            moveToTransform = transform;
+            this.moveToTransform = transform;
             //this.IsScriptedActionPlaying = true;
-            PauseWalking(3);
+            this.PauseWalking(3);
         }
 
-        Transform moveToTransform;
+        private Transform moveToTransform;
+
         public void MoveToForActionScripted()
         {
             bool isMinDistanceFromTarget =
@@ -218,57 +221,58 @@ namespace Assets.Code
                 || Math.Abs(this.transform.position.y - this.moveToTransform.position.y) <= 1;
             if (isMinDistanceFromTarget)
             {
-                PlaySwipAnimation();
-                IsScriptedActionPlaying = false;
+                this.PlaySwipAnimation();
+                this.IsScriptedActionPlaying = false;
                 GameService.Instance().JoJoNearJar();
                 return;
             }
 
-            this.transform.position = Vector2.Lerp(this.transform.position, this.moveToTransform.position, Time.deltaTime/2);
+            this.transform.position = Vector2.Lerp(this.transform.position, this.moveToTransform.position, Time.deltaTime / 2);
         }
 
         public void PauseWalking(float pausedTime)
         {
-            if (animator == null)
+            if (this.animator == null)
                 return;
-            animator.SetFloat("WalkSpeed", 0f);
-            StartCoroutine(PauseMovement(pausedTime));
+            this.animator.SetFloat("WalkSpeed", 0f);
+            this.StartCoroutine(this.PauseMovement(pausedTime));
         }
 
         public void PauseWalking()
         {
-            if (animator == null)
+            if (this.animator == null)
                 return;
-            animator.SetFloat("WalkSpeed", 0f);
-            paused = true;
-            lastInputPosition = null;
+            this.animator.SetFloat("WalkSpeed", 0f);
+            this.paused = true;
+            this.lastInputPosition = null;
         }
 
         public void RestartWalking()
         {
-            paused = false;
+            this.paused = false;
         }
 
-        bool paused = false;
+        private bool paused = false;
+
         private IEnumerator PauseMovement(float pausedTime)
         {
-            paused = true;
-            lastInputPosition = null;
+            this.paused = true;
+            this.lastInputPosition = null;
             yield return new WaitForSeconds(pausedTime);
-            paused = false;
+            this.paused = false;
         }
 
-        void OnTriggerEnter2D(Collider2D collider)
+        private void OnTriggerEnter2D(Collider2D collider)
         {
             if (collider.gameObject.tag == "DangerousTile")
             {
                 GameObject.Find("FadePanel").GetComponent<FadeScript>().RespawnFade();
-                isDead = true;
+                this.isDead = true;
             }
             else if (collider.gameObject.tag == "LevelChanger")
             {
                 GameObject.Find("FadePanel").GetComponent<FadeScript>().FadeOut();
-                isDead = true;
+                this.isDead = true;
             }
         }
 
@@ -278,14 +282,14 @@ namespace Assets.Code
         public void RespawnPlayerAtCheckpoint()
         {
             // if we hit a dangerous tile then we are dead so go to the checkpoint position that was last saved
-            transform.position = CheckPointPosition;
-            isDead = false;
+            this.transform.position = this.CheckPointPosition;
+            this.isDead = false;
         }
 
         public void PlaySwipAnimation()
         {
             //StartCoroutine(PauseMovement(0.25f));
-            animator.SetTrigger("attack");
+            this.animator.SetTrigger("attack");
         }
     }
 }

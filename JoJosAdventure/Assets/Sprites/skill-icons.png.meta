@@ -213,7 +213,7 @@ TextureImporter:
       213: 21300138
     second: skill-icons_69
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -233,6 +233,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -241,9 +243,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -264,9 +266,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -306,6 +313,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1799,6 +1818,77 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      skill-icons_63: 21300126
+      skill-icons_17: 21300034
+      skill-icons_18: 21300036
+      skill-icons_2: 21300004
+      skill-icons_53: 21300106
+      skill-icons_10: 21300020
+      skill-icons_22: 21300044
+      skill-icons_42: 21300084
+      skill-icons_38: 21300076
+      skill-icons_37: 21300074
+      skill-icons_52: 21300104
+      skill-icons_68: 21300136
+      skill-icons_20: 21300040
+      skill-icons_39: 21300078
+      skill-icons_21: 21300042
+      skill-icons_62: 21300124
+      skill-icons_69: 21300138
+      skill-icons_14: 21300028
+      skill-icons_65: 21300130
+      skill-icons_24: 21300048
+      skill-icons_59: 21300118
+      skill-icons_57: 21300114
+      skill-icons_9: 21300018
+      skill-icons_43: 21300086
+      skill-icons_66: 21300132
+      skill-icons_55: 21300110
+      skill-icons_5: 21300010
+      skill-icons_31: 21300062
+      skill-icons_32: 21300064
+      skill-icons_30: 21300060
+      skill-icons_19: 21300038
+      skill-icons_23: 21300046
+      skill-icons_51: 21300102
+      skill-icons_34: 21300068
+      skill-icons_54: 21300108
+      skill-icons_7: 21300014
+      skill-icons_8: 21300016
+      skill-icons_28: 21300056
+      skill-icons_49: 21300098
+      skill-icons_50: 21300100
+      skill-icons_44: 21300088
+      skill-icons_67: 21300134
+      skill-icons_58: 21300116
+      skill-icons_15: 21300030
+      skill-icons_36: 21300072
+      skill-icons_41: 21300082
+      skill-icons_33: 21300066
+      skill-icons_40: 21300080
+      skill-icons_46: 21300092
+      skill-icons_56: 21300112
+      skill-icons_16: 21300032
+      skill-icons_48: 21300096
+      skill-icons_26: 21300052
+      skill-icons_61: 21300122
+      skill-icons_64: 21300128
+      skill-icons_45: 21300090
+      skill-icons_3: 21300006
+      skill-icons_29: 21300058
+      skill-icons_35: 21300070
+      skill-icons_0: 21300000
+      skill-icons_11: 21300022
+      skill-icons_12: 21300024
+      skill-icons_27: 21300054
+      skill-icons_13: 21300026
+      skill-icons_60: 21300120
+      skill-icons_6: 21300012
+      skill-icons_25: 21300050
+      skill-icons_47: 21300094
+      skill-icons_1: 21300002
+      skill-icons_4: 21300008
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

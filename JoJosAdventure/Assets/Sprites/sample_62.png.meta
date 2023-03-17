@@ -534,7 +534,7 @@ TextureImporter:
       213: 21300352
     second: sample_62_176
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -554,6 +554,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -562,9 +564,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -585,9 +587,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -627,6 +634,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -4367,6 +4386,184 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      sample_62_164: 21300328
+      sample_62_107: 21300214
+      sample_62_147: 21300294
+      sample_62_49: 21300098
+      sample_62_144: 21300288
+      sample_62_19: 21300038
+      sample_62_82: 21300164
+      sample_62_30: 21300060
+      sample_62_154: 21300308
+      sample_62_79: 21300158
+      sample_62_166: 21300332
+      sample_62_55: 21300110
+      sample_62_149: 21300298
+      sample_62_63: 21300126
+      sample_62_72: 21300144
+      sample_62_38: 21300076
+      sample_62_0: 21300000
+      sample_62_23: 21300046
+      sample_62_35: 21300070
+      sample_62_8: 21300016
+      sample_62_160: 21300320
+      sample_62_132: 21300264
+      sample_62_171: 21300342
+      sample_62_161: 21300322
+      sample_62_93: 21300186
+      sample_62_151: 21300302
+      sample_62_17: 21300034
+      sample_62_70: 21300140
+      sample_62_11: 21300022
+      sample_62_136: 21300272
+      sample_62_41: 21300082
+      sample_62_29: 21300058
+      sample_62_84: 21300168
+      sample_62_64: 21300128
+      sample_62_139: 21300278
+      sample_62_169: 21300338
+      sample_62_131: 21300262
+      sample_62_150: 21300300
+      sample_62_98: 21300196
+      sample_62_20: 21300040
+      sample_62_68: 21300136
+      sample_62_24: 21300048
+      sample_62_174: 21300348
+      sample_62_78: 21300156
+      sample_62_126: 21300252
+      sample_62_5: 21300010
+      sample_62_113: 21300226
+      sample_62_50: 21300100
+      sample_62_7: 21300014
+      sample_62_76: 21300152
+      sample_62_31: 21300062
+      sample_62_60: 21300120
+      sample_62_143: 21300286
+      sample_62_90: 21300180
+      sample_62_71: 21300142
+      sample_62_100: 21300200
+      sample_62_137: 21300274
+      sample_62_123: 21300246
+      sample_62_156: 21300312
+      sample_62_99: 21300198
+      sample_62_106: 21300212
+      sample_62_36: 21300072
+      sample_62_163: 21300326
+      sample_62_59: 21300118
+      sample_62_67: 21300134
+      sample_62_1: 21300002
+      sample_62_138: 21300276
+      sample_62_44: 21300088
+      sample_62_111: 21300222
+      sample_62_135: 21300270
+      sample_62_61: 21300122
+      sample_62_118: 21300236
+      sample_62_134: 21300268
+      sample_62_157: 21300314
+      sample_62_62: 21300124
+      sample_62_22: 21300044
+      sample_62_12: 21300024
+      sample_62_152: 21300304
+      sample_62_92: 21300184
+      sample_62_18: 21300036
+      sample_62_127: 21300254
+      sample_62_170: 21300340
+      sample_62_37: 21300074
+      sample_62_105: 21300210
+      sample_62_117: 21300234
+      sample_62_155: 21300310
+      sample_62_13: 21300026
+      sample_62_65: 21300130
+      sample_62_16: 21300032
+      sample_62_129: 21300258
+      sample_62_97: 21300194
+      sample_62_21: 21300042
+      sample_62_108: 21300216
+      sample_62_124: 21300248
+      sample_62_75: 21300150
+      sample_62_104: 21300208
+      sample_62_54: 21300108
+      sample_62_52: 21300104
+      sample_62_102: 21300204
+      sample_62_77: 21300154
+      sample_62_175: 21300350
+      sample_62_140: 21300280
+      sample_62_162: 21300324
+      sample_62_2: 21300004
+      sample_62_73: 21300146
+      sample_62_159: 21300318
+      sample_62_116: 21300232
+      sample_62_25: 21300050
+      sample_62_130: 21300260
+      sample_62_33: 21300066
+      sample_62_167: 21300334
+      sample_62_142: 21300284
+      sample_62_3: 21300006
+      sample_62_121: 21300242
+      sample_62_15: 21300030
+      sample_62_101: 21300202
+      sample_62_158: 21300316
+      sample_62_168: 21300336
+      sample_62_87: 21300174
+      sample_62_153: 21300306
+      sample_62_39: 21300078
+      sample_62_128: 21300256
+      sample_62_45: 21300090
+      sample_62_34: 21300068
+      sample_62_32: 21300064
+      sample_62_14: 21300028
+      sample_62_96: 21300192
+      sample_62_145: 21300290
+      sample_62_125: 21300250
+      sample_62_27: 21300054
+      sample_62_165: 21300330
+      sample_62_4: 21300008
+      sample_62_80: 21300160
+      sample_62_28: 21300056
+      sample_62_115: 21300230
+      sample_62_74: 21300148
+      sample_62_146: 21300292
+      sample_62_6: 21300012
+      sample_62_114: 21300228
+      sample_62_51: 21300102
+      sample_62_94: 21300188
+      sample_62_9: 21300018
+      sample_62_112: 21300224
+      sample_62_40: 21300080
+      sample_62_95: 21300190
+      sample_62_120: 21300240
+      sample_62_56: 21300112
+      sample_62_173: 21300346
+      sample_62_109: 21300218
+      sample_62_133: 21300266
+      sample_62_47: 21300094
+      sample_62_83: 21300166
+      sample_62_148: 21300296
+      sample_62_88: 21300176
+      sample_62_58: 21300116
+      sample_62_172: 21300344
+      sample_62_66: 21300132
+      sample_62_81: 21300162
+      sample_62_48: 21300096
+      sample_62_26: 21300052
+      sample_62_89: 21300178
+      sample_62_176: 21300352
+      sample_62_110: 21300220
+      sample_62_91: 21300182
+      sample_62_53: 21300106
+      sample_62_141: 21300282
+      sample_62_103: 21300206
+      sample_62_46: 21300092
+      sample_62_86: 21300172
+      sample_62_119: 21300238
+      sample_62_57: 21300114
+      sample_62_69: 21300138
+      sample_62_42: 21300084
+      sample_62_85: 21300170
+      sample_62_10: 21300020
+      sample_62_43: 21300086
+      sample_62_122: 21300244
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

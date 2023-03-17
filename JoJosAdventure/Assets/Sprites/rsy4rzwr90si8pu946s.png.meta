@@ -723,7 +723,7 @@ TextureImporter:
       213: 21300478
     second: rsy4rzwr90si8pu946s_239
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -743,6 +743,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -751,9 +753,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -774,9 +776,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -816,6 +823,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -5879,6 +5898,247 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      rsy4rzwr90si8pu946s_104: 21300208
+      rsy4rzwr90si8pu946s_133: 21300266
+      rsy4rzwr90si8pu946s_98: 21300196
+      rsy4rzwr90si8pu946s_141: 21300282
+      rsy4rzwr90si8pu946s_185: 21300370
+      rsy4rzwr90si8pu946s_18: 21300036
+      rsy4rzwr90si8pu946s_73: 21300146
+      rsy4rzwr90si8pu946s_8: 21300016
+      rsy4rzwr90si8pu946s_138: 21300276
+      rsy4rzwr90si8pu946s_173: 21300346
+      rsy4rzwr90si8pu946s_109: 21300218
+      rsy4rzwr90si8pu946s_112: 21300224
+      rsy4rzwr90si8pu946s_143: 21300286
+      rsy4rzwr90si8pu946s_176: 21300352
+      rsy4rzwr90si8pu946s_79: 21300158
+      rsy4rzwr90si8pu946s_70: 21300140
+      rsy4rzwr90si8pu946s_107: 21300214
+      rsy4rzwr90si8pu946s_193: 21300386
+      rsy4rzwr90si8pu946s_117: 21300234
+      rsy4rzwr90si8pu946s_150: 21300300
+      rsy4rzwr90si8pu946s_71: 21300142
+      rsy4rzwr90si8pu946s_120: 21300240
+      rsy4rzwr90si8pu946s_239: 21300478
+      rsy4rzwr90si8pu946s_67: 21300134
+      rsy4rzwr90si8pu946s_146: 21300292
+      rsy4rzwr90si8pu946s_201: 21300402
+      rsy4rzwr90si8pu946s_59: 21300118
+      rsy4rzwr90si8pu946s_183: 21300366
+      rsy4rzwr90si8pu946s_220: 21300440
+      rsy4rzwr90si8pu946s_108: 21300216
+      rsy4rzwr90si8pu946s_179: 21300358
+      rsy4rzwr90si8pu946s_181: 21300362
+      rsy4rzwr90si8pu946s_118: 21300236
+      rsy4rzwr90si8pu946s_194: 21300388
+      rsy4rzwr90si8pu946s_97: 21300194
+      rsy4rzwr90si8pu946s_111: 21300222
+      rsy4rzwr90si8pu946s_91: 21300182
+      rsy4rzwr90si8pu946s_80: 21300160
+      rsy4rzwr90si8pu946s_2: 21300004
+      rsy4rzwr90si8pu946s_24: 21300048
+      rsy4rzwr90si8pu946s_171: 21300342
+      rsy4rzwr90si8pu946s_75: 21300150
+      rsy4rzwr90si8pu946s_114: 21300228
+      rsy4rzwr90si8pu946s_195: 21300390
+      rsy4rzwr90si8pu946s_192: 21300384
+      rsy4rzwr90si8pu946s_90: 21300180
+      rsy4rzwr90si8pu946s_62: 21300124
+      rsy4rzwr90si8pu946s_236: 21300472
+      rsy4rzwr90si8pu946s_19: 21300038
+      rsy4rzwr90si8pu946s_158: 21300316
+      rsy4rzwr90si8pu946s_0: 21300000
+      rsy4rzwr90si8pu946s_17: 21300034
+      rsy4rzwr90si8pu946s_188: 21300376
+      rsy4rzwr90si8pu946s_39: 21300078
+      rsy4rzwr90si8pu946s_13: 21300026
+      rsy4rzwr90si8pu946s_168: 21300336
+      rsy4rzwr90si8pu946s_94: 21300188
+      rsy4rzwr90si8pu946s_44: 21300088
+      rsy4rzwr90si8pu946s_144: 21300288
+      rsy4rzwr90si8pu946s_172: 21300344
+      rsy4rzwr90si8pu946s_212: 21300424
+      rsy4rzwr90si8pu946s_166: 21300332
+      rsy4rzwr90si8pu946s_68: 21300136
+      rsy4rzwr90si8pu946s_230: 21300460
+      rsy4rzwr90si8pu946s_130: 21300260
+      rsy4rzwr90si8pu946s_216: 21300432
+      rsy4rzwr90si8pu946s_35: 21300070
+      rsy4rzwr90si8pu946s_61: 21300122
+      rsy4rzwr90si8pu946s_213: 21300426
+      rsy4rzwr90si8pu946s_29: 21300058
+      rsy4rzwr90si8pu946s_202: 21300404
+      rsy4rzwr90si8pu946s_162: 21300324
+      rsy4rzwr90si8pu946s_161: 21300322
+      rsy4rzwr90si8pu946s_101: 21300202
+      rsy4rzwr90si8pu946s_129: 21300258
+      rsy4rzwr90si8pu946s_69: 21300138
+      rsy4rzwr90si8pu946s_167: 21300334
+      rsy4rzwr90si8pu946s_15: 21300030
+      rsy4rzwr90si8pu946s_46: 21300092
+      rsy4rzwr90si8pu946s_147: 21300294
+      rsy4rzwr90si8pu946s_200: 21300400
+      rsy4rzwr90si8pu946s_233: 21300466
+      rsy4rzwr90si8pu946s_105: 21300210
+      rsy4rzwr90si8pu946s_165: 21300330
+      rsy4rzwr90si8pu946s_22: 21300044
+      rsy4rzwr90si8pu946s_180: 21300360
+      rsy4rzwr90si8pu946s_225: 21300450
+      rsy4rzwr90si8pu946s_160: 21300320
+      rsy4rzwr90si8pu946s_170: 21300340
+      rsy4rzwr90si8pu946s_186: 21300372
+      rsy4rzwr90si8pu946s_229: 21300458
+      rsy4rzwr90si8pu946s_169: 21300338
+      rsy4rzwr90si8pu946s_7: 21300014
+      rsy4rzwr90si8pu946s_64: 21300128
+      rsy4rzwr90si8pu946s_86: 21300172
+      rsy4rzwr90si8pu946s_182: 21300364
+      rsy4rzwr90si8pu946s_3: 21300006
+      rsy4rzwr90si8pu946s_5: 21300010
+      rsy4rzwr90si8pu946s_25: 21300050
+      rsy4rzwr90si8pu946s_84: 21300168
+      rsy4rzwr90si8pu946s_58: 21300116
+      rsy4rzwr90si8pu946s_83: 21300166
+      rsy4rzwr90si8pu946s_199: 21300398
+      rsy4rzwr90si8pu946s_28: 21300056
+      rsy4rzwr90si8pu946s_190: 21300380
+      rsy4rzwr90si8pu946s_152: 21300304
+      rsy4rzwr90si8pu946s_196: 21300392
+      rsy4rzwr90si8pu946s_203: 21300406
+      rsy4rzwr90si8pu946s_156: 21300312
+      rsy4rzwr90si8pu946s_31: 21300062
+      rsy4rzwr90si8pu946s_16: 21300032
+      rsy4rzwr90si8pu946s_41: 21300082
+      rsy4rzwr90si8pu946s_47: 21300094
+      rsy4rzwr90si8pu946s_198: 21300396
+      rsy4rzwr90si8pu946s_103: 21300206
+      rsy4rzwr90si8pu946s_102: 21300204
+      rsy4rzwr90si8pu946s_4: 21300008
+      rsy4rzwr90si8pu946s_51: 21300102
+      rsy4rzwr90si8pu946s_159: 21300318
+      rsy4rzwr90si8pu946s_66: 21300132
+      rsy4rzwr90si8pu946s_217: 21300434
+      rsy4rzwr90si8pu946s_50: 21300100
+      rsy4rzwr90si8pu946s_207: 21300414
+      rsy4rzwr90si8pu946s_42: 21300084
+      rsy4rzwr90si8pu946s_232: 21300464
+      rsy4rzwr90si8pu946s_132: 21300264
+      rsy4rzwr90si8pu946s_10: 21300020
+      rsy4rzwr90si8pu946s_49: 21300098
+      rsy4rzwr90si8pu946s_187: 21300374
+      rsy4rzwr90si8pu946s_164: 21300328
+      rsy4rzwr90si8pu946s_177: 21300354
+      rsy4rzwr90si8pu946s_32: 21300064
+      rsy4rzwr90si8pu946s_140: 21300280
+      rsy4rzwr90si8pu946s_209: 21300418
+      rsy4rzwr90si8pu946s_43: 21300086
+      rsy4rzwr90si8pu946s_100: 21300200
+      rsy4rzwr90si8pu946s_37: 21300074
+      rsy4rzwr90si8pu946s_92: 21300184
+      rsy4rzwr90si8pu946s_210: 21300420
+      rsy4rzwr90si8pu946s_235: 21300470
+      rsy4rzwr90si8pu946s_88: 21300176
+      rsy4rzwr90si8pu946s_21: 21300042
+      rsy4rzwr90si8pu946s_11: 21300022
+      rsy4rzwr90si8pu946s_110: 21300220
+      rsy4rzwr90si8pu946s_163: 21300326
+      rsy4rzwr90si8pu946s_9: 21300018
+      rsy4rzwr90si8pu946s_119: 21300238
+      rsy4rzwr90si8pu946s_106: 21300212
+      rsy4rzwr90si8pu946s_155: 21300310
+      rsy4rzwr90si8pu946s_238: 21300476
+      rsy4rzwr90si8pu946s_34: 21300068
+      rsy4rzwr90si8pu946s_38: 21300076
+      rsy4rzwr90si8pu946s_115: 21300230
+      rsy4rzwr90si8pu946s_77: 21300154
+      rsy4rzwr90si8pu946s_135: 21300270
+      rsy4rzwr90si8pu946s_20: 21300040
+      rsy4rzwr90si8pu946s_76: 21300152
+      rsy4rzwr90si8pu946s_87: 21300174
+      rsy4rzwr90si8pu946s_55: 21300110
+      rsy4rzwr90si8pu946s_122: 21300244
+      rsy4rzwr90si8pu946s_125: 21300250
+      rsy4rzwr90si8pu946s_131: 21300262
+      rsy4rzwr90si8pu946s_174: 21300348
+      rsy4rzwr90si8pu946s_191: 21300382
+      rsy4rzwr90si8pu946s_223: 21300446
+      rsy4rzwr90si8pu946s_175: 21300350
+      rsy4rzwr90si8pu946s_72: 21300144
+      rsy4rzwr90si8pu946s_85: 21300170
+      rsy4rzwr90si8pu946s_206: 21300412
+      rsy4rzwr90si8pu946s_204: 21300408
+      rsy4rzwr90si8pu946s_40: 21300080
+      rsy4rzwr90si8pu946s_218: 21300436
+      rsy4rzwr90si8pu946s_154: 21300308
+      rsy4rzwr90si8pu946s_226: 21300452
+      rsy4rzwr90si8pu946s_237: 21300474
+      rsy4rzwr90si8pu946s_56: 21300112
+      rsy4rzwr90si8pu946s_82: 21300164
+      rsy4rzwr90si8pu946s_178: 21300356
+      rsy4rzwr90si8pu946s_36: 21300072
+      rsy4rzwr90si8pu946s_211: 21300422
+      rsy4rzwr90si8pu946s_27: 21300054
+      rsy4rzwr90si8pu946s_128: 21300256
+      rsy4rzwr90si8pu946s_30: 21300060
+      rsy4rzwr90si8pu946s_137: 21300274
+      rsy4rzwr90si8pu946s_221: 21300442
+      rsy4rzwr90si8pu946s_65: 21300130
+      rsy4rzwr90si8pu946s_12: 21300024
+      rsy4rzwr90si8pu946s_23: 21300046
+      rsy4rzwr90si8pu946s_189: 21300378
+      rsy4rzwr90si8pu946s_134: 21300268
+      rsy4rzwr90si8pu946s_153: 21300306
+      rsy4rzwr90si8pu946s_74: 21300148
+      rsy4rzwr90si8pu946s_205: 21300410
+      rsy4rzwr90si8pu946s_89: 21300178
+      rsy4rzwr90si8pu946s_6: 21300012
+      rsy4rzwr90si8pu946s_63: 21300126
+      rsy4rzwr90si8pu946s_121: 21300242
+      rsy4rzwr90si8pu946s_224: 21300448
+      rsy4rzwr90si8pu946s_184: 21300368
+      rsy4rzwr90si8pu946s_219: 21300438
+      rsy4rzwr90si8pu946s_222: 21300444
+      rsy4rzwr90si8pu946s_139: 21300278
+      rsy4rzwr90si8pu946s_26: 21300052
+      rsy4rzwr90si8pu946s_148: 21300296
+      rsy4rzwr90si8pu946s_96: 21300192
+      rsy4rzwr90si8pu946s_99: 21300198
+      rsy4rzwr90si8pu946s_116: 21300232
+      rsy4rzwr90si8pu946s_197: 21300394
+      rsy4rzwr90si8pu946s_215: 21300430
+      rsy4rzwr90si8pu946s_208: 21300416
+      rsy4rzwr90si8pu946s_127: 21300254
+      rsy4rzwr90si8pu946s_142: 21300284
+      rsy4rzwr90si8pu946s_33: 21300066
+      rsy4rzwr90si8pu946s_95: 21300190
+      rsy4rzwr90si8pu946s_123: 21300246
+      rsy4rzwr90si8pu946s_149: 21300298
+      rsy4rzwr90si8pu946s_157: 21300314
+      rsy4rzwr90si8pu946s_113: 21300226
+      rsy4rzwr90si8pu946s_60: 21300120
+      rsy4rzwr90si8pu946s_231: 21300462
+      rsy4rzwr90si8pu946s_53: 21300106
+      rsy4rzwr90si8pu946s_126: 21300252
+      rsy4rzwr90si8pu946s_81: 21300162
+      rsy4rzwr90si8pu946s_52: 21300104
+      rsy4rzwr90si8pu946s_57: 21300114
+      rsy4rzwr90si8pu946s_45: 21300090
+      rsy4rzwr90si8pu946s_136: 21300272
+      rsy4rzwr90si8pu946s_145: 21300290
+      rsy4rzwr90si8pu946s_1: 21300002
+      rsy4rzwr90si8pu946s_93: 21300186
+      rsy4rzwr90si8pu946s_124: 21300248
+      rsy4rzwr90si8pu946s_54: 21300108
+      rsy4rzwr90si8pu946s_78: 21300156
+      rsy4rzwr90si8pu946s_14: 21300028
+      rsy4rzwr90si8pu946s_48: 21300096
+      rsy4rzwr90si8pu946s_214: 21300428
+      rsy4rzwr90si8pu946s_227: 21300454
+      rsy4rzwr90si8pu946s_228: 21300456
+      rsy4rzwr90si8pu946s_234: 21300468
+      rsy4rzwr90si8pu946s_151: 21300302
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

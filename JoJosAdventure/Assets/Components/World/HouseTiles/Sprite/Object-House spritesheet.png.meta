@@ -504,6 +504,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -558,6 +559,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -3689,6 +3702,155 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Bar-round-corner: 21300216
+      Wall-top-corner-in: 21300280
+      Wall-bottom-corner-in: 21300284
+      Tree: 21300012
+      Floor7: 21300312
+      Windows2: 21300228
+      Jar1: 21300002
+      Shelf-slot6: 21300190
+      Candle5: 21300072
+      Bed2: 21300128
+      Dish: 21300074
+      Stairs: 21300316
+      Cup: 21300098
+      Jar3: 21300006
+      Wall-hanger4: 21300208
+      Wall-hanger1: 21300038
+      Fireplace1: 21300222
+      Shelf4-side: 21300270
+      Floor3: 21300302
+      Map: 21300014
+      Shelf-slot2: 21300182
+      Scroll3: 21300030
+      Book5: 21300024
+      Chair2: 21300092
+      Book4: 21300022
+      Mat2: 21300138
+      Poop-hole-cover: 21300124
+      Wall-hanger3: 21300042
+      Floor6: 21300310
+      Shelf4-big-round-middle: 21300260
+      Bedsheet1: 21300110
+      Shelf-slot4: 21300186
+      Meat-hanger3: 21300044
+      Pillow1: 21300086
+      Windows4: 21300232
+      Basket1: 21300054
+      Table4: 21300142
+      Sack2: 21300052
+      Shelf2-middle: 21300240
+      Wall-top-corner-out: 21300288
+      Rack1: 21300248
+      Shelf-slot5: 21300188
+      Shelf3-middle: 21300264
+      Floor4: 21300306
+      Shelf3-side: 21300262
+      Fence-side: 21300204
+      Shadow: 21300046
+      Table1: 21300076
+      Shelf3-round-middle: 21300268
+      Mat1: 21300120
+      Candle2: 21300066
+      Meat1: 21300102
+      Shelf: 21300246
+      Wall-hanger2: 21300040
+      Floor1: 21300298
+      Globe: 21300000
+      Bar5-middle: 21300192
+      Windows1: 21300226
+      Shelf3-round-side: 21300266
+      Wall-bottom-corner-out: 21300150
+      Floor2: 21300300
+      Candle3: 21300068
+      Table6: 21300146
+      Base-wall-plaster2: 21300294
+      Shelf-slot1: 21300180
+      Chair3: 21300094
+      Candle1: 21300064
+      Bar4-middle: 21300174
+      Bag: 21300034
+      Bed1: 21300126
+      Table3: 21300132
+      Wall-top: 21300286
+      Wall-side: 21300282
+      Basket2: 21300056
+      Meat3: 21300104
+      Table7: 21300148
+      Wall-column: 21300160
+      Windows3: 21300230
+      Doors: 21300250
+      Scroll1: 21300026
+      Shelf2-side: 21300238
+      Floor8: 21300314
+      Bar5-side: 21300194
+      Cloth: 21300084
+      Pillow3: 21300090
+      Bottle2: 21300060
+      Shelf2-round-side: 21300242
+      Bar2-side: 21300212
+      Shelf4-round-side: 21300274
+      Chopping-block: 21300048
+      Meat-hanger2: 21300080
+      Bar1-side: 21300198
+      Bar1-middle: 21300210
+      Base-wall-plaster1: 21300292
+      Book2: 21300018
+      Shelf4-big-round-side: 21300258
+      Windows5: 21300234
+      Pillow2: 21300088
+      Beam: 21300122
+      Book3: 21300020
+      Floor-crack: 21300304
+      Shelf4-middle: 21300272
+      Tree-pot: 21300010
+      Fence-middle: 21300202
+      Rack2: 21300252
+      Jar4: 21300114
+      Bar4-side: 21300176
+      Bedsheet2: 21300136
+      Table2: 21300116
+      Bar-cover: 21300236
+      Base-wall-wood: 21300290
+      Floor5: 21300308
+      Shelf4-big-middle: 21300256
+      Bed3: 21300118
+      Poop-hole: 21300130
+      Lamp: 21300008
+      Bar2-middle: 21300214
+      Wall-shelf1: 21300206
+      Shelf2-round-middle: 21300244
+      Sack1: 21300050
+      Shelf4-big-side: 21300254
+      Meat-hanger1: 21300078
+      Mug: 21300062
+      Scroll2: 21300028
+      Sword: 21300140
+      Round-shelf: 21300196
+      Teapot: 21300032
+      Wall-shelf2: 21300218
+      Broom: 21300036
+      Water-bucket: 21300100
+      Cloth-hanger: 21300082
+      Table5: 21300144
+      Shelf4-round-middle: 21300276
+      Bed4: 21300108
+      Base-wall-stone: 21300296
+      Table8: 21300112
+      Wall-bottom: 21300278
+      Bottle1: 21300058
+      Door1: 21300220
+      Poop-box: 21300096
+      Shelf-slot3: 21300184
+      Chair1: 21300134
+      Fireplace2: 21300224
+      Floor-lift: 21300318
+      Candle4: 21300070
+      Jar2: 21300004
+      Book1: 21300016
+      Meat2: 21300106
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

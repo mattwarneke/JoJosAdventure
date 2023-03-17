@@ -300,6 +300,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -354,6 +355,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -2309,6 +2322,99 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      PackCastle01_20: 21300040
+      PackCastle01_84: 21300168
+      PackCastle01_89: 21300178
+      PackCastle01_39: 21300078
+      PackCastle01_8: 21300016
+      PackCastle01_73: 21300146
+      PackCastle01_25: 21300050
+      PackCastle01_45: 21300090
+      PackCastle01_13: 21300026
+      PackCastle01_17: 21300034
+      PackCastle01_79: 21300158
+      PackCastle01_14: 21300028
+      PackCastle01_26: 21300052
+      PackCastle01_82: 21300164
+      PackCastle01_22: 21300044
+      PackCastle01_12: 21300024
+      PackCastle01_30: 21300060
+      PackCastle01_59: 21300118
+      PackCastle01_68: 21300136
+      PackCastle01_91: 21300182
+      PackCastle01_27: 21300054
+      PackCastle01_90: 21300180
+      PackCastle01_6: 21300012
+      PackCastle01_38: 21300076
+      PackCastle01_54: 21300108
+      PackCastle01_29: 21300058
+      PackCastle01_49: 21300098
+      PackCastle01_32: 21300064
+      PackCastle01_40: 21300080
+      PackCastle01_65: 21300130
+      PackCastle01_42: 21300084
+      PackCastle01_61: 21300122
+      PackCastle01_64: 21300128
+      PackCastle01_24: 21300048
+      PackCastle01_36: 21300072
+      PackCastle01_77: 21300154
+      PackCastle01_7: 21300014
+      PackCastle01_3: 21300006
+      PackCastle01_63: 21300126
+      PackCastle01_62: 21300124
+      PackCastle01_66: 21300132
+      PackCastle01_76: 21300152
+      PackCastle01_16: 21300032
+      PackCastle01_35: 21300070
+      PackCastle01_23: 21300046
+      PackCastle01_71: 21300142
+      PackCastle01_33: 21300066
+      PackCastle01_28: 21300056
+      PackCastle01_9: 21300018
+      PackCastle01_15: 21300030
+      PackCastle01_46: 21300092
+      PackCastle01_48: 21300096
+      PackCastle01_74: 21300148
+      PackCastle01_58: 21300116
+      PackCastle01_4: 21300008
+      PackCastle01_85: 21300170
+      PackCastle01_80: 21300160
+      PackCastle01_56: 21300112
+      PackCastle01_88: 21300176
+      PackCastle01_5: 21300010
+      PackCastle01_57: 21300114
+      PackCastle01_70: 21300140
+      PackCastle01_55: 21300110
+      PackCastle01_10: 21300020
+      PackCastle01_51: 21300102
+      PackCastle01_52: 21300104
+      PackCastle01_43: 21300086
+      PackCastle01_34: 21300068
+      PackCastle01_2: 21300004
+      PackCastle01_81: 21300162
+      PackCastle01_1: 21300002
+      PackCastle01_69: 21300138
+      PackCastle01_44: 21300088
+      PackCastle01_47: 21300094
+      PackCastle01_18: 21300036
+      PackCastle01_67: 21300134
+      PackCastle01_87: 21300174
+      PackCastle01_11: 21300022
+      PackCastle01_86: 21300172
+      PackCastle01_72: 21300144
+      PackCastle01_0: 21300000
+      PackCastle01_19: 21300038
+      PackCastle01_41: 21300082
+      PackCastle01_78: 21300156
+      PackCastle01_50: 21300100
+      PackCastle01_21: 21300042
+      PackCastle01_53: 21300106
+      PackCastle01_31: 21300062
+      PackCastle01_37: 21300074
+      PackCastle01_60: 21300120
+      PackCastle01_75: 21300150
+      PackCastle01_83: 21300166
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

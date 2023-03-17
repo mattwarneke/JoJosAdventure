@@ -1,12 +1,10 @@
-﻿
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(CanvasGroup))]
 public class GenericDialog : MonoBehaviour
 {
-
     public Text title;
     public Text message;
     public Text accept, decline;
@@ -14,26 +12,24 @@ public class GenericDialog : MonoBehaviour
 
     private CanvasGroup cg;
 
-    void Awake()
+    private void Awake()
     {
-        cg = GetComponent<CanvasGroup>();
+        this.cg = this.GetComponent<CanvasGroup>();
     }
 
     public GenericDialog OnAccept(string text, UnityAction action)
     {
-        accept.text = text;
-        acceptButton.onClick.RemoveAllListeners();
-        acceptButton.onClick.AddListener(action);
+        this.accept.text = text;
+        this.acceptButton.onClick.RemoveAllListeners();
+        this.acceptButton.onClick.AddListener(action);
         return this;
     }
 
-
-
     public GenericDialog OnDecline(string text, UnityAction action)
     {
-        decline.text = text;
-        declineButton.onClick.RemoveAllListeners();
-        declineButton.onClick.AddListener(action);
+        this.decline.text = text;
+        this.declineButton.onClick.RemoveAllListeners();
+        this.declineButton.onClick.AddListener(action);
         return this;
     }
 
@@ -53,7 +49,7 @@ public class GenericDialog : MonoBehaviour
     public void Show()
     {
         this.transform.SetAsLastSibling();
-        
+
         this.cg.alpha = 1f;
         this.cg.interactable = true;
         this.cg.blocksRaycasts = true;
@@ -67,6 +63,7 @@ public class GenericDialog : MonoBehaviour
     }
 
     private static GenericDialog instance;
+
     public static GenericDialog Instance()
     {
         if (!instance)
@@ -78,5 +75,4 @@ public class GenericDialog : MonoBehaviour
 
         return instance;
     }
-
 }

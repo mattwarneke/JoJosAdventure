@@ -6,6 +6,7 @@
     public class GameService
     {
         private static GameService _instance;
+
         public static GameService Instance()
         {
             if (_instance == null)
@@ -15,8 +16,8 @@
 
         private GameService()
         {
-            CollectableCount = 0;
-            GuiController = GameObject.Find("GuiController").GetComponent<GuiController>();
+            this.CollectableCount = 0;
+            this.GuiController = GameObject.Find("GuiController").GetComponent<GuiController>();
         }
 
         public int CollectableCount { get; private set; }
@@ -24,99 +25,104 @@
 
         public void HandleEvent(EventEnum eventTriggered)
         {
-            if (GuiController == null)// game unload
+            if (this.GuiController == null)// game unload
                 return;
 
             switch (eventTriggered)
             {
-                case (EventEnum.MattFollowJoJo):
-                    MattFollowJoJo();
+                case EventEnum.MattFollowJoJo:
+                    this.MattFollowJoJo();
                     break;
-                case (EventEnum.ExitLounge):
-                    ExitLounge();
+
+                case EventEnum.ExitLounge:
+                    this.ExitLounge();
                     break;
-                case (EventEnum.DemonKilled):
-                    DemonKilled();
+
+                case EventEnum.DemonKilled:
+                    this.DemonKilled();
                     break;
-                case (EventEnum.EnterBedroom):
-                    EnterBedroom();
+
+                case EventEnum.EnterBedroom:
+                    this.EnterBedroom();
                     break;
-                case (EventEnum.NearJarTrigger):
-                    JoJoNearJar();
+
+                case EventEnum.NearJarTrigger:
+                    this.JoJoNearJar();
                     break;
+
                 default:
                     return;
             }
         }
-        
+
         public void MattFollowJoJo()
         {
-            GuiController.PauseJojoMovement();
-            GuiController.SetMattFollowJojo();
+            this.GuiController.PauseJojoMovement();
+            this.GuiController.SetMattFollowJojo();
             // should prob split speech in 2 so can do after speech callback
-            GuiController.MattSpeak(SpeechRepository.GetMattFollowJoJoSpeech());
-            GuiController.DoActionAfterXTime(3.5f, () =>
+            this.GuiController.MattSpeak(SpeechRepository.GetMattFollowJoJoSpeech());
+            this.GuiController.DoActionAfterXTime(3.5f, () =>
             {
-                GuiController.PanToPaigeWithCallBack(() => GuiController.RestartJoJoMovement());
+                this.GuiController.PanToPaigeWithCallBack(() => this.GuiController.RestartJoJoMovement());
             });
         }
 
         public void ExitLounge()
         {
-            GuiController.PauseJojoMovement();
-            GuiController.MattSpeakWithCallBack(SpeechRepository.GetExitLoungeSpeechNoneCollected(), () => 
+            this.GuiController.PauseJojoMovement();
+            this.GuiController.MattSpeakWithCallBack(SpeechRepository.GetExitLoungeSpeechNoneCollected(), () =>
             {
-                GuiController.PanToDemons();
-                GuiController.DoActionAfterPanFinished(() => GuiController.RestartJoJoMovement());
+                this.GuiController.PanToDemons();
+                this.GuiController.DoActionAfterPanFinished(() => this.GuiController.RestartJoJoMovement());
             });
         }
 
         public void DemonKilled()
         {
-            RemoveCollectable();
+            this.RemoveCollectable();
 
-            if (CollectableCount > 0)
+            if (this.CollectableCount > 0)
             {
-                GuiController.MattSpeak(SpeechRepository.GetDemonDied());
+                this.GuiController.MattSpeak(SpeechRepository.GetDemonDied());
                 return;
             }
 
-            GuiController.PauseJojoMovement();
-            GuiController.RemoveBedroomDoor();
-            GuiController.PanToBedroomDoor();
-            GuiController.DoActionAfterPanFinished(() =>
+            this.GuiController.PauseJojoMovement();
+            this.GuiController.RemoveBedroomDoor();
+            this.GuiController.PanToBedroomDoor();
+            this.GuiController.DoActionAfterPanFinished(() =>
             {
-                GuiController.MattSpeak(SpeechRepository.GetNoMoreDemons());
-                GuiController.RestartJoJoMovement();
+                this.GuiController.MattSpeak(SpeechRepository.GetNoMoreDemons());
+                this.GuiController.RestartJoJoMovement();
             });
         }
 
         public void EnterBedroom()
         {
-            GuiController.PauseJojoMovement();
-            GuiController.PanToPaigeWithCallBack(() =>
+            this.GuiController.PauseJojoMovement();
+            this.GuiController.PanToPaigeWithCallBack(() =>
             {
-                GuiController.MattSpeakWithCallBack(
-                    SpeechRepository.GetEnterBedroomSpeech(), 
-                    () => GuiController.RestartJoJoMovement());
+                this.GuiController.MattSpeakWithCallBack(
+                    SpeechRepository.GetEnterBedroomSpeech(),
+                    () => this.GuiController.RestartJoJoMovement());
             });
         }
 
         public void JoJoNearJar()
         {
-            GuiController.PauseJojoMovement();
+            this.GuiController.PauseJojoMovement();
 
             // double swip
-            JoJoSwip();
-            GuiController.DoActionAfterXTime(0.5f, () => JoJoSwip());
-            
+            this.JoJoSwip();
+            this.GuiController.DoActionAfterXTime(0.5f, () => this.JoJoSwip());
+
             // swip over do speech and ring
-            GuiController.DoActionAfterXTime(1.5f, () =>
+            this.GuiController.DoActionAfterXTime(1.5f, () =>
             {
-                GuiController.MattSpeakWithCallBack(SpeechRepository.GetJoJoBreakJarFailedSpeech(), () =>
+                this.GuiController.MattSpeakWithCallBack(SpeechRepository.GetJoJoBreakJarFailedSpeech(), () =>
                 {
-                    GuiController.ShowRingAnimation();
-                    GuiController.DoActionAfterXTime(4, () => GuiController.ShowMarryMeCanvasDialog());
+                    this.GuiController.ShowRingAnimation();
+                    this.GuiController.DoActionAfterXTime(4, () => this.GuiController.ShowMarryMeCanvasDialog());
                     // another chained call paige is free! and Huh is that a ring?
                     // will you marry me paige - speech.
                     // could probably do something more elegant callbacks on animations or something.. but w.e
@@ -126,23 +132,23 @@
 
         public void SheSaidYesFuckYeah()
         {
-            GuiController.RemoveJar();
-            GuiController.MattSpeak(SpeechRepository.SheSaidYesFuckYeah());
+            this.GuiController.RemoveJar();
+            this.GuiController.MattSpeak(SpeechRepository.SheSaidYesFuckYeah());
         }
 
         public void AddCollectable()
         {
-            CollectableCount++;
+            this.CollectableCount++;
         }
-        
+
         public void RemoveCollectable()
         {
-            CollectableCount--;
+            this.CollectableCount--;
         }
 
         public void JoJoSwip()
         {
-            GuiController.JoJoSwipAnimation();
+            this.GuiController.JoJoSwipAnimation();
         }
     }
 }
