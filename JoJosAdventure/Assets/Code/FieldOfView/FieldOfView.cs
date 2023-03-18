@@ -1,8 +1,11 @@
 using Assets.Code;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class FieldOfView : MonoBehaviour
 {
+    public GameObject mainbodyGO;
+
     /// <summary>
     /// The angle width of this field of view
     /// </summary>
@@ -34,8 +37,10 @@ public class FieldOfView : MonoBehaviour
 
     private void Update()
     {
-        // start from a tilted angle, so the cone is even top and bottom
-        float currentAngle = fieldOfView / 2;
+        // take into account the attached units rotation
+        // then tilt so cone is even top/bottom
+        float currentAngle = mainbodyGO.transform.rotation.eulerAngles.y +
+            fieldOfView / 2;
         float angleIncrease = fieldOfView / rayCount;
 
         // VERTICES ARE IN LOCAL SPACE
@@ -48,28 +53,31 @@ public class FieldOfView : MonoBehaviour
         // actual points of the mesh
         triangles = new int[rayCount * 3];
 
-        vertices[0] = origin;
+        vertices[0] = transform.localPosition;
 
         int vertexIndex = 1; // 0 is the origin
         int triangleIndex = 0;
         for (int i = 1; i <= rayCount; i++)
         {
             Vector3 vertex;
+            Vector3 angle = UtilsClass.GetVectorFromAngle(currentAngle) * -1;
 
-            //Ray2D testRay = new Ray2D(transform.position, -UtilsClass.GetVectorFromAngle(currentAngle) * viewDistance);
-            //Debug.DrawRay(testRay.origin, testRay.direction * 10);
+            Ray2D testRay = new Ray2D(this.transform.position, angle * viewDistance);
+            Debug.DrawRay(testRay.origin, testRay.direction * viewDistance);
 
             // RAYCAST MUST BE IN WORLD SPACE i.e transform.position
-            RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, -transform.TransformDirection(UtilsClass.GetVectorFromAngle(currentAngle)), viewDistance);
+            RaycastHit2D raycastHit2D = Physics2D.Raycast(this.transform.position,
+                angle,
+                viewDistance);
 
-            if (raycastHit2D.collider == null)
-            {   // no collision make a cone using mesh
-                vertex = origin + -UtilsClass.GetVectorFromAngle(currentAngle) * viewDistance;
+            if (testRay.collider == null)
+            {   // no collision set cone at max distance for this triangle
+                vertex = transform.InverseTransformDirection(testRay.direction) * viewDistance;
             }
             else
             {
                 //Debug.DrawRay(transform.position, (Vector3)raycastHit2D.point - transform.position, Color.green);
-                vertex = (Vector3)raycastHit2D.point - transform.position;
+                vertex = transform.InverseTransformPoint(raycastHit2D.point);
             }
             vertices[vertexIndex] = vertex;
 
