@@ -64,18 +64,18 @@ namespace Assets.Code.GUI
                 return;
 
             if (this.demonPositions.Length > 0)
-                this.CameraScript.SetCustomPanTarget(this.demonPositions[0].position);
+                this.CameraScript.SetCustomPanTarget(this.demonPositions[0]);
 
             this.CameraScript.RunActionOnCustomPanFinished(() =>
             {
-                this.CameraScript.SetCustomPanTarget(this.demonPositions[1].position);
+                this.CameraScript.SetCustomPanTarget(this.demonPositions[1]);
             });
         }
 
         public void PanToBedroomDoor()
         {
             if (this.BedroomDoor != null)
-                this.CameraScript.SetCustomPanTarget(this.BedroomDoor.transform.position);
+                this.CameraScript.SetCustomPanTarget(this.BedroomDoor.transform);
         }
 
         public void PanToPaigeWithCallBack(Action callback)
@@ -86,7 +86,7 @@ namespace Assets.Code.GUI
 
         public void PanToPaige()
         {
-            this.CameraScript.SetCustomPanTarget(this.Paige.transform.position);
+            this.CameraScript.SetCustomPanTarget(this.Paige.transform);
         }
 
         public void JoJoSwipAnimation()

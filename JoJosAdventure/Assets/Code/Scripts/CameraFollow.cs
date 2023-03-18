@@ -37,64 +37,76 @@ public class CameraFollow : MonoBehaviour
     {
         // get the players transform
         this.transform.position = new Vector3(this.PlayerCharacter.transform.position.x, this.PlayerCharacter.transform.position.y, this.transform.position.z);
-        this.followingTarget = this.PlayerCharacter.transform.position;
+        this.followingTarget = this.PlayerCharacter.transform;
     }
 
-    public void SetCustomPanTarget(Vector3 target)
+    public void SetCustomPanTarget(Transform transform)
     {
-        this.CustomTarget = true;
-        this.followingTarget = target;
+        this.customTarget = true;
+        this.followingTarget = transform;
+        this.cameraLerpSpeed = 2.5f;
+    }
+
+    private void SetPlayerTarget()
+    {
+        this.followingTarget = this.PlayerCharacter.transform;
+        this.customTarget = false;
+        this.cameraLerpSpeed = 4f;
     }
 
     private float cameraLerpSpeed = 3f;
-    private Vector2 target;
-    private bool CustomTarget = false;
-    private Vector3 followingTarget;
+    private Vector2 updatedTarget;
+    private bool customTarget = false;
+    private Transform followingTarget;
+
+    private bool useSimpleFollow = true;
 
     private void Update()
     {
-        if (this.CustomTarget)
+        if (useSimpleFollow && !customTarget)
         {
-            this.cameraLerpSpeed = 2.5f;
+            this.transform.position = new Vector3(
+                this.PlayerCharacter.transform.position.x,
+                this.PlayerCharacter.transform.position.y,
+                this.transform.position.z);
         }
         else
         {
-            //this.followingTarget = this.PlayerCharacter.transform.position;
-            this.cameraLerpSpeed = 4f;
-        }
+            // By default the target x and y coordinates of the camera are it's current x and y coordinates.
+            this.updatedTarget = new Vector2(this.transform.position.x, this.transform.position.y);
 
-        // By default the target x and y coordinates of the camera are it's current x and y coordinates.
-        this.target = new Vector2(this.transform.position.x, this.transform.position.y);
-
-        // If the player has moved beyond the x margin
-        if (this.CheckMovementXMargin())
-        {
-            // the target X-coordinate should be a Lerp between the camera's current x position and the player's current x position.
-            this.target.x = Mathf.Lerp(this.transform.position.x, this.followingTarget.x, this.cameraLerpSpeed * Time.deltaTime);
-        }
-
-        // If the player has moved beyond the y margin
-        if (this.CheckMovementYMargin())
-        {
-            // The target y coordinate should be a Lerp between the camera's current y position and the player's current y position.
-            this.target.y = Mathf.Lerp(this.transform.position.y, this.followingTarget.y, this.cameraLerpSpeed * Time.deltaTime);
-        }
-
-        if (this.UseBounds)
-        {
-            // Clamp the camera within the bounds
-            this.target.x = Mathf.Clamp(this.target.x, this.MINBounds.x, this.MAXBounds.x);
-            this.target.y = Mathf.Clamp(this.target.y, this.MINBounds.y, this.MAXBounds.y);
-        }
-
-        // Set the camera's position to the target position with the same z component.
-        this.transform.position = new Vector3(this.target.x, this.target.y, this.transform.position.z);
-        if (this.CustomTarget)
-        {
-            if (Math.Abs(this.transform.position.x - this.followingTarget.x) < 0.25f
-                && Math.Abs(this.transform.position.y - this.followingTarget.y) < 0.25f)
+            // If the player has moved beyond the x margin
+            if (this.CheckMovementXMargin())
             {
-                this.CustomTarget = false;
+                // the target X-coordinate should be a Lerp between the camera's current x position and the player's current x position.
+                this.updatedTarget.x = Mathf.Lerp(this.transform.position.x, this.followingTarget.position.x, this.cameraLerpSpeed * Time.deltaTime);
+            }
+
+            // If the player has moved beyond the y margin
+            if (this.CheckMovementYMargin())
+            {
+                // The target y coordinate should be a Lerp between the camera's current y position and the player's current y position.
+                this.updatedTarget.y = Mathf.Lerp(this.transform.position.y, this.followingTarget.position.y, this.cameraLerpSpeed * Time.deltaTime);
+            }
+
+            if (this.UseBounds)
+            {
+                // Clamp the camera within the bounds
+                this.updatedTarget.x = Mathf.Clamp(this.updatedTarget.x, this.MINBounds.x, this.MAXBounds.x);
+                this.updatedTarget.y = Mathf.Clamp(this.updatedTarget.y, this.MINBounds.y, this.MAXBounds.y);
+            }
+
+            // Set the camera's position to the target position with the same z component.
+            this.transform.position = new Vector3(this.updatedTarget.x, this.updatedTarget.y, this.transform.position.z);
+
+            // If has arrived at Custom Target - set back to player follow
+            if (this.customTarget)
+            {
+                if (Math.Abs(this.transform.position.x - this.followingTarget.position.x) < 0.25f
+                    && Math.Abs(this.transform.position.y - this.followingTarget.position.y) < 0.25f)
+                {
+                    this.SetPlayerTarget();
+                }
             }
         }
     }
@@ -106,7 +118,7 @@ public class CameraFollow : MonoBehaviour
     private bool CheckMovementXMargin()
     {
         // Returns true if the distance between the camera and the player in the x axis is greater than the x margin.
-        return Mathf.Abs(this.transform.position.x - this.followingTarget.x) > this.Margins.x;
+        return Mathf.Abs(this.transform.position.x - this.followingTarget.position.x) > this.Margins.x;
     }
 
     /// <summary>
@@ -116,7 +128,7 @@ public class CameraFollow : MonoBehaviour
     private bool CheckMovementYMargin()
     {
         // Returns true if the distance between the camera and the player in the y axis is greater than the y margin.
-        return Mathf.Abs(this.transform.position.y - this.followingTarget.y) > this.Margins.y;
+        return Mathf.Abs(this.transform.position.y - this.followingTarget.position.y) > this.Margins.y;
     }
 
     public void RunActionOnCustomPanFinished(Action callback)
@@ -126,7 +138,7 @@ public class CameraFollow : MonoBehaviour
 
     private IEnumerator RunActionOnCustomPanFinishedCoroutine(Action callback)
     {
-        yield return new WaitWhile(() => this.CustomTarget == true);
+        yield return new WaitWhile(() => this.customTarget == true);
         callback();
     }
 }
