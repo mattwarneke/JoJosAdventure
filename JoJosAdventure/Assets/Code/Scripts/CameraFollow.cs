@@ -17,11 +17,6 @@ public class CameraFollow : MonoBehaviour
     public GameObject PlayerCharacter;
 
     /// <summary>
-    ///  Reference to the users current view transform.
-    /// </summary>
-    private Transform PlayerTransform;
-
-    /// <summary>
     /// Clamp Camera within defined Bounds
     /// </summary>
     public bool UseBounds;
@@ -41,9 +36,8 @@ public class CameraFollow : MonoBehaviour
     private void Start()
     {
         // get the players transform
-        this.PlayerTransform = this.PlayerCharacter.transform;
         this.transform.position = new Vector3(this.PlayerCharacter.transform.position.x, this.PlayerCharacter.transform.position.y, this.transform.position.z);
-        this.followingTarget = this.PlayerTransform.position;
+        this.followingTarget = this.PlayerCharacter.transform.position;
     }
 
     public void SetCustomPanTarget(Vector3 target)
@@ -65,7 +59,7 @@ public class CameraFollow : MonoBehaviour
         }
         else
         {
-            this.followingTarget = this.PlayerCharacter.transform.position;
+            //this.followingTarget = this.PlayerCharacter.transform.position;
             this.cameraLerpSpeed = 4f;
         }
 

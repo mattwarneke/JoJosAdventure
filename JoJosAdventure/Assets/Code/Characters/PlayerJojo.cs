@@ -18,11 +18,6 @@ namespace Assets.Code
         private Animator animator;
 
         /// <summary>
-        /// The last position of the player in previous frame
-        /// </summary>
-        private Vector3 lastPosition;
-
-        /// <summary>
         /// The last checkpoint position that we have saved
         /// </summary>
         private Vector3 CheckPointPosition;
@@ -43,15 +38,11 @@ namespace Assets.Code
         private void Start()
         {
             // get the local reference
-            this.animator = this.GetComponent<Animator>();
+            this.animator = this.GetComponentInChildren<Animator>();
 
-            // set initial position
-            this.lastPosition = this.transform.position;
             this.CheckPointPosition = this.transform.position;
 
             this.AllChildSprites = this.GetComponentsInChildren<SpriteRenderer>().ToList();
-
-            this.FlipRight();
         }
 
         // Update is called once per frame
@@ -95,11 +86,11 @@ namespace Assets.Code
 
             if (directionX == MoveInputDirection.WalkRight && this.isFacingLeft)
             {
-                this.FlipRight();
+                this.Flip();
             }
             else if (directionX == MoveInputDirection.WalkLeft && !this.isFacingLeft)
             {
-                this.FlipLeft();
+                this.Flip();
             }
 
             if (directionX == MoveInputDirection.NoMovement
@@ -187,16 +178,14 @@ namespace Assets.Code
             return inputDirections;
         }
 
-        public void FlipRight()
+        public void Flip()
         {
-            this.isFacingLeft = false;
-            this.transform.Rotate(0, 180, 0);
-        }
+            this.isFacingLeft = !this.isFacingLeft;
+            //this.transform.parent.transform.Rotate(0, 180, 0);
 
-        public void FlipLeft()
-        {
-            this.isFacingLeft = true;
-            this.transform.Rotate(0, 180, 0);
+            Vector3 currentScale = this.gameObject.transform.localScale;
+            currentScale.x *= -1;
+            this.gameObject.transform.localScale = currentScale;
         }
 
         private void FixedUpdate()

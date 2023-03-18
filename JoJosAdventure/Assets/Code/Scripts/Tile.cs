@@ -16,7 +16,7 @@ public class Tile : MonoBehaviour
     private void Start()
     {
         // obtain the local references
-        this.playerTransform = GameObject.Find("Jojo").transform;
+        this.playerTransform = GameObject.FindGameObjectsWithTag("Jojo")[0].transform;
         this.spriteRenderer = this.GetComponent<SpriteRenderer>();
         if (this.spriteRenderer == null)
             this.spriteRenderer = this.GetComponentInChildren<SpriteRenderer>();

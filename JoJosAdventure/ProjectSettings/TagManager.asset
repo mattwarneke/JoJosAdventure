@@ -7,6 +7,8 @@ TagManager:
   - LargeTile
   - LevelChanger
   - GuiController
+  - healthbar
+  - Jojo
   layers:
   - Default
   - TransparentFX
