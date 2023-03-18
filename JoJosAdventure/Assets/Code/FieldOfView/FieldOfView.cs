@@ -34,7 +34,8 @@ public class FieldOfView : MonoBehaviour
 
     private void Update()
     {
-        float currentAngle = 0f;
+        // start from a tilted angle, so the cone is even top and bottom
+        float currentAngle = fieldOfView / 2;
         float angleIncrease = fieldOfView / rayCount;
 
         // VERTICES ARE IN LOCAL SPACE
