@@ -1,6 +1,7 @@
 using Assets.Code;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class FieldOfView : MonoBehaviour
 {
@@ -9,19 +10,22 @@ public class FieldOfView : MonoBehaviour
     /// <summary>
     /// The angle width of this field of view
     /// </summary>
-    public float fieldOfView = 40f;
+    public float viewAngle = 40f;
 
     /// <summary>
     /// The distance the field of view travels
     /// </summary>
-    public float viewDistance = 5f;
+    public float viewRadius = 5f;
+
+    /// <summary>
+    /// How many rays per angle
+    /// </summary>
+    public float meshResolution = 0.1f;
 
     /// <summary>
     /// The amount of rays sent, this creats a nice curve the more rays but impacts perf
     /// </summary>
     private int rayCount = 25;
-
-    private Mesh mesh;
 
     // cache arrays for performance
     private Vector3[] vertices;
@@ -29,74 +33,252 @@ public class FieldOfView : MonoBehaviour
     private Vector2[] uv;
     private int[] triangles;
 
+    private float startingAngle;
+    public LayerMask targetMask;
+    public LayerMask obstacleMask;
+
+    ///[HideInInspector]
+    public List<Transform> visibleTargets = new List<Transform>();
+
+    public int edgeResolveIterations;
+    public float edgeDstThreshold;
+
+    public MeshFilter viewMeshFilter;
+    private Mesh mesh;
+
+    public bool targetAquired = false;
+
     private void Start()
     {
         mesh = new Mesh();
-        GetComponent<MeshFilter>().mesh = mesh;
+        mesh.name = "View Mesh";
+        viewMeshFilter.mesh = mesh;
+
+        StartCoroutine("FindTargetsWithDelay", .2f);
     }
 
-    private void Update()
+    private void LateUpdate()
     {
-        // take into account the attached units rotation
-        // then tilt so cone is even top/bottom
-        float currentAngle = mainbodyGO.transform.rotation.eulerAngles.y +
-            fieldOfView / 2;
-        float angleIncrease = fieldOfView / rayCount;
+        DrawFieldOfView();
+    }
 
-        // VERTICES ARE IN LOCAL SPACE
-        // mesh origin is at this transform's position
-        Vector3 origin = Vector3.zero;
-        // positioning of points
-        vertices = new Vector3[rayCount + 1 + 1];
-        // texture rendered - vector 2 as the image it references is flat 2d
-        uv = new Vector2[vertices.Length];
-        // actual points of the mesh
-        triangles = new int[rayCount * 3];
-
-        vertices[0] = transform.localPosition;
-
-        int vertexIndex = 1; // 0 is the origin
-        int triangleIndex = 0;
-        for (int i = 1; i <= rayCount; i++)
+    private IEnumerator FindTargetsWithDelay(float delay)
+    {
+        while (true)
         {
-            Vector3 vertex;
-            Vector3 angle = UtilsClass.GetVectorFromAngle(currentAngle) * -1;
+            yield return new WaitForSeconds(delay);
+            FindVisibleTargets();
+        }
+    }
 
-            Ray2D testRay = new Ray2D(this.transform.position, angle * viewDistance);
-            Debug.DrawRay(testRay.origin, testRay.direction * viewDistance);
-
-            // RAYCAST MUST BE IN WORLD SPACE i.e transform.position
-            RaycastHit2D raycastHit2D = Physics2D.Raycast(this.transform.position,
-                angle,
-                viewDistance);
-
-            if (testRay.collider == null)
-            {   // no collision set cone at max distance for this triangle
-                vertex = transform.InverseTransformDirection(testRay.direction) * viewDistance;
-            }
-            else
+    private void FindVisibleTargets()
+    {
+        visibleTargets.Clear();
+        targetAquired = false;
+        Collider2D[] targetsInViewRadius = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y), viewRadius, targetMask);
+        for (int i = 0; i < targetsInViewRadius.Length; i++)
+        {
+            Transform target = targetsInViewRadius[i].transform;
+            Vector2 dirToTarget = (target.position - transform.position).normalized;
+            if (Vector2.Angle(new Vector2(Mathf.Sin(getGlobalAngleAddition() * Mathf.Deg2Rad), Mathf.Cos(getGlobalAngleAddition() * Mathf.Deg2Rad)), dirToTarget) < viewAngle / 2)
             {
-                //Debug.DrawRay(transform.position, (Vector3)raycastHit2D.point - transform.position, Color.green);
-                vertex = transform.InverseTransformPoint(raycastHit2D.point);
+                float dstToTarget = Vector3.Distance(transform.position, target.position);
+
+                if (!Physics2D.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
+                {
+                    visibleTargets.Add(target);
+                    targetAquired = true;
+                }
             }
-            vertices[vertexIndex] = vertex;
+        }
+    }
+
+    private void DrawFieldOfView()
+    {
+        int stepCount = Mathf.RoundToInt(viewAngle * meshResolution);
+        float stepAngleSize = viewAngle / stepCount;
+        List<Vector3> viewPoints = new List<Vector3>();
+        for (int i = 0; i <= stepCount; i++)
+        {
+            // Need to factor in the z of the transform + the body direction
+            float angle = this.getGlobalAngleAddition() - viewAngle / 2 + stepAngleSize * i;
+            // global Angle since we already added the rotation in with the subtraction
+            //Vector3 dir = DirFromAngle(angle, true);
+            //Debug.DrawLine(transform.position, transform.position + dir * viewAngle, Color.red);
+
+            ViewCastInfo newViewCast = ViewCast(angle);
+            viewPoints.Add(newViewCast.point);
+        }
+
+        int vertexCount = viewPoints.Count + 1;
+        Vector3[] vertices = new Vector3[vertexCount];
+        int[] triangles = new int[(vertexCount - 2) * 3];
+
+        vertices[0] = Vector3.zero;
+        for (int i = 0; i < vertexCount - 1; i++)
+        {
+            vertices[i + 1] = transform.InverseTransformPoint(viewPoints[i]);
+
+            if (i < vertexCount - 2)
+            {
+                triangles[i * 3] = 0;
+                triangles[i * 3 + 1] = i + 1;
+                triangles[i * 3 + 2] = i + 2;
+            }
+        }
+
+        mesh.Clear();
+
+        mesh.vertices = vertices;
+        mesh.triangles = triangles;
+        mesh.RecalculateNormals();
+    }
+
+    private void DrawFieldOfViewImproved()
+    {
+        int rayCount = Mathf.RoundToInt(viewAngle * meshResolution);
+        float stepAngleSize = viewAngle / rayCount;
+        List<Vector3> viewPoints = new List<Vector3>();
+        ViewCastInfo oldViewCast = new ViewCastInfo();
+        for (int i = 0; i < rayCount; i++)
+        {
+            float angle = getGlobalAngleAddition() - viewAngle / 2 + stepAngleSize * i;
+            ViewCastInfo newViewCast = ViewCast(angle);
 
             if (i > 0)
             {
-                triangles[triangleIndex + 0] = 0;
-                triangles[triangleIndex + 1] = vertexIndex - 1;
-                triangles[triangleIndex + 2] = vertexIndex;
-
-                triangleIndex += 3;
+                bool edgeDstThresholdExceeded = Mathf.Abs(oldViewCast.dst - newViewCast.dst) > edgeDstThreshold;
+                if (oldViewCast.hit != newViewCast.hit || (oldViewCast.hit && newViewCast.hit && edgeDstThresholdExceeded))
+                {
+                    EdgeInfo edge = FindEdge(oldViewCast, newViewCast);
+                    if (edge.pointA != Vector3.zero)
+                    {
+                        viewPoints.Add(edge.pointA);
+                    }
+                    if (edge.pointB != Vector3.zero)
+                    {
+                        viewPoints.Add(edge.pointB);
+                    }
+                }
             }
 
-            vertexIndex++;
-            // goes counter clockwise if +, - for anti clockwise
-            currentAngle -= angleIncrease;
+            viewPoints.Add(newViewCast.point);
+            oldViewCast = newViewCast;
         }
 
+        int vertexCount = viewPoints.Count + 1;
+        Vector3[] vertices = new Vector3[vertexCount];
+        int[] triangles = new int[(vertexCount - 2) * 3];
+
+        vertices[0] = Vector3.zero;
+        for (int i = 0; i < vertexCount - 1; i++)
+        {
+            vertices[i + 1] = transform.InverseTransformPoint(viewPoints[i]);
+
+            if (i < vertexCount - 2)
+            {
+                triangles[i * 3] = 0;
+                triangles[i * 3 + 1] = i + 1;
+                triangles[i * 3 + 2] = i + 2;
+            }
+        }
+
+        mesh.Clear();
         mesh.vertices = vertices;
-        mesh.uv = uv;
         mesh.triangles = triangles;
+        mesh.RecalculateNormals();
+    }
+
+    private EdgeInfo FindEdge(ViewCastInfo minViewCast, ViewCastInfo maxViewCast)
+    {
+        float minAngle = minViewCast.angle;
+        float maxAngle = maxViewCast.angle;
+        Vector3 minPoint = Vector3.zero;
+        Vector3 maxPoint = Vector3.zero;
+
+        for (int i = 0; i < edgeResolveIterations; i++)
+        {
+            float angle = (minAngle + maxAngle) / 2;
+            ViewCastInfo newViewCast = ViewCast(angle);
+
+            bool edgeDstThresholdExceeded = Mathf.Abs(minViewCast.dst - newViewCast.dst) > edgeDstThreshold;
+            if (newViewCast.hit == minViewCast.hit && !edgeDstThresholdExceeded)
+            {
+                minAngle = angle;
+                minPoint = newViewCast.point;
+            }
+            else
+            {
+                maxAngle = angle;
+                maxPoint = newViewCast.point;
+            }
+        }
+
+        return new EdgeInfo(minPoint, maxPoint);
+    }
+
+    private ViewCastInfo ViewCast(float globalAngle)
+    {
+        Vector3 dir = DirFromAngle(globalAngle, true);
+        RaycastHit2D hit;
+
+        // DEBUG:
+        //Ray testRay = new Ray(this.transform.position, dir * viewRadius);
+        //Debug.DrawRay(testRay.origin, testRay.direction * viewRadius);
+
+        hit = Physics2D.Raycast(transform.position, dir, viewRadius);//, obstacleMask);
+        if (hit.collider != null)
+        {
+            return new ViewCastInfo(true, hit.point, hit.distance, globalAngle);
+        }
+        else
+        {
+            return new ViewCastInfo(false, transform.position + dir * viewRadius, viewRadius, globalAngle);
+        }
+    }
+
+    public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
+    {
+        if (!angleIsGlobal)
+        {
+            angleInDegrees += this.getGlobalAngleAddition();
+        }
+
+        return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad), 0);
+    }
+
+    private float getGlobalAngleAddition()
+    {
+        // this will also take into account rotation of parent
+        return this.transform.eulerAngles.y
+            + this.transform.eulerAngles.z;
+    }
+
+    public struct ViewCastInfo
+    {
+        public bool hit;
+        public Vector3 point;
+        public float dst;
+        public float angle;
+
+        public ViewCastInfo(bool _hit, Vector3 _point, float _dst, float _angle)
+        {
+            hit = _hit;
+            point = _point;
+            dst = _dst;
+            angle = _angle;
+        }
+    }
+
+    public struct EdgeInfo
+    {
+        public Vector3 pointA;
+        public Vector3 pointB;
+
+        public EdgeInfo(Vector3 _pointA, Vector3 _pointB)
+        {
+            pointA = _pointA;
+            pointB = _pointB;
+        }
     }
 }

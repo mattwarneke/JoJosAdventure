@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MattScript : MonoBehaviour
 {
-    private Animator animator;
+    public Animator animator;
     public SpeechBubble speechBubble;
     public bool IsFollowing { get; private set; }
     public Transform transformFollowing;

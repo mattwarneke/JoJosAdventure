@@ -17,7 +17,7 @@
         private GameService()
         {
             this.CollectableCount = 0;
-            this.GuiController = GameObject.Find("GuiController").GetComponent<GuiController>();
+            this.GuiController = GameObject.FindGameObjectWithTag("GuiController").GetComponent<GuiController>();
         }
 
         public int CollectableCount { get; private set; }
