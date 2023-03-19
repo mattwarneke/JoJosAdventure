@@ -63,7 +63,7 @@ public class CameraFollow : MonoBehaviour
 
     private void Update()
     {
-        if (useSimpleFollow && !customTarget)
+        if (this.useSimpleFollow && !this.customTarget)
         {
             this.transform.position = new Vector3(
                 this.PlayerCharacter.transform.position.x,

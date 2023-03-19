@@ -1,4 +1,3 @@
-using Assets.Code;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,16 +35,16 @@ public class FieldOfView : MonoBehaviour
 
     private void Start()
     {
-        mesh = new Mesh();
-        mesh.name = "View Mesh";
-        viewMeshFilter.mesh = mesh;
+        this.mesh = new Mesh();
+        this.mesh.name = "View Mesh";
+        this.viewMeshFilter.mesh = this.mesh;
 
-        StartCoroutine("FindTargetsWithDelay", .2f);
+        this.StartCoroutine("FindTargetsWithDelay", .2f);
     }
 
     private void LateUpdate()
     {
-        DrawFieldOfViewImproved();
+        this.DrawFieldOfViewImproved();
     }
 
     private IEnumerator FindTargetsWithDelay(float delay)
@@ -53,27 +52,27 @@ public class FieldOfView : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(delay);
-            FindVisibleTargets();
+            this.FindVisibleTargets();
         }
     }
 
     private void FindVisibleTargets()
     {
-        visibleTargets.Clear();
-        targetAquired = false;
-        Collider2D[] targetsInViewRadius = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y), viewRadius, targetMask);
+        this.visibleTargets.Clear();
+        this.targetAquired = false;
+        Collider2D[] targetsInViewRadius = Physics2D.OverlapCircleAll(new Vector2(this.transform.position.x, this.transform.position.y), this.viewRadius, this.targetMask);
         for (int i = 0; i < targetsInViewRadius.Length; i++)
         {
             Transform target = targetsInViewRadius[i].transform;
-            Vector2 dirToTarget = (target.position - transform.position).normalized;
-            if (Vector2.Angle(new Vector2(Mathf.Sin(getGlobalAngleAddition() * Mathf.Deg2Rad), Mathf.Cos(getGlobalAngleAddition() * Mathf.Deg2Rad)), dirToTarget) < viewAngle / 2)
+            Vector2 dirToTarget = (target.position - this.transform.position).normalized;
+            if (Vector2.Angle(new Vector2(Mathf.Sin(this.getGlobalAngleAddition() * Mathf.Deg2Rad), Mathf.Cos(this.getGlobalAngleAddition() * Mathf.Deg2Rad)), dirToTarget) < this.viewAngle / 2)
             {
-                float dstToTarget = Vector3.Distance(transform.position, target.position);
+                float dstToTarget = Vector3.Distance(this.transform.position, target.position);
 
-                if (!Physics2D.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
+                if (!Physics2D.Raycast(this.transform.position, dirToTarget, dstToTarget, this.obstacleMask))
                 {
-                    visibleTargets.Add(target);
-                    targetAquired = true;
+                    this.visibleTargets.Add(target);
+                    this.targetAquired = true;
                 }
             }
         }
@@ -87,62 +86,62 @@ public class FieldOfView : MonoBehaviour
 
     private void DrawFieldOfView()
     {
-        int stepCount = Mathf.RoundToInt(viewAngle * meshResolution);
-        float stepAngleSize = viewAngle / stepCount;
-        viewPoints = new List<Vector3>();
+        int stepCount = Mathf.RoundToInt(this.viewAngle * this.meshResolution);
+        float stepAngleSize = this.viewAngle / stepCount;
+        this.viewPoints = new List<Vector3>();
         for (int i = 0; i <= stepCount; i++)
         {
             // Need to factor in the z of the transform + the body direction
-            float angle = this.getGlobalAngleAddition() - viewAngle / 2 + stepAngleSize * i;
+            float angle = this.getGlobalAngleAddition() - (this.viewAngle / 2) + (stepAngleSize * i);
             // global Angle since we already added the rotation in with the subtraction
             //Vector3 dir = DirFromAngle(angle, true);
             //Debug.DrawLine(transform.position, transform.position + dir * viewAngle, Color.red);
 
-            ViewCastInfo newViewCast = ViewCast(angle);
-            viewPoints.Add(newViewCast.point);
+            ViewCastInfo newViewCast = this.ViewCast(angle);
+            this.viewPoints.Add(newViewCast.point);
         }
 
-        int vertexCount = viewPoints.Count + 1;
-        vertices = new Vector3[vertexCount];
-        triangles = new int[(vertexCount - 2) * 3];
+        int vertexCount = this.viewPoints.Count + 1;
+        this.vertices = new Vector3[vertexCount];
+        this.triangles = new int[(vertexCount - 2) * 3];
 
-        vertices[0] = Vector3.zero;
+        this.vertices[0] = Vector3.zero;
         for (int i = 0; i < vertexCount - 1; i++)
         {
-            vertices[i + 1] = transform.InverseTransformPoint(viewPoints[i]);
+            this.vertices[i + 1] = this.transform.InverseTransformPoint(this.viewPoints[i]);
 
             if (i < vertexCount - 2)
             {
-                triangles[i * 3] = 0;
-                triangles[i * 3 + 1] = i + 1;
-                triangles[i * 3 + 2] = i + 2;
+                this.triangles[i * 3] = 0;
+                this.triangles[(i * 3) + 1] = i + 1;
+                this.triangles[(i * 3) + 2] = i + 2;
             }
         }
 
-        mesh.Clear();
+        this.mesh.Clear();
 
-        mesh.vertices = vertices;
-        mesh.triangles = triangles;
-        mesh.RecalculateNormals();
+        this.mesh.vertices = this.vertices;
+        this.mesh.triangles = this.triangles;
+        this.mesh.RecalculateNormals();
     }
 
     private void DrawFieldOfViewImproved()
     {
-        int rayCount = Mathf.RoundToInt(viewAngle * meshResolution);
-        float stepAngleSize = viewAngle / rayCount;
+        int rayCount = Mathf.RoundToInt(this.viewAngle * this.meshResolution);
+        float stepAngleSize = this.viewAngle / rayCount;
         List<Vector3> viewPoints = new List<Vector3>();
         ViewCastInfo oldViewCast = new ViewCastInfo();
         for (int i = 0; i < rayCount; i++)
         {
-            float angle = getGlobalAngleAddition() - viewAngle / 2 + stepAngleSize * i;
-            ViewCastInfo newViewCast = ViewCast(angle);
+            float angle = this.getGlobalAngleAddition() - (this.viewAngle / 2) + (stepAngleSize * i);
+            ViewCastInfo newViewCast = this.ViewCast(angle);
 
             if (i > 0)
             {
-                bool edgeDstThresholdExceeded = Mathf.Abs(oldViewCast.dst - newViewCast.dst) > edgeDstThreshold;
+                bool edgeDstThresholdExceeded = Mathf.Abs(oldViewCast.dst - newViewCast.dst) > this.edgeDstThreshold;
                 if (oldViewCast.hit != newViewCast.hit || (oldViewCast.hit && newViewCast.hit && edgeDstThresholdExceeded))
                 {
-                    EdgeInfo edge = FindEdge(oldViewCast, newViewCast);
+                    EdgeInfo edge = this.FindEdge(oldViewCast, newViewCast);
                     if (edge.pointA != Vector3.zero)
                     {
                         viewPoints.Add(edge.pointA);
@@ -165,20 +164,20 @@ public class FieldOfView : MonoBehaviour
         vertices[0] = Vector3.zero;
         for (int i = 0; i < vertexCount - 1; i++)
         {
-            vertices[i + 1] = transform.InverseTransformPoint(viewPoints[i]);
+            vertices[i + 1] = this.transform.InverseTransformPoint(viewPoints[i]);
 
             if (i < vertexCount - 2)
             {
                 triangles[i * 3] = 0;
-                triangles[i * 3 + 1] = i + 1;
-                triangles[i * 3 + 2] = i + 2;
+                triangles[(i * 3) + 1] = i + 1;
+                triangles[(i * 3) + 2] = i + 2;
             }
         }
 
-        mesh.Clear();
-        mesh.vertices = vertices;
-        mesh.triangles = triangles;
-        mesh.RecalculateNormals();
+        this.mesh.Clear();
+        this.mesh.vertices = vertices;
+        this.mesh.triangles = triangles;
+        this.mesh.RecalculateNormals();
     }
 
     private EdgeInfo FindEdge(ViewCastInfo minViewCast, ViewCastInfo maxViewCast)
@@ -188,12 +187,12 @@ public class FieldOfView : MonoBehaviour
         Vector3 minPoint = Vector3.zero;
         Vector3 maxPoint = Vector3.zero;
 
-        for (int i = 0; i < edgeResolveIterations; i++)
+        for (int i = 0; i < this.edgeResolveIterations; i++)
         {
             float angle = (minAngle + maxAngle) / 2;
-            ViewCastInfo newViewCast = ViewCast(angle);
+            ViewCastInfo newViewCast = this.ViewCast(angle);
 
-            bool edgeDstThresholdExceeded = Mathf.Abs(minViewCast.dst - newViewCast.dst) > edgeDstThreshold;
+            bool edgeDstThresholdExceeded = Mathf.Abs(minViewCast.dst - newViewCast.dst) > this.edgeDstThreshold;
             if (newViewCast.hit == minViewCast.hit && !edgeDstThresholdExceeded)
             {
                 minAngle = angle;
@@ -211,21 +210,21 @@ public class FieldOfView : MonoBehaviour
 
     private ViewCastInfo ViewCast(float globalAngle)
     {
-        Vector3 dir = DirFromAngle(globalAngle, true);
+        Vector3 dir = this.DirFromAngle(globalAngle, true);
         RaycastHit2D hit;
 
         // DEBUG:
         //Ray testRay = new Ray(this.transform.position, dir * viewRadius);
         //Debug.DrawRay(testRay.origin, testRay.direction * viewRadius);
 
-        hit = Physics2D.Raycast(transform.position, dir, viewRadius);//, obstacleMask);
+        hit = Physics2D.Raycast(this.transform.position, dir, this.viewRadius);//, obstacleMask);
         if (hit.collider != null)
         {
             return new ViewCastInfo(true, hit.point, hit.distance, globalAngle);
         }
         else
         {
-            return new ViewCastInfo(false, transform.position + dir * viewRadius, viewRadius, globalAngle);
+            return new ViewCastInfo(false, this.transform.position + (dir * this.viewRadius), this.viewRadius, globalAngle);
         }
     }
 
@@ -255,10 +254,10 @@ public class FieldOfView : MonoBehaviour
 
         public ViewCastInfo(bool _hit, Vector3 _point, float _dst, float _angle)
         {
-            hit = _hit;
-            point = _point;
-            dst = _dst;
-            angle = _angle;
+            this.hit = _hit;
+            this.point = _point;
+            this.dst = _dst;
+            this.angle = _angle;
         }
     }
 
@@ -269,8 +268,8 @@ public class FieldOfView : MonoBehaviour
 
         public EdgeInfo(Vector3 _pointA, Vector3 _pointB)
         {
-            pointA = _pointA;
-            pointB = _pointB;
+            this.pointA = _pointA;
+            this.pointB = _pointB;
         }
     }
 }

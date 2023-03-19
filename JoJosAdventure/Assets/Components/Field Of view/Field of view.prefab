@@ -96,18 +96,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b6af2af84c599149a584e75e076cfa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainbodyGO: {fileID: 0}
   viewAngle: 45
   viewRadius: 5
   meshResolution: 0.1
   targetMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 247
   visibleTargets: []
   edgeResolveIterations: 0
   edgeDstThreshold: 0
-  viewMeshFilter: {fileID: 0}
+  viewMeshFilter: {fileID: 4194258518090340751}
   targetAquired: 0

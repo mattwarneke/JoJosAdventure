@@ -41,6 +41,13 @@ public class SpeechBubble : MonoBehaviour
 
     private Queue<Speech> SpeechQueue = new Queue<Speech>();
 
+    public void AddToSpeechQueue(Speech speech)
+    {
+        this.SpeechQueue.Enqueue(speech);
+
+        this.PlayNextSpeech();
+    }
+
     public void AddToSpeechQueue(List<Speech> speechs)
     {
         foreach (Speech speech in speechs)
