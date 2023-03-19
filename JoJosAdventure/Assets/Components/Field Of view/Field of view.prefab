@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: ab685bf597fd8ba46b0c4df1732f7d98, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -97,6 +97,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainbodyGO: {fileID: 0}
-  viewAngle: 40
+  viewAngle: 45
   viewRadius: 5
-  meshResolution: 0.5
+  meshResolution: 0.1
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
+  visibleTargets: []
+  edgeResolveIterations: 0
+  edgeDstThreshold: 0
+  viewMeshFilter: {fileID: 0}
+  targetAquired: 0

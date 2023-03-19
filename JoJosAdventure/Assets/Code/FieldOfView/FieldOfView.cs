@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class FieldOfView : MonoBehaviour
 {
-    public GameObject mainbodyGO;
-
     /// <summary>
     /// The angle width of this field of view
     /// </summary>
@@ -20,20 +18,8 @@ public class FieldOfView : MonoBehaviour
     /// <summary>
     /// How many rays per angle
     /// </summary>
-    public float meshResolution = 0.1f;
+    public float meshResolution = 0.25f;
 
-    /// <summary>
-    /// The amount of rays sent, this creats a nice curve the more rays but impacts perf
-    /// </summary>
-    private int rayCount = 25;
-
-    // cache arrays for performance
-    private Vector3[] vertices;
-
-    private Vector2[] uv;
-    private int[] triangles;
-
-    private float startingAngle;
     public LayerMask targetMask;
     public LayerMask obstacleMask;
 
@@ -59,7 +45,7 @@ public class FieldOfView : MonoBehaviour
 
     private void LateUpdate()
     {
-        DrawFieldOfView();
+        DrawFieldOfViewImproved();
     }
 
     private IEnumerator FindTargetsWithDelay(float delay)
@@ -93,11 +79,17 @@ public class FieldOfView : MonoBehaviour
         }
     }
 
+    // cache arrays for performance
+    private Vector3[] vertices;
+
+    private int[] triangles;
+    private List<Vector3> viewPoints;
+
     private void DrawFieldOfView()
     {
         int stepCount = Mathf.RoundToInt(viewAngle * meshResolution);
         float stepAngleSize = viewAngle / stepCount;
-        List<Vector3> viewPoints = new List<Vector3>();
+        viewPoints = new List<Vector3>();
         for (int i = 0; i <= stepCount; i++)
         {
             // Need to factor in the z of the transform + the body direction
@@ -111,8 +103,8 @@ public class FieldOfView : MonoBehaviour
         }
 
         int vertexCount = viewPoints.Count + 1;
-        Vector3[] vertices = new Vector3[vertexCount];
-        int[] triangles = new int[(vertexCount - 2) * 3];
+        vertices = new Vector3[vertexCount];
+        triangles = new int[(vertexCount - 2) * 3];
 
         vertices[0] = Vector3.zero;
         for (int i = 0; i < vertexCount - 1; i++)
