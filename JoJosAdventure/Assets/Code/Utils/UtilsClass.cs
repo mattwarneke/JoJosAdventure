@@ -1,22 +1,26 @@
 ﻿using UnityEngine;
 
-namespace Assets.Code
+namespace JoJosAdventure.Utils
 {
     public class UtilsClass
     {
-        public static Vector3 GetVectorFromAngle(float angle)
-        {   // angle = 0 -> 360
-            float angleRad = angle * (Mathf.PI / 180f);
-            return new Vector3(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
+        public static Vector3 DirFromAngleGlobal(float angleInDegrees)
+        {
+            return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad), 0);
         }
 
-        public static float GetAngleFromVectorFloat(Vector3 dir)
+        public static Vector3 DirFromAngleLocal(float angleInDegrees, Transform transform)
         {
-            dir = dir.normalized;
-            float n = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            if (n < 0) n = +360;
+            angleInDegrees += GetGlobalAngleAddition(transform);
 
-            return n;
+            return DirFromAngleGlobal(angleInDegrees);
+        }
+
+        public static float GetGlobalAngleAddition(Transform transform)
+        {
+            // this will also take into account rotation of parent
+            return transform.eulerAngles.y
+                + transform.eulerAngles.z;
         }
     }
 }
