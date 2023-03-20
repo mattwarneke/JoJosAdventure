@@ -10,7 +10,7 @@ public class Trigger : MonoBehaviour
     {
         if (collider.gameObject.name == "PlayerCharacter")
         {
-            GameService.Instance().HandleEvent(this.eventToTrigger);
+            GameService.Instance.HandleEvent(this.eventToTrigger);
             if (!this.CanBeRepeated)
                 Destroy(this.gameObject);
         }

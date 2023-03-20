@@ -31,7 +31,7 @@ public class CollectableBounce : MonoBehaviour
     private void Start()
     {
         this.StartingScale = this.transform.localScale.x;
-        GameService.Instance().AddCollectable();
+        GameService.Instance.AddCollectable();
     }
 
     // Update is called once per frame
@@ -70,13 +70,13 @@ public class CollectableBounce : MonoBehaviour
     {
         if (collider.gameObject.name == "PlayerCharacter")
         {
-            GameService.Instance().JoJoSwip();
+            GameService.Instance.JoJoSwip();
             Destroy(this.gameObject, 0.5f);
         }
     }
 
     private void OnDestroy()
     {
-        GameService.Instance().HandleEvent(this.eventRaisedOnDestroy);
+        GameService.Instance.HandleEvent(this.eventRaisedOnDestroy);
     }
 }

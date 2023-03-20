@@ -30,7 +30,7 @@ namespace Assets.Code
         private List<SpriteRenderer> AllChildSprites;
         //public GameObject CharacterBody;
 
-        private bool isFacingLeft = true;
+        private bool isFacingRight = true;
 
         #endregion Member Variables
 
@@ -84,11 +84,13 @@ namespace Assets.Code
 
             this.body.velocity = this.movement;
 
-            if (directionX == MoveInputDirection.WalkRight && this.isFacingLeft)
+            if (directionX == MoveInputDirection.WalkRight
+                && !this.isFacingRight)
             {
                 this.Flip();
             }
-            else if (directionX == MoveInputDirection.WalkLeft && !this.isFacingLeft)
+            else if (directionX == MoveInputDirection.WalkLeft
+                && this.isFacingRight)
             {
                 this.Flip();
             }
@@ -180,7 +182,7 @@ namespace Assets.Code
 
         public void Flip()
         {
-            this.isFacingLeft = !this.isFacingLeft;
+            this.isFacingRight = !this.isFacingRight;
             //this.transform.parent.transform.Rotate(0, 180, 0);
 
             Vector3 currentScale = this.gameObject.transform.localScale;
@@ -212,7 +214,7 @@ namespace Assets.Code
             {
                 this.PlaySwipAnimation();
                 this.IsScriptedActionPlaying = false;
-                GameService.Instance().JoJoNearJar();
+                GameService.Instance.JoJoNearJar();
                 return;
             }
 

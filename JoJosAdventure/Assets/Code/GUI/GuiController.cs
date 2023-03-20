@@ -120,7 +120,7 @@ namespace Assets.Code.GUI
         public void MarryMeYes()
         {
             this.DialogCanvasGO.SetActive(false);
-            GameService.Instance().SheSaidYesFuckYeah();
+            GameService.Instance.SheSaidYesFuckYeah();
         }
 
         public GameObject JarContainer;

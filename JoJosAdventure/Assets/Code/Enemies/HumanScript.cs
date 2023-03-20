@@ -1,7 +1,5 @@
 using Assets.Code.Logic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using JoJosAdventure.Utils;
 using UnityEngine;
 
 namespace JoJosAdventure.Enemies
@@ -23,82 +21,32 @@ namespace JoJosAdventure.Enemies
             if (this.humanAnimation == null) throw new ExpectedInspectorReferenceException();
             if (this.fieldOfView == null) throw new ExpectedInspectorReferenceException();
 
+            this.fieldOfView.OnPlayerSpotted += this.playerSpotted;
+
             string repeatedSpeechText = "Here kitty, kitty, kitty!";
             this.Speak(new Speech(repeatedSpeechText, 2));
             this.Speak(new Speech(null, 1));
             this.Speak(new Speech(repeatedSpeechText, 2));
         }
 
-        private Queue<Vector3> followingPositions = new Queue<Vector3>();
-        private Vector3? currentTarget;
-        private float minDistanceY = 1f;
-        private float minDistanceX = 1f;
-
         private void Update()
         {
-            if (!this.IsFollowing)
+            if (this.IsFollowing)
             {
-                this.ScanForJojo();
-                return;
-            }
-
-            // will follow the queue always even when close.
-            bool IsExactFollow = false;// cant get it working smooth
-
-            bool isMoreThanMinDistanceFromFollowing =// object to follow is far enough away, add waypoint to follow path.
-                Math.Abs(this.transform.position.x - this.transformFollowing.position.x) > this.minDistanceX
-                || Math.Abs(this.transform.position.y - this.transformFollowing.position.y) > this.minDistanceY;
-
-            if (IsExactFollow || isMoreThanMinDistanceFromFollowing)
-            {
-                this.followingPositions.Enqueue(this.transformFollowing.position);
-                if (this.currentTarget == null)
-                    this.currentTarget = this.followingPositions.Dequeue();
-            }
-
-            bool isAtCurrentTarget =
-                this.currentTarget.HasValue
-                && Math.Abs(this.transform.position.x - this.currentTarget.Value.x) <= this.minDistanceX
-                && Math.Abs(this.transform.position.y - this.currentTarget.Value.y) <= this.minDistanceY;
-
-            // close enough to current target, look for next target or stop.
-            if (isAtCurrentTarget && this.followingPositions.Count > 0)
-                this.currentTarget = this.followingPositions.Dequeue();
-            else if (isAtCurrentTarget && this.followingPositions.Count == 0)
-                this.currentTarget = null;
-
-            if (this.currentTarget.HasValue)
-            {
-                this.humanAnimation.SetAnimation(Acting.Walk, this.MoveSpeed);
-
-                if (isMoreThanMinDistanceFromFollowing)
-                {
-                    this.transform.position = Vector2.Lerp(this.transform.position, this.currentTarget.Value, Time.deltaTime * this.MoveSpeed);
-                }
-                else
-                {
-                    this.GrabJojo();
-                }
-
-                // TODO something like this
-                //this.Position = Vector2.Lerp(
-                //  this.StartWaypointPos,
-                //  this.HeadingToWayPoint.ToVector(),
-                //  (Time.time - this.lastWaypointSwitchTime)// current time on path
-                //     /(this.PathLength / this.MoveSpeed));
+                this.FollowPlayerInSight();
             }
             else
             {
-                this.humanAnimation.StopWalk();
+                // Patrol logic
             }
         }
 
-        private void ScanForJojo()
+        private void playerSpotted(Transform transform)
         {
-            // TODO: some type of patrol pattern?
-            if (!this.fieldOfView.targetAquired) return;
-
-            this.ActivateFollow(this.fieldOfView.visibleTargets.First());
+            if (!this.IsFollowing)
+            {
+                this.ActivateFollow(transform);
+            }
         }
 
         private void ActivateFollow(Transform transformToFollow)
@@ -114,7 +62,57 @@ namespace JoJosAdventure.Enemies
         {
             this.IsFollowing = true;
             this.transformFollowing = transformToFollow;
-            this.currentTarget = transformToFollow.position;
+        }
+
+        private void PlayerOutOfSite()
+        {
+            this.Speak(new Speech("Where did the kitty go?", 2));
+            // Navigate back to patrol
+            this.humanAnimation.StopWalk();
+            this.IsFollowing = false;
+        }
+
+        private void FollowPlayerInSight()
+        {
+            // smarter routing with a queue? But then could stand still if player does or run wrong way
+            //    this.walkingToSpot = this.followingPositions.Dequeue();
+
+            this.transform.position = Vector2.Lerp(this.transform.position, this.transformFollowing.position, Time.deltaTime * this.MoveSpeed);
+
+            this.lookAtPlayer();
+
+            if (!this.fieldOfView.PlayerInSight)
+            {
+                this.PlayerOutOfSite();
+            }
+        }
+
+        private void lookAtPlayer()
+        {
+            float rotationSpeed = 0.5f;
+
+            // 1st attempt
+            //this.transform.right = Vector3.Lerp(this.transform.right, this.transformFollowing.position - this.transform.position, rotationSpeed);
+
+            // 2nd attempt
+            //Vector3 relativeTarget = (this.transformFollowing.position - this.transform.position).normalized;
+            ////Vector3.right if you have a sprite rotated in the right direction
+            //Quaternion toQuaternion = Quaternion.FromToRotation(Vector3.right, relativeTarget);
+            //this.transform.rotation = Quaternion.Slerp(this.transform.rotation, toQuaternion, rotationSpeed * Time.deltaTime);
+
+            // 3rd attempt
+            //Vector3 dir = this.transformFollowing.position - this.transform.position;
+            //float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            //this.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
+
+        private void OnCollisionEnter2D(Collision2D col)
+        {
+            // This means bumping into the back would capture
+            // An alternative is to check contact with player collider in follow
+            if (!LayersUtil.IsColliderPlayer(col.collider)) return;
+
+            this.GrabJojo();
         }
 
         private void GrabJojo()

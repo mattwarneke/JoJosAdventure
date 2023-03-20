@@ -99,14 +99,10 @@ MonoBehaviour:
   viewAngle: 40
   viewRadius: 5
   meshResolution: 0.5
-  targetMask:
+  rayMask:
     serializedVersion: 2
-    m_Bits: 8
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 241
-  visibleTargets: []
+    m_Bits: 456
   edgeResolveIterations: 0
   edgeDstThreshold: 0
   viewMeshFilter: {fileID: 4194258518090340751}
-  targetAquired: 0
+  PlayerInSight: 0

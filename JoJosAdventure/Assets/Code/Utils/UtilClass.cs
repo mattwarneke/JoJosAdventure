@@ -2,7 +2,7 @@
 
 namespace JoJosAdventure.Utils
 {
-    public class UtilsClass
+    public class UtilClass
     {
         public static Vector3 DirFromAngleGlobal(float angleInDegrees)
         {

@@ -1,5 +1,5 @@
 using JoJosAdventure.Utils;
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,11 +22,10 @@ namespace JoJosAdventure.Enemies
         /// </summary>
         public float meshResolution = 0.25f;
 
-        public LayerMask targetMask;
-        public LayerMask obstacleMask;
-
-        ///[HideInInspector]
-        public List<Transform> visibleTargets = new List<Transform>();
+        /// <summary>
+        /// Must include playerLayer to detect in ray collision
+        /// </summary>
+        public LayerMask rayMask;
 
         public int edgeResolveIterations;
         public float edgeDstThreshold;
@@ -34,51 +33,20 @@ namespace JoJosAdventure.Enemies
         public MeshFilter viewMeshFilter;
         private Mesh mesh;
 
-        public bool targetAquired = false;
+        public event Action<Transform> OnPlayerSpotted;
+
+        public bool PlayerInSight = false;
 
         private void Start()
         {
             this.mesh = new Mesh();
             this.mesh.name = "View Mesh";
             this.viewMeshFilter.mesh = this.mesh;
-
-            this.StartCoroutine("FindTargetsWithDelay", .2f);
         }
 
         private void LateUpdate()
         {
             this.DrawFieldOfView();
-        }
-
-        private IEnumerator FindTargetsWithDelay(float delay)
-        {
-            while (true)
-            {
-                yield return new WaitForSeconds(delay);
-                this.FindVisibleTargets();
-            }
-        }
-
-        private void FindVisibleTargets()
-        {
-            this.visibleTargets.Clear();
-            this.targetAquired = false;
-            Collider2D[] targetsInViewRadius = Physics2D.OverlapCircleAll(new Vector2(this.transform.position.x, this.transform.position.y), this.viewRadius, this.targetMask);
-            for (int i = 0; i < targetsInViewRadius.Length; i++)
-            {
-                Transform target = targetsInViewRadius[i].transform;
-                Vector2 dirToTarget = (target.position - this.transform.position).normalized;
-                if (Vector2.Angle(new Vector2(Mathf.Sin(UtilsClass.GetGlobalAngleAddition(this.transform) * Mathf.Deg2Rad), Mathf.Cos(UtilsClass.GetGlobalAngleAddition(this.transform) * Mathf.Deg2Rad)), dirToTarget) < this.viewAngle / 2)
-                {
-                    float dstToTarget = Vector3.Distance(this.transform.position, target.position);
-
-                    if (!Physics2D.Raycast(this.transform.position, dirToTarget, dstToTarget, this.obstacleMask))
-                    {
-                        this.visibleTargets.Add(target);
-                        this.targetAquired = true;
-                    }
-                }
-            }
         }
 
         // cache arrays for performance
@@ -89,13 +57,15 @@ namespace JoJosAdventure.Enemies
 
         private void DrawFieldOfView()
         {
+            this.PlayerInSight = false;
+
             int stepCount = Mathf.RoundToInt(this.viewAngle * this.meshResolution);
             float stepAngleSize = this.viewAngle / stepCount;
             this.viewPoints = new List<Vector3>();
             for (int i = 0; i <= stepCount; i++)
             {
                 // Need to factor in the z of the transform + the body direction
-                float angle = UtilsClass.GetGlobalAngleAddition(this.transform) - (this.viewAngle / 2) + (stepAngleSize * i);
+                float angle = UtilClass.GetGlobalAngleAddition(this.transform) - (this.viewAngle / 2) + (stepAngleSize * i);
                 // global Angle since we already added the rotation in with the subtraction
                 //Vector3 dir = DirFromAngle(angle, true);
                 //Debug.DrawLine(transform.position, transform.position + dir * viewAngle, Color.red);
@@ -136,7 +106,7 @@ namespace JoJosAdventure.Enemies
             ViewCastInfo oldViewCast = new ViewCastInfo();
             for (int i = 0; i < rayCount; i++)
             {
-                float angle = UtilsClass.GetGlobalAngleAddition(this.transform) - (this.viewAngle / 2) + (stepAngleSize * i);
+                float angle = UtilClass.GetGlobalAngleAddition(this.transform) - (this.viewAngle / 2) + (stepAngleSize * i);
                 ViewCastInfo newViewCast = this.ViewCast(angle);
 
                 if (i > 0)
@@ -213,7 +183,7 @@ namespace JoJosAdventure.Enemies
 
         private ViewCastInfo ViewCast(float globalAngle)
         {
-            Vector3 dir = UtilsClass.DirFromAngleGlobal(globalAngle);
+            Vector3 dir = UtilClass.DirFromAngleGlobal(globalAngle);
             RaycastHit2D hit;
 
             if (FlagsUtil.DebugMode)
@@ -222,9 +192,17 @@ namespace JoJosAdventure.Enemies
                 Debug.DrawRay(testRay.origin, testRay.direction * this.viewRadius);
             }
 
-            hit = Physics2D.Raycast(this.transform.position, dir, this.viewRadius, this.obstacleMask);
+            hit = Physics2D.Raycast(this.transform.position, dir, this.viewRadius);
+            //, this.obstacleMask); this would ignore player
+            // make mask of player + obstacle
             if (hit.collider != null)
             {
+                if (LayersUtil.IsColliderPlayer(hit.collider))
+                {
+                    this.OnPlayerSpotted.Invoke(hit.transform);
+                    this.PlayerInSight = true;
+                }
+
                 return new ViewCastInfo(true, hit.point, hit.distance, globalAngle);
             }
             else

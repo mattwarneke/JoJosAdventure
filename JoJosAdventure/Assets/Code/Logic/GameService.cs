@@ -3,25 +3,33 @@
     using Assets.Code.GUI;
     using UnityEngine;
 
-    public class GameService
+    public class GameService : MonoBehaviour
     {
-        private static GameService _instance;
+        private static GameService instance;
+        public static GameService Instance => instance;
 
-        public static GameService Instance()
-        {
-            if (_instance == null)
-                _instance = new GameService();
-            return _instance;
-        }
+        public static bool IsRunning => instance != null;
 
-        private GameService()
+        /// <summary>
+        /// StartGame
+        /// When the GamseService Object Awakes prepare the game
+        /// </summary>
+        private void Awake()
         {
+            if (instance != null && (object)instance != this)
+            {
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                instance = this;
+            }
+
             this.CollectableCount = 0;
-            this.GuiController = GameObject.FindGameObjectWithTag("GuiController").GetComponent<GuiController>();
         }
 
         public int CollectableCount { get; private set; }
-        public GuiController GuiController { get; private set; }
+        public GuiController GuiController;
 
         public void HandleEvent(EventEnum eventTriggered)
         {

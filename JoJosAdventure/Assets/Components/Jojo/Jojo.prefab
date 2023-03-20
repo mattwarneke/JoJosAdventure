@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4905124941397324925}
   - component: {fileID: 63967125773622823}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: JojoAnimator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   - component: {fileID: 3514211732132738165}
   - component: {fileID: 3761292067099509903}
   - component: {fileID: 7136543942833931871}
-  - component: {fileID: 4136925342327555109}
+  - component: {fileID: 7819985172680418109}
   m_Layer: 3
   m_Name: Jojo
   m_TagString: Jojo
@@ -123,7 +123,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!60 &4136925342327555109
+--- !u!60 &7819985172680418109
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,15 +148,21 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.2562828, y: 0.40894318}
-      - {x: 0.12021446, y: 0.7085209}
-      - {x: -0.069263935, y: 0.79753494}
-      - {x: -0.6316433, y: 0.7590294}
-      - {x: -0.8444963, y: 0.20245722}
-      - {x: -0.7294011, y: 0.04134941}
-      - {x: -0.20416874, y: -0.38277614}
-      - {x: 0.3693372, y: -0.3188417}
-      - {x: 0.5354719, y: 0.20245737}
+    - - {x: 0.40617082, y: 0.6112734}
+      - {x: 0.0890005, y: 0.6276104}
+      - {x: -0.0984804, y: 0.6899691}
+      - {x: -0.09755987, y: 0.42938188}
+      - {x: -0.17034826, y: 0.27852297}
+      - {x: -0.37609726, y: 0.17000806}
+      - {x: -0.4143612, y: -0.008349856}
+      - {x: -0.3798822, y: -0.20719248}
+      - {x: -0.26907822, y: -0.31640616}
+      - {x: 0.35070294, y: -0.28743562}
+      - {x: 0.4253557, y: -0.033650324}
+      - {x: 0.5516033, y: 0.024552137}
+      - {x: 0.66094023, y: 0.15189108}
+      - {x: 0.56883, y: 0.452348}
+      - {x: 0.61184615, y: 0.688349}
 --- !u!1 &8894634370842210448
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +173,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8897829928650135360}
   - component: {fileID: 8757164572384805822}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +257,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8891784057011535106}
   - component: {fileID: 8756758321096500226}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,7 +347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8891517272868688992}
   - component: {fileID: 8756792112710187772}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Eye1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +431,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8891740617273283624}
   - component: {fileID: 8756971283648950914}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -509,7 +515,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8897468238291571842}
   - component: {fileID: 8757156919523866358}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ear1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -593,7 +599,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8897432471391935916}
   - component: {fileID: 8756390213434006130}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Leg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -677,7 +683,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8891566573029371846}
   - component: {fileID: 8756850128326110460}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Eye2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -761,7 +767,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8897718217635933804}
   - component: {fileID: 8755323457786877768}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Leg3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -845,7 +851,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8891466619612362524}
   - component: {fileID: 8756984351948217824}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Leg4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -929,7 +935,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8891715348546756816}
   - component: {fileID: 8756324771958232000}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ear2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1013,7 +1019,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8891738970328922794}
   - component: {fileID: 8756733396501629678}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Leg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1097,7 +1103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8891746590549751044}
   - component: {fileID: 8757247174733692308}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: mouth2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1181,7 +1187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8891739112555573910}
   - component: {fileID: 8757205722484557102}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1265,7 +1271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8897913235202466318}
   - component: {fileID: 8756397366217755180}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1279,9 +1285,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8896488614030488516}
-  m_LocalRotation: {x: -0, y: 0.00000008742278, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8891784057011535106}
