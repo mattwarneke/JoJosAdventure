@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewAngle: 40
   viewRadius: 5
-  meshResolution: 0.5
+  meshResolution: 0.25
   rayMask:
     serializedVersion: 2
     m_Bits: 456

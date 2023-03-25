@@ -57,30 +57,6 @@ namespace JoJosAdventure.Enemies
             }
         }
 
-        private void RotateIntoDirectionOfPlayer()
-        {
-            Vector2 direction = this.PlayerTransform.position - this.transform.position;
-            // We must flip the y for Unity, y points upwards, rather than down as the Mathf would calculate
-            direction.y = -direction.y;
-
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-            // maintain intial rotation
-            angle -= this.initialRotation.eulerAngles.z;
-
-            this.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-            // USE THE BELOW SCRIPT IF THE PARENT OBJECT ALSO ROTATES
-            //// Get the initial rotation of the game object in world space
-            //Quaternion initialWorldRotation = Quaternion.Euler(0f, 0f, this.initialRotation.eulerAngles.z) * this.transform.parent.rotation;
-
-            //// Construct a new rotation that only updates the Z-axis
-            //Quaternion newRotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-            //// Apply the new rotation to the game object's local rotation, while maintaining the initial world rotation
-            //this.transform.rotation = initialWorldRotation * newRotation;
-        }
-
         // cache arrays for performance
         private Vector3[] vertices;
 
@@ -126,87 +102,28 @@ namespace JoJosAdventure.Enemies
             this.mesh.RecalculateNormals();
         }
 
-        private void DrawFieldOfViewImproved()
+        private void RotateIntoDirectionOfPlayer()
         {
-            int rayCount = Mathf.RoundToInt(this.viewAngle * this.meshResolution);
-            float stepAngleSize = this.viewAngle / rayCount;
-            List<Vector3> viewPoints = new List<Vector3>();
-            ViewCastInfo oldViewCast = new ViewCastInfo();
-            for (int i = 0; i < rayCount; i++)
-            {
-                float angle = UtilClass.GetGlobalTransformAngleAddition(this.transform) - (this.viewAngle / 2) + (stepAngleSize * i);
-                ViewCastInfo newViewCast = this.ViewCast(angle);
+            Vector2 direction = this.PlayerTransform.position - this.transform.position;
+            // We must flip the y for Unity, y points upwards, rather than down as the Mathf would calculate
+            direction.y = -direction.y;
 
-                if (i > 0)
-                {
-                    bool edgeDstThresholdExceeded = Mathf.Abs(oldViewCast.dst - newViewCast.dst) > this.edgeDstThreshold;
-                    if (oldViewCast.hit != newViewCast.hit || (oldViewCast.hit && newViewCast.hit && edgeDstThresholdExceeded))
-                    {
-                        EdgeInfo edge = this.FindEdge(oldViewCast, newViewCast);
-                        if (edge.pointA != Vector3.zero)
-                        {
-                            viewPoints.Add(edge.pointA);
-                        }
-                        if (edge.pointB != Vector3.zero)
-                        {
-                            viewPoints.Add(edge.pointB);
-                        }
-                    }
-                }
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-                viewPoints.Add(newViewCast.point);
-                oldViewCast = newViewCast;
-            }
+            // maintain intial rotation
+            angle -= this.initialRotation.eulerAngles.z;
 
-            int vertexCount = viewPoints.Count + 1;
-            Vector3[] vertices = new Vector3[vertexCount];
-            int[] triangles = new int[(vertexCount - 2) * 3];
+            this.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-            vertices[0] = Vector3.zero;
-            for (int i = 0; i < vertexCount - 1; i++)
-            {
-                vertices[i + 1] = this.transform.InverseTransformPoint(viewPoints[i]);
+            // USE THE BELOW SCRIPT IF THE PARENT OBJECT ALSO ROTATES
+            //// Get the initial rotation of the game object in world space
+            //Quaternion initialWorldRotation = Quaternion.Euler(0f, 0f, this.initialRotation.eulerAngles.z) * this.transform.parent.rotation;
 
-                if (i < vertexCount - 2)
-                {
-                    triangles[i * 3] = 0;
-                    triangles[(i * 3) + 1] = i + 1;
-                    triangles[(i * 3) + 2] = i + 2;
-                }
-            }
+            //// Construct a new rotation that only updates the Z-axis
+            //Quaternion newRotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-            this.mesh.Clear();
-            this.mesh.vertices = vertices;
-            this.mesh.triangles = triangles;
-            this.mesh.RecalculateNormals();
-        }
-
-        private EdgeInfo FindEdge(ViewCastInfo minViewCast, ViewCastInfo maxViewCast)
-        {
-            float minAngle = minViewCast.angle;
-            float maxAngle = maxViewCast.angle;
-            Vector3 minPoint = Vector3.zero;
-            Vector3 maxPoint = Vector3.zero;
-
-            for (int i = 0; i < this.edgeResolveIterations; i++)
-            {
-                float angle = (minAngle + maxAngle) / 2;
-                ViewCastInfo newViewCast = this.ViewCast(angle);
-
-                bool edgeDstThresholdExceeded = Mathf.Abs(minViewCast.dst - newViewCast.dst) > this.edgeDstThreshold;
-                if (newViewCast.hit == minViewCast.hit && !edgeDstThresholdExceeded)
-                {
-                    minAngle = angle;
-                    minPoint = newViewCast.point;
-                }
-                else
-                {
-                    maxAngle = angle;
-                    maxPoint = newViewCast.point;
-                }
-            }
-
-            return new EdgeInfo(minPoint, maxPoint);
+            //// Apply the new rotation to the game object's local rotation, while maintaining the initial world rotation
+            //this.transform.rotation = initialWorldRotation * newRotation;
         }
 
         private ViewCastInfo ViewCast(float globalAngle)
@@ -251,18 +168,6 @@ namespace JoJosAdventure.Enemies
                 this.point = _point;
                 this.dst = _dst;
                 this.angle = _angle;
-            }
-        }
-
-        public struct EdgeInfo
-        {
-            public Vector3 pointA;
-            public Vector3 pointB;
-
-            public EdgeInfo(Vector3 _pointA, Vector3 _pointB)
-            {
-                this.pointA = _pointA;
-                this.pointB = _pointB;
             }
         }
     }
