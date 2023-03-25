@@ -79,7 +79,7 @@ namespace JoJosAdventure.Enemies
 
             this.transform.position = Vector2.Lerp(this.transform.position, this.transformFollowing.position, Time.deltaTime * this.MoveSpeed);
 
-            this.lookAtPlayer();
+            this.flipToFacePlayer();
 
             if (!this.fieldOfView.PlayerInSight)
             {
@@ -87,23 +87,26 @@ namespace JoJosAdventure.Enemies
             }
         }
 
-        private void lookAtPlayer()
+        private void flipToFacePlayer()
         {
-            float rotationSpeed = 0.5f;
+            if (this.transformFollowing.position.x >= this.transform.position.x
+                && !this.isFacingRight)
+            {
+                this.Flip();
+            }
+            else if (this.transformFollowing.position.x < this.transform.position.x
+                && this.isFacingRight)
+            {
+                this.Flip();
+            }
+        }
 
-            // 1st attempt
-            //this.transform.right = Vector3.Lerp(this.transform.right, this.transformFollowing.position - this.transform.position, rotationSpeed);
+        public GameObject FlipContainer;
+        private bool isFacingRight => this.FlipContainer.transform.eulerAngles.y < 180;
 
-            // 2nd attempt
-            //Vector3 relativeTarget = (this.transformFollowing.position - this.transform.position).normalized;
-            ////Vector3.right if you have a sprite rotated in the right direction
-            //Quaternion toQuaternion = Quaternion.FromToRotation(Vector3.right, relativeTarget);
-            //this.transform.rotation = Quaternion.Slerp(this.transform.rotation, toQuaternion, rotationSpeed * Time.deltaTime);
-
-            // 3rd attempt
-            //Vector3 dir = this.transformFollowing.position - this.transform.position;
-            //float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            //this.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        private void Flip()
+        {
+            this.FlipContainer.transform.Rotate(0, 180, 0);
         }
 
         private void OnCollisionEnter2D(Collision2D col)

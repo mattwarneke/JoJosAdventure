@@ -11,12 +11,12 @@ namespace JoJosAdventure.Utils
 
         public static Vector3 DirFromAngleLocal(float angleInDegrees, Transform transform)
         {
-            angleInDegrees += GetGlobalAngleAddition(transform);
+            angleInDegrees += GetGlobalTransformAngleAddition(transform);
 
             return DirFromAngleGlobal(angleInDegrees);
         }
 
-        public static float GetGlobalAngleAddition(Transform transform)
+        public static float GetGlobalTransformAngleAddition(Transform transform)
         {
             // this will also take into account rotation of parent
             return transform.eulerAngles.y
