@@ -61,7 +61,7 @@ namespace JoJosAdventure.Enemies
         private Vector3[] vertices;
 
         private int[] triangles;
-        private List<Vector3> viewPoints;
+        private List<Vector3> viewPoints = new List<Vector3>();
 
         private void DrawFieldOfView()
         {
@@ -69,7 +69,8 @@ namespace JoJosAdventure.Enemies
 
             int stepCount = Mathf.RoundToInt(this.viewAngle * this.meshResolution);
             float stepAngleSize = this.viewAngle / stepCount;
-            this.viewPoints = new List<Vector3>();
+            this.viewPoints.Clear();
+            // ray cast in a cone shape - look for collisions and player
             for (int i = 0; i <= stepCount; i++)
             {
                 float angle = UtilClass.GetGlobalTransformAngleAddition(this.transform) - (this.viewAngle / 2) + (stepAngleSize * i);
@@ -82,6 +83,7 @@ namespace JoJosAdventure.Enemies
             this.vertices = new Vector3[vertexCount];
             this.triangles = new int[(vertexCount - 2) * 3];
 
+            // create the mesh vertices to represent the field of view
             this.vertices[0] = Vector3.zero;
             for (int i = 0; i < vertexCount - 1; i++)
             {

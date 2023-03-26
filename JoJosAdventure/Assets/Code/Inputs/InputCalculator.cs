@@ -1,6 +1,6 @@
 ﻿using Assets.Code.Enums;
 
-namespace Assets.Code.Logic
+namespace Assets.Code.Inputs
 {
     public static class InputCalculator
     {

@@ -1,5 +1,4 @@
-﻿using Assets.Code;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FadeScript : MonoBehaviour
 {
@@ -72,7 +71,7 @@ public class FadeScript : MonoBehaviour
             {
                 this.AlphaValue = 1.0f;
                 this.FadeType = FADETYPE.IN;
-                GameObject.Find("PlayerCharacter").GetComponent<PlayerJojo>().RespawnPlayerAtCheckpoint();
+                //GameObject.Find("PlayerCharacter").GetComponent<PlayerJojo>().RespawnPlayerAtCheckpoint;
             }
         }
 
