@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5777011105334790151
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5253848451114743721, guid: 26ccb67ff5a4e453bb4c5015f606ce34, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253848451114743727, guid: 26ccb67ff5a4e453bb4c5015f606ce34, type: 3}
+      propertyPath: m_Color.r
+      value: 0.50980395
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253848451114743727, guid: 26ccb67ff5a4e453bb4c5015f606ce34, type: 3}
+      propertyPath: m_Color.g
+      value: 0.36862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253848451114743727, guid: 26ccb67ff5a4e453bb4c5015f606ce34, type: 3}
+      propertyPath: m_Color.b
+      value: 0.24705882
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253848451633664738, guid: 26ccb67ff5a4e453bb4c5015f606ce34, type: 3}
+      propertyPath: m_Color.r
+      value: 0.50980395
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253848451633664738, guid: 26ccb67ff5a4e453bb4c5015f606ce34, type: 3}
+      propertyPath: m_Color.g
+      value: 0.36862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253848451633664738, guid: 26ccb67ff5a4e453bb4c5015f606ce34, type: 3}
+      propertyPath: m_Color.b
+      value: 0.24705882
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253848451929631702, guid: 26ccb67ff5a4e453bb4c5015f606ce34, type: 3}
+      propertyPath: m_Name
+      value: Bunny2 baby
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253848451929631703, guid: 26ccb67ff5a4e453bb4c5015f606ce34, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253848451929631703, guid: 26ccb67ff5a4e453bb4c5015f606ce34, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253848451929631703, guid: 26ccb67ff5a4e453bb4c5015f606ce34, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253848451929631703, guid: 26ccb67ff5a4e453bb4c5015f606ce34, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253848451929631703, guid: 26ccb67ff5a4e453bb4c5015f606ce34, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253848451929631703, guid: 26ccb67ff5a4e453bb4c5015f606ce34, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253848451929631703, guid: 26ccb67ff5a4e453bb4c5015f606ce34, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253848451929631703, guid: 26ccb67ff5a4e453bb4c5015f606ce34, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253848451929631703, guid: 26ccb67ff5a4e453bb4c5015f606ce34, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253848451929631703, guid: 26ccb67ff5a4e453bb4c5015f606ce34, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253848451929631703, guid: 26ccb67ff5a4e453bb4c5015f606ce34, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253848452733930129, guid: 26ccb67ff5a4e453bb4c5015f606ce34, type: 3}
+      propertyPath: m_Color.r
+      value: 0.50980395
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253848452733930129, guid: 26ccb67ff5a4e453bb4c5015f606ce34, type: 3}
+      propertyPath: m_Color.g
+      value: 0.36862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253848452733930129, guid: 26ccb67ff5a4e453bb4c5015f606ce34, type: 3}
+      propertyPath: m_Color.b
+      value: 0.24705882
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253848452733930131, guid: 26ccb67ff5a4e453bb4c5015f606ce34, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253848452874158497, guid: 26ccb67ff5a4e453bb4c5015f606ce34, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253848452874158503, guid: 26ccb67ff5a4e453bb4c5015f606ce34, type: 3}
+      propertyPath: m_Color.r
+      value: 0.50980395
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253848452874158503, guid: 26ccb67ff5a4e453bb4c5015f606ce34, type: 3}
+      propertyPath: m_Color.g
+      value: 0.36862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253848452874158503, guid: 26ccb67ff5a4e453bb4c5015f606ce34, type: 3}
+      propertyPath: m_Color.b
+      value: 0.24705882
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253848452933126531, guid: 26ccb67ff5a4e453bb4c5015f606ce34, type: 3}
+      propertyPath: m_Name
+      value: Bunny2 baby
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 26ccb67ff5a4e453bb4c5015f606ce34, type: 3}

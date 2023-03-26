@@ -1,6 +1,6 @@
-﻿namespace Assets.Code.Logic
+﻿namespace JoJosAdventure.Logic
 {
-    using Assets.Code.GUI;
+    using JoJosAdventure.GUI;
     using UnityEngine;
 
     public class GameService : MonoBehaviour
@@ -65,23 +65,28 @@
 
         public void MattFollowJoJo()
         {
-            this.GuiController.PauseJojoMovement();
             this.GuiController.SetMattFollowJojo();
             // should prob split speech in 2 so can do after speech callback
             this.GuiController.MattSpeak(SpeechRepository.GetMattFollowJoJoSpeech());
             this.GuiController.DoActionAfterXTime(3.5f, () =>
             {
-                this.GuiController.PanToPaigeWithCallBack(() => this.GuiController.RestartJoJoMovement());
+                this.GuiController.PanToPaigeWithCallBack(() =>
+                {
+                    //this.GuiController.RestartJoJoMovement()
+                });
             });
         }
 
         public void ExitLounge()
         {
-            this.GuiController.PauseJojoMovement();
+            //this.GuiController.PauseJojoMovement();
             this.GuiController.MattSpeakWithCallBack(SpeechRepository.GetExitLoungeSpeechNoneCollected(), () =>
             {
                 this.GuiController.PanToDemons();
-                this.GuiController.DoActionAfterPanFinished(() => this.GuiController.RestartJoJoMovement());
+                this.GuiController.DoActionAfterPanFinished(() =>
+                {
+                    //this.GuiController.RestartJoJoMovement()
+                });
             });
         }
 
@@ -95,35 +100,35 @@
                 return;
             }
 
-            this.GuiController.PauseJojoMovement();
+            //this.GuiController.PauseJojoMovement();
             this.GuiController.RemoveBedroomDoor();
             this.GuiController.PanToBedroomDoor();
             this.GuiController.DoActionAfterPanFinished(() =>
             {
                 this.GuiController.MattSpeak(SpeechRepository.GetNoMoreDemons());
-                this.GuiController.RestartJoJoMovement();
+                //this.GuiController.RestartJoJoMovement();
             });
         }
 
         public void EnterBedroom()
         {
-            this.GuiController.PauseJojoMovement();
+            //this.GuiController.PauseJojoMovement();
             this.GuiController.PanToPaigeWithCallBack(() =>
             {
                 this.GuiController.MattSpeakWithCallBack(
                     SpeechRepository.GetEnterBedroomSpeech(),
-                    () => this.GuiController.RestartJoJoMovement());
+                    () =>
+                    {
+                        //this.GuiController.RestartJoJoMovement()
+                    });
             });
         }
 
         public void JoJoNearJar()
         {
-            this.GuiController.PauseJojoMovement();
+            //this.GuiController.PauseJojoMovement();
 
             // double swip
-            this.JoJoSwip();
-            this.GuiController.DoActionAfterXTime(0.5f, () => this.JoJoSwip());
-
             // swip over do speech and ring
             this.GuiController.DoActionAfterXTime(1.5f, () =>
             {
@@ -152,11 +157,6 @@
         public void RemoveCollectable()
         {
             this.CollectableCount--;
-        }
-
-        public void JoJoSwip()
-        {
-            this.GuiController.JoJoSwipAnimation();
         }
     }
 }

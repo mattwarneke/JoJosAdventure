@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf7c34a0dc4e6348bea04faa70406ee, type: 3}
+  m_Name: Cat1 baby Sprite Library Asset
+  m_EditorClassIdentifier: 
+  m_Labels:
+  - m_Name: All
+    m_Hash: 55916349
+    m_CategoryList:
+    - m_Name: Body
+      m_Hash: 999990412
+      m_Sprite: {fileID: 21300000, guid: 90c93925057ed4ff29068c783aad2fee, type: 3}
+    - m_Name: Ear1
+      m_Hash: 139251018
+      m_Sprite: {fileID: 21300000, guid: 3ab2b6ab5365e45d69bff58589e4904d, type: 3}
+    - m_Name: Ear2
+      m_Hash: 289774832
+      m_Sprite: {fileID: 21300000, guid: befd2b142e4e145e8a3abf3107db0b65, type: 3}
+    - m_Name: Eye
+      m_Hash: 171295057
+      m_Sprite: {fileID: 21300000, guid: 27001f2657b7444579a4c0cfbb6945fd, type: 3}
+    - m_Name: Head
+      m_Hash: 130111906
+      m_Sprite: {fileID: 21300000, guid: 39fa1360fb0d449daa5d177a69d0486c, type: 3}
+    - m_Name: Leg1
+      m_Hash: 100191240
+      m_Sprite: {fileID: 21300000, guid: 6735b7253c36d472dbf0c39058fabdcf, type: 3}
+    - m_Name: Leg2
+      m_Hash: 485596594
+      m_Sprite: {fileID: 21300000, guid: 840089ad04a094f01adfbda1a9878c07, type: 3}
+    - m_Name: Leg3
+      m_Hash: 737586468
+      m_Sprite: {fileID: 21300000, guid: 8cc2c2a76617f4647b87eaa4d444b656, type: 3}
+    - m_Name: Mouth
+      m_Hash: 520385427
+      m_Sprite: {fileID: 21300000, guid: c881b7b55902047d3b55ffca372956a5, type: 3}
+    - m_Name: Fur
+      m_Hash: 655734211
+      m_Sprite: {fileID: 21300000, guid: dd7970592c16846249ce7b7a9c46b8b3, type: 3}
+    - m_Name: Tail
+      m_Hash: 470096739
+      m_Sprite: {fileID: 21300000, guid: 1be78dcd6b4f14b2f904c3ffb6b44476, type: 3}
+  m_ModificationHash: 0

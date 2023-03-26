@@ -1,4 +1,5 @@
-using Assets.Code.Logic;
+using JoJosAdventure.Animation;
+using JoJosAdventure.Logic;
 using JoJosAdventure.Utils;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ namespace JoJosAdventure.Enemies
 {
     public class HumanScript : MonoBehaviour
     {
-        public HumanAnimation humanAnimation;
+        public HumanAnimations humanAnimation;
         public FieldOfView fieldOfView;
         public SpeechBubble speechBubble;
 

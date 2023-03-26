@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf7c34a0dc4e6348bea04faa70406ee, type: 3}
+  m_Name: Afghanh baby Sprite Library Asset
+  m_EditorClassIdentifier: 
+  m_Labels:
+  - m_Name: All
+    m_Hash: 55916349
+    m_CategoryList:
+    - m_Name: BLeg1
+      m_Hash: 11398944
+      m_Sprite: {fileID: 21300000, guid: 4e73b2a405ece47aeaf4999581dd85fa, type: 3}
+    - m_Name: BLeg2
+      m_Hash: 430227098
+      m_Sprite: {fileID: 21300000, guid: 12f33c01db568478389f7f0cc2b562cb, type: 3}
+    - m_Name: BLeg3
+      m_Hash: 782470668
+      m_Sprite: {fileID: 21300000, guid: 82168e9e71c8b4966bcb485f4620bd70, type: 3}
+    - m_Name: Body
+      m_Hash: 999990412
+      m_Sprite: {fileID: 21300000, guid: 4d1afd7c7575e47dba1013edfefbd72e, type: 3}
+    - m_Name: Cheek
+      m_Hash: 722805905
+      m_Sprite: {fileID: 21300000, guid: 10295f6839073418ba150b0ccf3398a4, type: 3}
+    - m_Name: Ear
+      m_Hash: 201186511
+      m_Sprite: {fileID: 21300000, guid: bd0bd32113e954df3b1dbfafa62a9c6d, type: 3}
+    - m_Name: Eye
+      m_Hash: 171295057
+      m_Sprite: {fileID: 21300000, guid: 4655a14e77f234258a1bc0d71e0642e9, type: 3}
+    - m_Name: FLeg1
+      m_Hash: 892160480
+      m_Sprite: {fileID: 21300000, guid: 3c09980ac41494daabae84e056993d33, type: 3}
+    - m_Name: FLeg2
+      m_Hash: 740563034
+      m_Sprite: {fileID: 21300000, guid: 9693c5acd890d4916a6dfbb733e67a10, type: 3}
+    - m_Name: FLeg3
+      m_Hash: 455289036
+      m_Sprite: {fileID: 21300000, guid: a40fca10bf80a42689e4bbeb3fae6f75, type: 3}
+    - m_Name: Head
+      m_Hash: 130111906
+      m_Sprite: {fileID: 21300000, guid: cac0314ac11134ae79d88ebd8e69199f, type: 3}
+    - m_Name: Mouth
+      m_Hash: 520385427
+      m_Sprite: {fileID: 21300000, guid: 0c6b009a80a944746b5d0c8099b7f129, type: 3}
+    - m_Name: Nose
+      m_Hash: 550421485
+      m_Sprite: {fileID: 21300000, guid: ac6a65f4da60948f9b7010e073212269, type: 3}
+    - m_Name: Tail
+      m_Hash: 470096739
+      m_Sprite: {fileID: 21300000, guid: c79046fa600bd401495dee4b4664af0b, type: 3}
+  m_ModificationHash: 0

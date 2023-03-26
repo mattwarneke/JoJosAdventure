@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf7c34a0dc4e6348bea04faa70406ee, type: 3}
+  m_Name: Afghanhound Sprite Library Asset
+  m_EditorClassIdentifier: 
+  m_Labels:
+  - m_Name: All
+    m_Hash: 55916349
+    m_CategoryList:
+    - m_Name: BLeg1
+      m_Hash: 11398944
+      m_Sprite: {fileID: 21300000, guid: 272ff2c9be7894dc8847c713b4d21098, type: 3}
+    - m_Name: BLeg2
+      m_Hash: -1717256550
+      m_Sprite: {fileID: 21300000, guid: 40cbeaecea6ca4e9db273faca01f746c, type: 3}
+    - m_Name: BLeg3
+      m_Hash: -291271156
+      m_Sprite: {fileID: 21300000, guid: 2edb3420aa25c40e4915801fdf3f7af5, type: 3}
+    - m_Name: Body
+      m_Hash: 2073732236
+      m_Sprite: {fileID: 21300000, guid: f943d2162cb6748b2b35f8074e460ec7, type: 3}
+    - m_Name: Cheek
+      m_Hash: -1424677743
+      m_Sprite: {fileID: 21300000, guid: 58a3a6fb3290e488dbefa8cd65c61f7d, type: 3}
+    - m_Name: Ear
+      m_Hash: 1274928335
+      m_Sprite: {fileID: 21300000, guid: 6d25a46f42ce24f04821624e1b35d793, type: 3}
+    - m_Name: Eye
+      m_Hash: 1245036881
+      m_Sprite: {fileID: 21300000, guid: 8ebf0785a821a4580badb2a7fe949167, type: 3}
+    - m_Name: FLeg1
+      m_Hash: -181581344
+      m_Sprite: {fileID: 21300000, guid: d13798fa10f1048b18f87b3e5409abc0, type: 3}
+    - m_Name: FLeg2
+      m_Hash: 1814304858
+      m_Sprite: {fileID: 21300000, guid: c7e944436491d476da91c417c76c180a, type: 3}
+    - m_Name: FLeg3
+      m_Hash: 455289036
+      m_Sprite: {fileID: 21300000, guid: 9e6c5026f185943a1b7ddfe2623e27c9, type: 3}
+    - m_Name: Head1
+      m_Hash: -1157370838
+      m_Sprite: {fileID: 21300000, guid: 3ad617f91195141a1b33ae9e66e498bb, type: 3}
+    - m_Name: Head2
+      m_Hash: 571129232
+      m_Sprite: {fileID: 21300000, guid: 3208afbb5d4e443e58260615816b87a6, type: 3}
+    - m_Name: Mouth close1
+      m_Hash: -911407836
+      m_Sprite: {fileID: 21300000, guid: 299a24065951848178b733e76732cfa6, type: 3}
+    - m_Name: Mouth close2
+      m_Hash: 1352946846
+      m_Sprite: {fileID: 21300000, guid: 0fc9d5cdb46cd416f8d564494d0db465, type: 3}
+    - m_Name: Mouth close3
+      m_Hash: 665019400
+      m_Sprite: {fileID: 21300000, guid: cd4b3c10910a6471daec1695bc9c80eb, type: 3}
+    - m_Name: Mouth open
+      m_Hash: 1473331028
+      m_Sprite: {fileID: 21300000, guid: dcd409e9ea7894fc1a65d49029300639, type: 3}
+    - m_Name: Nose1
+      m_Hash: 1564983217
+      m_Sprite: {fileID: 21300000, guid: ada490ebf4c3243c1b6e2c0686987612, type: 3}
+    - m_Name: Nose2
+      m_Hash: -1001460213
+      m_Sprite: {fileID: 21300000, guid: d4db81843507f4314b7fb1f849775c6f, type: 3}
+    - m_Name: Tail
+      m_Hash: -603645085
+      m_Sprite: {fileID: 21300000, guid: b210caef3440746ab9439ae93dca0cf8, type: 3}
+    - m_Name: Tongue
+      m_Hash: -1001501137
+      m_Sprite: {fileID: 21300000, guid: f2d3ced6b6dbb4bcaaecdedd25618b30, type: 3}

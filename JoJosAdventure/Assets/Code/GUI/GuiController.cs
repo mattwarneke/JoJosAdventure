@@ -1,10 +1,11 @@
-﻿using Assets.Code.Logic;
+﻿using JoJosAdventure.JojoPlayer;
+using JoJosAdventure.Logic;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Code.GUI
+namespace JoJosAdventure.GUI
 {
     public class GuiController : MonoBehaviour
     {
@@ -14,13 +15,13 @@ namespace Assets.Code.GUI
         public CameraFollow CameraScript;
         public GameObject DialogCanvasGO;
 
-        private PlayerJojo PlayerJojo;
+        private JojoMovement PlayerJojo;
         private MattScript MattScript;
         private PaigeScript PaigeScript;
 
         private void Start()
         {
-            this.PlayerJojo = this.Jojo.GetComponent<PlayerJojo>();
+            this.PlayerJojo = this.Jojo.GetComponent<JojoMovement>();
             this.MattScript = this.Matt.GetComponent<MattScript>();
             this.PaigeScript = this.Paige.GetComponent<PaigeScript>();
         }
@@ -39,21 +40,6 @@ namespace Assets.Code.GUI
         public void MattSpeak(List<Speech> speech)
         {
             this.MattScript.Speak(speech);
-        }
-
-        public void PauseJojoMovement(float timePaused)
-        {
-            this.PlayerJojo.PauseWalking(timePaused);
-        }
-
-        public void PauseJojoMovement()
-        {
-            this.PlayerJojo.PauseWalking();
-        }
-
-        public void RestartJoJoMovement()
-        {
-            this.PlayerJojo.RestartWalking();
         }
 
         public Transform[] demonPositions;
@@ -89,22 +75,12 @@ namespace Assets.Code.GUI
             this.CameraScript.SetCustomPanTarget(this.Paige.transform);
         }
 
-        public void JoJoSwipAnimation()
-        {
-            this.PlayerJojo.PlaySwipAnimation();
-        }
-
         public GameObject BedroomDoor;
 
         public void RemoveBedroomDoor()
         {
             if (this.BedroomDoor != null)
                 this.BedroomDoor.SetActive(false);
-        }
-
-        public void NearJar()
-        {
-            this.PlayerJojo.PlaySwipAnimation();
         }
 
         public void ShowRingAnimation()

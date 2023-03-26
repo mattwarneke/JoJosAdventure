@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf7c34a0dc4e6348bea04faa70406ee, type: 3}
+  m_Name: Bunny Sprite Library Asset
+  m_EditorClassIdentifier: 
+  m_Labels:
+  - m_Name: All
+    m_Hash: 55916349
+    m_CategoryList:
+    - m_Name: Body
+      m_Hash: 2073732236
+      m_Sprite: {fileID: 21300000, guid: 4277097511e3b4149a36021ccb85ea4d, type: 3}
+    - m_Name: Ear down1
+      m_Hash: -419481367
+      m_Sprite: {fileID: 21300000, guid: bc8ca610bf43f466e8db035301de046e, type: 3}
+    - m_Name: Ear down2
+      m_Hash: 2146855251
+      m_Sprite: {fileID: 21300000, guid: a68ac35c78ac34a7fbaeaac53543e77a, type: 3}
+    - m_Name: Ear up1
+      m_Hash: 1192007353
+      m_Sprite: {fileID: 21300000, guid: b1ada94a6e93e4551b613a05ea876937, type: 3}
+    - m_Name: Ear up2
+      m_Hash: -570046717
+      m_Sprite: {fileID: 21300000, guid: aed4c0671475743c1b7495873760c963, type: 3}
+    - m_Name: Eye
+      m_Hash: 1245036881
+      m_Sprite: {fileID: 21300000, guid: 5c08737e56d164f6ab0549c52ac9d807, type: 3}
+    - m_Name: Head
+      m_Hash: 130111906
+      m_Sprite: {fileID: 21300000, guid: d1ef7e431ec5f455d86ade5b9a7c173e, type: 3}
+    - m_Name: Leg1
+      m_Hash: -973550584
+      m_Sprite: {fileID: 21300000, guid: 09e640af649814fb09ac24e3b1c6597e, type: 3}
+    - m_Name: Leg2
+      m_Hash: 1559338418
+      m_Sprite: {fileID: 21300000, guid: c28b5761d9bbc408b8bf0788a29f95ec, type: 3}
+    - m_Name: Leg3
+      m_Hash: 737586468
+      m_Sprite: {fileID: 21300000, guid: c8b2af02e381d40fdadee3052b80d376, type: 3}
+    - m_Name: Nose
+      m_Hash: 550421485
+      m_Sprite: {fileID: 21300000, guid: 6d4ddbfef1c3940abaec34d67e4cd1eb, type: 3}
+    - m_Name: Tail
+      m_Hash: -603645085
+      m_Sprite: {fileID: 21300000, guid: 0c1972a9e339649d284ee81cafdeb60e, type: 3}

@@ -1,4 +1,4 @@
-﻿namespace Assets.Code.Logic
+﻿namespace JoJosAdventure.Logic
 {
     public enum EventEnum
     {

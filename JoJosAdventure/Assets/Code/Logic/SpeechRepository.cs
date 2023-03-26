@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Assets.Code.Logic
+namespace JoJosAdventure.Logic
 {
     public static class SpeechRepository
     {

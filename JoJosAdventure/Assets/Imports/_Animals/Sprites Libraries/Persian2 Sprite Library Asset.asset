@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf7c34a0dc4e6348bea04faa70406ee, type: 3}
+  m_Name: Persian2 Sprite Library Asset
+  m_EditorClassIdentifier: 
+  m_Labels:
+  - m_Name: All
+    m_Hash: 55916349
+    m_CategoryList:
+    - m_Name: Body
+      m_Hash: 999990412
+      m_Sprite: {fileID: 21300000, guid: 5a1dd4cc7291a4459b25b07914679e52, type: 3}
+    - m_Name: Ear1
+      m_Hash: 139251018
+      m_Sprite: {fileID: 21300000, guid: 08f2a85a2a5e8490d9bae415957ab9d2, type: 3}
+    - m_Name: Ear2
+      m_Hash: 289774832
+      m_Sprite: {fileID: 21300000, guid: 4ce342e5e21e142dd97e887198c22ee8, type: 3}
+    - m_Name: Eye
+      m_Hash: 171295057
+      m_Sprite: {fileID: 21300000, guid: 34c60893180434274a8264bf8ecaa470, type: 3}
+    - m_Name: Head
+      m_Hash: 130111906
+      m_Sprite: {fileID: 21300000, guid: aef9d8607319f4002ab1c6ffdbb4f2f8, type: 3}
+    - m_Name: Leg1
+      m_Hash: 100191240
+      m_Sprite: {fileID: 21300000, guid: 14acdf524e9fb420198a1670712ab719, type: 3}
+    - m_Name: Leg2
+      m_Hash: 485596594
+      m_Sprite: {fileID: 21300000, guid: 9535dc5e4ed5146b4b54d2d98ef17360, type: 3}
+    - m_Name: Leg3
+      m_Hash: 737586468
+      m_Sprite: {fileID: 21300000, guid: d7f9cd64e8eb84e01b43472586ce7c1e, type: 3}
+    - m_Name: Mouth close
+      m_Hash: 776983140
+      m_Sprite: {fileID: 21300000, guid: 23cc8b6199eeb4e4b8d6f276ec8d369c, type: 3}
+    - m_Name: Mouth open
+      m_Hash: 399589204
+      m_Sprite: {fileID: 21300000, guid: e99312ab882a04335bb3bf4447f5d7b0, type: 3}
+    - m_Name: Tail
+      m_Hash: 470096739
+      m_Sprite: {fileID: 21300000, guid: 29677692cdce64c6785c7a1ce3b6ed91, type: 3}
+    - m_Name: Fur
+      m_Hash: 655734211
+      m_Sprite: {fileID: 21300000, guid: ee41b98edb12748e8ba08be9c3e4fd36, type: 3}
+    - m_Name: Neck
+      m_Hash: 2324845
+      m_Sprite: {fileID: 21300000, guid: 9a4e4e0188166478cafaf437231b9b6c, type: 3}
+  m_ModificationHash: 0

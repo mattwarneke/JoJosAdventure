@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2967391710127747252
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 796062193748606110, guid: 31c1550cf81d44baa8529232383ca39b, type: 3}
+      propertyPath: m_Name
+      value: Guineapig3
+      objectReference: {fileID: 0}
+    - target: {fileID: 833216315556038019, guid: 31c1550cf81d44baa8529232383ca39b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2daf2dabec75f455cb5996f4f50f7ed4, type: 3}
+    - target: {fileID: 1140048703639993408, guid: 31c1550cf81d44baa8529232383ca39b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2daf2dabec75f455cb5996f4f50f7ed4, type: 3}
+    - target: {fileID: 1458786094895473312, guid: 31c1550cf81d44baa8529232383ca39b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1458786094895473312, guid: 31c1550cf81d44baa8529232383ca39b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1458786094895473312, guid: 31c1550cf81d44baa8529232383ca39b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1458786094895473312, guid: 31c1550cf81d44baa8529232383ca39b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1458786094895473312, guid: 31c1550cf81d44baa8529232383ca39b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1458786094895473312, guid: 31c1550cf81d44baa8529232383ca39b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1458786094895473312, guid: 31c1550cf81d44baa8529232383ca39b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1458786094895473312, guid: 31c1550cf81d44baa8529232383ca39b, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1458786094895473312, guid: 31c1550cf81d44baa8529232383ca39b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1458786094895473312, guid: 31c1550cf81d44baa8529232383ca39b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1458786094895473312, guid: 31c1550cf81d44baa8529232383ca39b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1466239796277209085, guid: 31c1550cf81d44baa8529232383ca39b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e6e0926f3b9f34f739154cc9b29f299f, type: 3}
+    - target: {fileID: 2267445757949314376, guid: 31c1550cf81d44baa8529232383ca39b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 510e3d36904c8478b84a123042dbe873, type: 3}
+    - target: {fileID: 2298890369989973544, guid: 31c1550cf81d44baa8529232383ca39b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: abdbfbede13cb440986569eec35bf91d, type: 3}
+    - target: {fileID: 3510099777319945542, guid: 31c1550cf81d44baa8529232383ca39b, type: 3}
+      propertyPath: m_SpriteLibraryAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 587626c7e6ed3482b8248583522f92bc, type: 2}
+    - target: {fileID: 4263093113082521362, guid: 31c1550cf81d44baa8529232383ca39b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2daf2dabec75f455cb5996f4f50f7ed4, type: 3}
+    - target: {fileID: 4910761661981237990, guid: 31c1550cf81d44baa8529232383ca39b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2daf2dabec75f455cb5996f4f50f7ed4, type: 3}
+    - target: {fileID: 5655870519385680782, guid: 31c1550cf81d44baa8529232383ca39b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e6e0926f3b9f34f739154cc9b29f299f, type: 3}
+    - target: {fileID: 6282369718137222235, guid: 31c1550cf81d44baa8529232383ca39b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3b5dad68ac654430eb04d9a874393531, type: 3}
+    - target: {fileID: 6448044398005278124, guid: 31c1550cf81d44baa8529232383ca39b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4f41cc4c9d0cb49c2810b7bea9c88b16, type: 3}
+    - target: {fileID: 7548531763631001862, guid: 31c1550cf81d44baa8529232383ca39b, type: 3}
+      propertyPath: m_Name
+      value: Guineapig3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8799267630470926772, guid: 31c1550cf81d44baa8529232383ca39b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ea9aabf90742441e4ad39ffe4a1032d6, type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 31c1550cf81d44baa8529232383ca39b, type: 3}

@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf7c34a0dc4e6348bea04faa70406ee, type: 3}
+  m_Name: Pitbull baby Sprite Library Asset
+  m_EditorClassIdentifier: 
+  m_Labels:
+  - m_Name: All
+    m_Hash: 55916349
+    m_CategoryList:
+    - m_Name: BLeg1
+      m_Hash: 11398944
+      m_Sprite: {fileID: 21300000, guid: 1891d9124ca054af3af7b8a66d18b8bd, type: 3}
+    - m_Name: BLeg2
+      m_Hash: -1717256550
+      m_Sprite: {fileID: 21300000, guid: 84627150e0ff84394abe42b536537682, type: 3}
+    - m_Name: BLeg3
+      m_Hash: -291271156
+      m_Sprite: {fileID: 21300000, guid: 279f6d4e0374f4127933cca11209b97f, type: 3}
+    - m_Name: Body
+      m_Hash: 2073732236
+      m_Sprite: {fileID: 21300000, guid: 315b3192c3b8147b3b295dc9bfa6efe3, type: 3}
+    - m_Name: Cheek
+      m_Hash: -1424677743
+      m_Sprite: {fileID: 21300000, guid: dd7970592c16846249ce7b7a9c46b8b3, type: 3}
+    - m_Name: Ear1
+      m_Hash: -2008232630
+      m_Sprite: {fileID: 21300000, guid: 4fbec1b52abee4432aecb2ae8c71e5ea, type: 3}
+    - m_Name: Ear2
+      m_Hash: 289774832
+      m_Sprite: {fileID: 21300000, guid: 00c69b7c12fc74c23aaf4f799c6bdd3e, type: 3}
+    - m_Name: FLeg1
+      m_Hash: -181581344
+      m_Sprite: {fileID: 21300000, guid: c2901f20832fc41228bf62e39b60b424, type: 3}
+    - m_Name: FLeg2
+      m_Hash: 1814304858
+      m_Sprite: {fileID: 21300000, guid: 604c0c2866a4644c7b1878708b254da7, type: 3}
+    - m_Name: FLeg3
+      m_Hash: 455289036
+      m_Sprite: {fileID: 21300000, guid: 140867e6cdbaa4bf8a4db9b5a207ac6f, type: 3}
+    - m_Name: Head
+      m_Hash: 130111906
+      m_Sprite: {fileID: 21300000, guid: 6335d72a4a05e48f4a3ed3487a0863c2, type: 3}
+    - m_Name: Mouth
+      m_Hash: 1594127251
+      m_Sprite: {fileID: 21300000, guid: dd7970592c16846249ce7b7a9c46b8b3, type: 3}
+    - m_Name: Nose
+      m_Hash: 550421485
+      m_Sprite: {fileID: 21300000, guid: 18952e67521994f3f8b385cb3ef94f07, type: 3}
+    - m_Name: Tail
+      m_Hash: -603645085
+      m_Sprite: {fileID: 21300000, guid: 493fd47ec64914fedb6eea96e9f5abe1, type: 3}
+    - m_Name: Eye
+      m_Hash: 1245036881
+      m_Sprite: {fileID: 21300000, guid: d77d8e33ce5c54dc3b6e5ac13cec8057, type: 3}

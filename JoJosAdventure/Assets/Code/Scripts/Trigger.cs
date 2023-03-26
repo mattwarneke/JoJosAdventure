@@ -1,4 +1,4 @@
-﻿using Assets.Code.Logic;
+﻿using JoJosAdventure.Logic;
 using UnityEngine;
 
 public class Trigger : MonoBehaviour

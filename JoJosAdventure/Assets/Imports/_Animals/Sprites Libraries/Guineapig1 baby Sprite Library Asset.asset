@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf7c34a0dc4e6348bea04faa70406ee, type: 3}
+  m_Name: Guineapig1 baby Sprite Library Asset
+  m_EditorClassIdentifier: 
+  m_Labels:
+  - m_Name: All
+    m_Hash: 55916349
+    m_CategoryList:
+    - m_Name: Body
+      m_Hash: 2073732236
+      m_Sprite: {fileID: 21300000, guid: 66cfee1a9186c4c11bd88acbc312d697, type: 3}
+    - m_Name: Ear
+      m_Hash: 1274928335
+      m_Sprite: {fileID: 21300000, guid: 9d5facfe099444341b668918256cf30b, type: 3}
+    - m_Name: Eye
+      m_Hash: 1245036881
+      m_Sprite: {fileID: 21300000, guid: fee0ef7ea74c84d938b077e7715c24e1, type: 3}
+    - m_Name: Hand
+      m_Hash: -2024739407
+      m_Sprite: {fileID: 21300000, guid: fea40c9742ffe4bf1ab23180065b2912, type: 3}
+    - m_Name: Hair
+      m_Hash: 1019596327
+      m_Sprite: {fileID: 21300000, guid: dd7970592c16846249ce7b7a9c46b8b3, type: 3}
+    - m_Name: Head
+      m_Hash: 130111906
+      m_Sprite: {fileID: 21300000, guid: 08c578750214b470c80af09c5f6778ed, type: 3}
+    - m_Name: Mouth
+      m_Hash: 1594127251
+      m_Sprite: {fileID: 21300000, guid: aa7a9cc6da107406daba4bded70c3925, type: 3}

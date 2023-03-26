@@ -1,4 +1,5 @@
-﻿using Assets.Code.Logic;
+﻿using JoJosAdventure.Logic;
+using JoJosAdventure.Utils;
 using UnityEngine;
 
 public class CollectableBounce : MonoBehaviour
@@ -68,9 +69,9 @@ public class CollectableBounce : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.name == "PlayerCharacter")
+        if (LayersUtil.IsColliderPlayer(collider))
         {
-            GameService.Instance.JoJoSwip();
+            //GameService.Instance.JoJoSwip();
             Destroy(this.gameObject, 0.5f);
         }
     }

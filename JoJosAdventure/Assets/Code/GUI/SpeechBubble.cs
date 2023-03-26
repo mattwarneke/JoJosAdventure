@@ -1,4 +1,4 @@
-﻿using Assets.Code.Logic;
+﻿using JoJosAdventure.Logic;
 using System;
 using System.Collections;
 using System.Collections.Generic;
