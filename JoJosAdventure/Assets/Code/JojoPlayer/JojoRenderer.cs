@@ -32,8 +32,8 @@ namespace JoJosAdventure.JojoPlayer
                 Vector3 currentScale = this.gameObject.transform.localScale;
                 currentScale.x *= -1;
                 this.gameObject.transform.localScale = currentScale;
+                //this.transform.parent.transform.Rotate(0, 180, 0);
             }
-            //this.transform.parent.transform.Rotate(0, 180, 0);
         }
     }
 }
