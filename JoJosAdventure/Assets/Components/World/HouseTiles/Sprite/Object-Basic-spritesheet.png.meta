@@ -187,7 +187,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -196,7 +196,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -208,7 +208,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Server
     maxTextureSize: 2048
@@ -220,12 +220,12 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Map
+      name: Object-Basic-spritesheet_0
       rect:
         serializedVersion: 2
         x: 10
@@ -233,545 +233,545 @@ TextureImporter:
         width: 110
         height: 56
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02305410000000000800000000000000
-      internalID: 21300000
+      spriteID: 0794dfb57e2b0aa4380cab0df7d6c9f7
+      internalID: -1962569161
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bucket-empty
+      name: Object-Basic-spritesheet_1
       rect:
         serializedVersion: 2
         x: 131
         y: 446
         width: 57
         height: 55
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22305410000000000800000000000000
-      internalID: 21300002
+      spriteID: 3cd97c36ff1dc604a840b4b71bfd56da
+      internalID: -989525701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bucket-abandoned
+      name: Object-Basic-spritesheet_2
       rect:
         serializedVersion: 2
         x: 198
         y: 446
         width: 57
         height: 55
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42305410000000000800000000000000
-      internalID: 21300004
+      spriteID: deccd1e158aee00408033ce5d717b7d8
+      internalID: -633069807
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bucket-full
+      name: Object-Basic-spritesheet_3
       rect:
         serializedVersion: 2
         x: 265
         y: 446
         width: 57
         height: 55
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62305410000000000800000000000000
-      internalID: 21300006
+      spriteID: f2966649e3218634ca7c1d13f4c70e50
+      internalID: -1288856866
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slim-bucket-empty
+      name: Object-Basic-spritesheet_4
       rect:
         serializedVersion: 2
         x: 332
         y: 446
         width: 48
         height: 54
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82305410000000000800000000000000
-      internalID: 21300008
+      spriteID: 2068b6045877ae443bf8688c234d0553
+      internalID: -1451461486
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slim-bucket-abandoned
+      name: Object-Basic-spritesheet_5
       rect:
         serializedVersion: 2
         x: 393
         y: 446
         width: 48
         height: 54
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2305410000000000800000000000000
-      internalID: 21300010
+      spriteID: 7dc2dae6c6e418046a15ea0069b88e4a
+      internalID: 417902159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slim-bucket-full
+      name: Object-Basic-spritesheet_6
       rect:
         serializedVersion: 2
         x: 454
         y: 446
         width: 48
         height: 54
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2305410000000000800000000000000
-      internalID: 21300012
+      spriteID: c0b88ca63e01e8a4daf278694ed2e2af
+      internalID: 1345849890
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Treasure-box1
+      name: Object-Basic-spritesheet_7
       rect:
         serializedVersion: 2
         x: 10
         y: 367
         width: 60
         height: 69
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2305410000000000800000000000000
-      internalID: 21300014
+      spriteID: c93299f6e21227b449fde43974bb5bdb
+      internalID: 1653306801
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Treasure-box2
+      name: Object-Basic-spritesheet_8
       rect:
         serializedVersion: 2
         x: 73
         y: 367
         width: 60
         height: 71
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03305410000000000800000000000000
-      internalID: 21300016
+      spriteID: d71d554bc8b21424387ea59430ce31b0
+      internalID: -442131927
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Treasure-box3
+      name: Object-Basic-spritesheet_9
       rect:
         serializedVersion: 2
         x: 135
         y: 367
         width: 60
         height: 63
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23305410000000000800000000000000
-      internalID: 21300018
+      spriteID: 2c3b7c8ae0438b84eb9a4c46f7468c85
+      internalID: 1892223821
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Long-box
+      name: Object-Basic-spritesheet_10
       rect:
         serializedVersion: 2
         x: 197
         y: 367
         width: 105
         height: 69
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43305410000000000800000000000000
-      internalID: 21300020
+      spriteID: 179d9c567f35ba346a028e43c23f6190
+      internalID: -1430137160
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Long-box-opened
+      name: Object-Basic-spritesheet_11
       rect:
         serializedVersion: 2
         x: 303
         y: 367
         width: 130
         height: 78
-      alignment: 9
-      pivot: {x: 0.51412004, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63305410000000000800000000000000
-      internalID: 21300022
+      spriteID: f986e3577567cec4fa4cba13b42b3db8
+      internalID: 2031269460
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Big-jar
+      name: Object-Basic-spritesheet_12
       rect:
         serializedVersion: 2
         x: 436
         y: 364
         width: 66
         height: 75
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83305410000000000800000000000000
-      internalID: 21300024
+      spriteID: 957b9f413ecdc994da4ee8131c5443de
+      internalID: 560650342
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Box
+      name: Object-Basic-spritesheet_16
       rect:
         serializedVersion: 2
         x: 10
         y: 282
         width: 60
         height: 73
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6305410000000000800000000000000
-      internalID: 21300076
+      spriteID: fe7fc01535e22a546a3adbf97353a491
+      internalID: -223418967
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Box-no-lid
+      name: Object-Basic-spritesheet_17
       rect:
         serializedVersion: 2
         x: 73
         y: 282
         width: 60
         height: 73
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3305410000000000800000000000000
-      internalID: 21300028
+      spriteID: 00592a0090f1fcf4c9cf981f4a50a5d7
+      internalID: 1573277809
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Box-abandoned
+      name: Object-Basic-spritesheet_18
       rect:
         serializedVersion: 2
         x: 135
         y: 282
         width: 60
         height: 73
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3305410000000000800000000000000
-      internalID: 21300030
+      spriteID: 2eb55b8036c3b4a4c832870a50352380
+      internalID: -1702800848
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Box-break1
+      name: Object-Basic-spritesheet_19
       rect:
         serializedVersion: 2
         x: 199
-        y: 283
+        y: 284
         width: 84
-        height: 81
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04305410000000000800000000000000
-      internalID: 21300032
+      spriteID: 3ba8a6359ec791a4593de8a9077f552b
+      internalID: -890629465
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Box-break2
+      name: Object-Basic-spritesheet_20
       rect:
         serializedVersion: 2
         x: 286
         y: 282
         width: 80
         height: 59
-      alignment: 9
-      pivot: {x: 0.4610649, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24305410000000000800000000000000
-      internalID: 21300034
+      spriteID: b02f070eeb0016f4db8b3a20d75e8c8c
+      internalID: 1153465277
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wall-barrel
+      name: Object-Basic-spritesheet_21
       rect:
         serializedVersion: 2
         x: 374
         y: 282
         width: 62
         height: 68
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44305410000000000800000000000000
-      internalID: 21300036
+      spriteID: f7f2bc42f6779ac46a93e55250af379c
+      internalID: 5255367
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Table-barrel
+      name: Object-Basic-spritesheet_22
       rect:
         serializedVersion: 2
         x: 440
         y: 282
         width: 62
         height: 73
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64305410000000000800000000000000
-      internalID: 21300038
+      spriteID: 1e1b2e809e9d58b49b8e93c58957318e
+      internalID: -1960999631
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Barrel
+      name: Object-Basic-spritesheet_23
       rect:
         serializedVersion: 2
         x: 10
         y: 185
         width: 69
         height: 80
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84305410000000000800000000000000
-      internalID: 21300040
+      spriteID: c6633b06a8a16664a85d425af9bff049
+      internalID: 1952424187
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Barrel-abandoned
+      name: Object-Basic-spritesheet_24
       rect:
         serializedVersion: 2
         x: 83
         y: 185
         width: 72
         height: 67
-      alignment: 9
-      pivot: {x: 0.56, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4305410000000000800000000000000
-      internalID: 21300042
+      spriteID: e24577ea2ef2ae24ba84d05231515cf0
+      internalID: -918081072
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Barrel-break1
+      name: Object-Basic-spritesheet_25
       rect:
         serializedVersion: 2
         x: 160
         y: 185
         width: 72
         height: 93
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4305410000000000800000000000000
-      internalID: 21300044
+      spriteID: c13e8dec0e9c52942b0d972920f4eecc
+      internalID: -1932821804
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Barrel-break2
+      name: Object-Basic-spritesheet_26
       rect:
         serializedVersion: 2
         x: 237
         y: 185
         width: 81
         height: 49
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4305410000000000800000000000000
-      internalID: 21300046
+      spriteID: ffca613e8300d8d478cabe4488bb76ce
+      internalID: -1749629280
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Big-bucket
+      name: Object-Basic-spritesheet_27
       rect:
         serializedVersion: 2
         x: 329
         y: 185
         width: 84
         height: 66
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05305410000000000800000000000000
-      internalID: 21300048
+      spriteID: f0fb8bfcf280ea24092551f3b26c0946
+      internalID: -1499798825
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Small-jar
+      name: Object-Basic-spritesheet_28
       rect:
         serializedVersion: 2
         x: 425
         y: 185
         width: 41
         height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25305410000000000800000000000000
-      internalID: 21300050
+      spriteID: 26cb94184fc6fca4e9d8579acb63d5b3
+      internalID: 2071263668
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wall-torch-front
+      name: Object-Basic-spritesheet_29
       rect:
         serializedVersion: 2
         x: 481
@@ -779,230 +779,230 @@ TextureImporter:
         width: 21
         height: 39
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6305410000000000800000000000000
-      internalID: 21300078
+      spriteID: 66a3bd36deff5b74bb22df9f8728fbe9
+      internalID: 1277701716
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wall-torch-side
+      name: Object-Basic-spritesheet_30
       rect:
         serializedVersion: 2
         x: 475
         y: 187
         width: 27
         height: 32
-      alignment: 9
-      pivot: {x: 0.39905688, y: 0.39049482}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65305410000000000800000000000000
-      internalID: 21300054
+      spriteID: 5e55d088caa62034a955ad52138a2e64
+      internalID: -2132613082
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jar
+      name: Object-Basic-spritesheet_31
       rect:
         serializedVersion: 2
         x: 10
         y: 99
         width: 64
         height: 78
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85305410000000000800000000000000
-      internalID: 21300056
+      spriteID: 9c6b6f40291789e4985b4c3725deb981
+      internalID: 914756888
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jar-abandoned
+      name: Object-Basic-spritesheet_32
       rect:
         serializedVersion: 2
         x: 79
         y: 99
         width: 64
         height: 76
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5305410000000000800000000000000
-      internalID: 21300058
+      spriteID: ec36c1d59298dff4c96f9ac7448036f3
+      internalID: -2102351545
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Log-bundle1
+      name: Object-Basic-spritesheet_34
       rect:
         serializedVersion: 2
         x: 308
         y: 99
         width: 56
         height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5305410000000000800000000000000
-      internalID: 21300060
+      spriteID: 0275a6a750c76514baf5e92ec21f5afe
+      internalID: -327089170
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Log-bundle2
+      name: Object-Basic-spritesheet_35
       rect:
         serializedVersion: 2
         x: 371
         y: 99
         width: 57
         height: 72
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5305410000000000800000000000000
-      internalID: 21300062
+      spriteID: bf9d130b1857ab6488d95fde4cac6da6
+      internalID: 804270482
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Torch
+      name: Object-Basic-spritesheet_36
       rect:
         serializedVersion: 2
         x: 439
         y: 86
         width: 63
         height: 93
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06305410000000000800000000000000
-      internalID: 21300064
+      spriteID: 07de01fe25f8d0c46b279544ff3290b2
+      internalID: 1423186595
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jar-break1
-      rect:
-        serializedVersion: 2
-        x: 148
-        y: 99
-        width: 70
-        height: 82
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 26305410000000000800000000000000
-      internalID: 21300066
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jar-break2
+      name: Object-Basic-spritesheet_40
       rect:
         serializedVersion: 2
         x: 222
         y: 99
         width: 70
         height: 42
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46305410000000000800000000000000
-      internalID: 21300068
+      spriteID: 3069813b8a2974149ae196b8c00d95b9
+      internalID: 2016641006
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sack
+      name: Object-Basic-spritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 98
+        width: 71
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db4ed426e3abdf04689893d5b9b1c52f
+      internalID: -138874430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-Basic-spritesheet_42
       rect:
         serializedVersion: 2
         x: 10
         y: 26
         width: 70
         height: 70
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66305410000000000800000000000000
-      internalID: 21300070
+      spriteID: 2266b8ef547073f40a5bba952891100f
+      internalID: -368273995
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sack-opened
+      name: Object-Basic-spritesheet_43
       rect:
         serializedVersion: 2
         x: 82
         y: 26
         width: 73
         height: 50
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86305410000000000800000000000000
-      internalID: 21300072
+      spriteID: ad224b903ad6dc34a9dc2057272510d0
+      internalID: 1876173385
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Board
+      name: Object-Basic-spritesheet_44
       rect:
         serializedVersion: 2
         x: 160
@@ -1010,14 +1010,14 @@ TextureImporter:
         width: 87
         height: 56
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6305410000000000800000000000000
-      internalID: 21300074
+      spriteID: cc2b2a128bb6de24fbcc63e93cdac2ed
+      internalID: -553427604
       vertices: []
       indices: 
       edges: []
@@ -1025,7 +1025,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 123aebebed3c0d74497241f3a6558bd3
     internalID: 0
     vertices: []
     indices: 
@@ -1033,44 +1033,64 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Wall-barrel: 21300036
-      Box-break2: 21300034
-      Board: 21300074
-      Bucket-empty: 21300002
-      Treasure-box2: 21300016
-      Jar-abandoned: 21300058
-      Log-bundle1: 21300060
-      Sack-opened: 21300072
-      Jar: 21300056
-      Treasure-box1: 21300014
-      Slim-bucket-full: 21300012
-      Box-abandoned: 21300030
-      Map: 21300000
-      Box-break1: 21300032
-      Barrel: 21300040
-      Torch: 21300064
-      Box-no-lid: 21300028
-      Barrel-abandoned: 21300042
-      Jar-break2: 21300068
-      Treasure-box3: 21300018
-      Bucket-full: 21300006
-      Small-jar: 21300050
-      Slim-bucket-abandoned: 21300010
-      Bucket-abandoned: 21300004
-      Wall-torch-side: 21300054
-      Big-bucket: 21300048
-      Log-bundle2: 21300062
-      Box: 21300076
-      Wall-torch-front: 21300078
-      Jar-break1: 21300066
-      Table-barrel: 21300038
-      Long-box: 21300020
-      Slim-bucket-empty: 21300008
-      Big-jar: 21300024
-      Long-box-opened: 21300022
-      Barrel-break1: 21300044
-      Barrel-break2: 21300046
-      Sack: 21300070
+      Object-Basic-spritesheet_37: -1319169290
+      Object-Basic-spritesheet_26: -1749629280
+      Object-Basic-spritesheet_7: 1653306801
+      Object-Basic-spritesheet_16: -223418967
+      Object-Basic-spritesheet_38: -817164509
+      Object-Basic-spritesheet_4: -1451461486
+      Object-Basic-spritesheet_15: -1918629136
+      Object-Basic-spritesheet_6: 1345849890
+      Object-Basic-spritesheet_24: -918081072
+      Object-Basic-spritesheet_49: -163575309
+      Object-Basic-spritesheet_30: -2132613082
+      Object-Basic-spritesheet_35: 804270482
+      Object-Basic-spritesheet_12: 560650342
+      Object-Basic-spritesheet_19: -890629465
+      Object-Basic-spritesheet_25: -1932821804
+      Object-Basic-spritesheet_44: -553427604
+      Object-Basic-spritesheet_9: 1892223821
+      Object-Basic-spritesheet_32: -2102351545
+      Object-Basic-spritesheet_29: 1277701716
+      Object-Basic-spritesheet_14: -404030953
+      Object-Basic-spritesheet_10: -1430137160
+      Object-Basic-spritesheet_31: 914756888
+      Object-Basic-spritesheet_34: -327089170
+      Object-Basic-spritesheet_53: -1987312550
+      Object-Basic-spritesheet_50: -2114549738
+      Object-Basic-spritesheet_55: -2012305006
+      Object-Basic-spritesheet_52: 726020668
+      Object-Basic-spritesheet_51: 1789326906
+      Object-Basic-spritesheet_27: -1499798825
+      Object-Basic-spritesheet_18: -1702800848
+      Object-Basic-spritesheet_0: -1962569161
+      Object-Basic-spritesheet_20: 1153465277
+      Object-Basic-spritesheet_46: 975553434
+      Object-Basic-spritesheet_39: 1841862057
+      Object-Basic-spritesheet_56: 847156773
+      Object-Basic-spritesheet_17: 1573277809
+      Object-Basic-spritesheet_33: -177099933
+      Object-Basic-spritesheet_13: 212629787
+      Object-Basic-spritesheet_47: 123262460
+      Object-Basic-spritesheet_40: 2016641006
+      Object-Basic-spritesheet_45: 603805863
+      Object-Basic-spritesheet_54: 1577545539
+      Object-Basic-spritesheet_48: 1358630382
+      Object-Basic-spritesheet_43: 1876173385
+      Object-Basic-spritesheet_8: -442131927
+      Object-Basic-spritesheet_5: 417902159
+      Object-Basic-spritesheet_1: -989525701
+      Object-Basic-spritesheet_22: -1960999631
+      Object-Basic-spritesheet_36: 1423186595
+      Object-Basic-spritesheet_3: -1288856866
+      Object-Basic-spritesheet_28: 2071263668
+      Object-Basic-spritesheet_42: -368273995
+      Object-Basic-spritesheet_2: -633069807
+      Object-Basic-spritesheet_11: 2031269460
+      Object-Basic-spritesheet_41: -138874430
+      Object-Basic-spritesheet_21: 5255367
+      Object-Basic-spritesheet_23: 1952424187
+      Object-Basic-spritesheet_57: 2085767830
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

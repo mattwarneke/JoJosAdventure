@@ -547,7 +547,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -556,7 +556,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -568,7 +568,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Server
     maxTextureSize: 2048
@@ -580,7 +580,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -3703,9 +3703,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Bar-round-corner: 21300216
-      Wall-top-corner-in: 21300280
-      Wall-bottom-corner-in: 21300284
+      Meat2: 21300106
+      Floor3: 21300302
+      Jar2: 21300004
       Tree: 21300012
       Floor7: 21300312
       Windows2: 21300228
@@ -3721,7 +3721,6 @@ TextureImporter:
       Wall-hanger1: 21300038
       Fireplace1: 21300222
       Shelf4-side: 21300270
-      Floor3: 21300302
       Map: 21300014
       Shelf-slot2: 21300182
       Scroll3: 21300030
@@ -3733,6 +3732,7 @@ TextureImporter:
       Wall-hanger3: 21300042
       Floor6: 21300310
       Shelf4-big-round-middle: 21300260
+      Bar-round-corner: 21300216
       Bedsheet1: 21300110
       Shelf-slot4: 21300186
       Meat-hanger3: 21300044
@@ -3848,9 +3848,9 @@ TextureImporter:
       Fireplace2: 21300224
       Floor-lift: 21300318
       Candle4: 21300070
-      Jar2: 21300004
+      Wall-bottom-corner-in: 21300284
       Book1: 21300016
-      Meat2: 21300106
+      Wall-top-corner-in: 21300280
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
