@@ -170,38 +170,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls-no-background_1
-      rect:
-        serializedVersion: 2
-        x: 15
-        y: 174
-        width: 110
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -55, y: 7}
-        - {x: -55, y: -7}
-        - {x: 55, y: -7}
-        - {x: 55, y: 7}
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 22305410000000000800000000000000
-      internalID: 21300002
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: walls-no-background_2
       rect:
         serializedVersion: 2
         x: 125
         y: 21
         width: 18
-        height: 152
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -249,26 +224,22 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls-no-background_4
+      name: walls-no-background_5
       rect:
         serializedVersion: 2
-        x: 18
-        y: 8
-        width: 106
-        height: 13
+        x: 78
+        y: 81
+        width: 60
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -53, y: 6.5}
-        - {x: -53, y: -6.5}
-        - {x: 53, y: -6.5}
-        - {x: 53, y: 6.5}
+      outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82305410000000000800000000000000
-      internalID: 21300008
+      spriteID: 27ce1527364f9834db3b9b7147fe5317
+      internalID: 2116354812
       vertices: []
       indices: 
       edges: []
@@ -276,7 +247,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ea4d9c81e6abe9549949e33711d5e3cc
     internalID: 0
     vertices: []
     indices: 
@@ -285,6 +256,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       walls-no-background_3: 21300006
+      walls-no-background_5: 2116354812
       walls-no-background_2: 21300004
       walls-no-background_1: 21300002
       walls-no-background_0: 21300000

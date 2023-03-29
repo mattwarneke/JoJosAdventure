@@ -2160,15 +2160,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wall-column
+      name: Wall-column_0
       rect:
         serializedVersion: 2
         x: 959
         y: 444
-        width: 61
-        height: 199
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2688,8 +2688,8 @@ TextureImporter:
       name: Windows1
       rect:
         serializedVersion: 2
-        x: 251
-        y: 277
+        x: 252
+        y: 278
         width: 86
         height: 104
       alignment: 9
@@ -3378,15 +3378,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Base-wall-wood
+      name: Base-wall-wood_0
       rect:
         serializedVersion: 2
         x: 0
         y: 180
         width: 60
-        height: 180
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3399,15 +3399,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Base-wall-plaster1
+      name: Base-wall-plaster1_0
       rect:
         serializedVersion: 2
         x: 60
         y: 180
         width: 60
-        height: 180
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3420,15 +3420,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Base-wall-plaster2
+      name: Base-wall-plaster2_0
       rect:
         serializedVersion: 2
         x: 120
         y: 180
         width: 60
-        height: 180
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3441,15 +3441,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Base-wall-stone
+      name: Base-wall-stone_0
       rect:
         serializedVersion: 2
         x: 180
         y: 180
         width: 60
-        height: 180
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3692,10 +3692,220 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Base-wall-plaster2_1
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 240
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afcef7aed2204604fb87ce9f805a9eec
+      internalID: -134108620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Base-wall-plaster2_3
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 300
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 027608f300f2fe943b497ab2bbbc7d60
+      internalID: 2047113548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Base-wall-plaster1_1
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 240
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 975c56257b815b0448fd0ceb8b82cc06
+      internalID: 2078290478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Base-wall-plaster1_2
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 300
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5475b24d202f3dd498d209b623ad1de1
+      internalID: 1504272996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Base-wall-wood_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 240
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33a30ffa688a955418e36bfb4cfd2f68
+      internalID: -900840856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Base-wall-wood_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 300
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d61a678882d9dd40a1bbaa01bada0a7
+      internalID: -400167996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Base-wall-stone_1
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 240
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 367c5587d3d9ba641935642e977424dd
+      internalID: -973092482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Base-wall-stone_2
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 300
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc5cae41d68f55f4183394ce633514cf
+      internalID: -640651831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall-column_1
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 504
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be80ebaddc7465d478d5da91b3c55d32
+      internalID: 1112396834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall-column_2
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 564
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 896d8006e46da9c47bf616fdcbd690fd
+      internalID: -902576375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 38f54b785f2ff604194dd2d99b5f0ccf
     internalID: 0
     vertices: []
     indices: 
@@ -3703,9 +3913,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Meat2: 21300106
+      Wall-top-corner-in: 21300280
       Floor3: 21300302
-      Jar2: 21300004
+      Wall-bottom-corner-in: 21300284
       Tree: 21300012
       Floor7: 21300312
       Windows2: 21300228
@@ -3721,6 +3931,7 @@ TextureImporter:
       Wall-hanger1: 21300038
       Fireplace1: 21300222
       Shelf4-side: 21300270
+      Base-wall-wood_0: 21300290
       Map: 21300014
       Shelf-slot2: 21300182
       Scroll3: 21300030
@@ -3732,9 +3943,11 @@ TextureImporter:
       Wall-hanger3: 21300042
       Floor6: 21300310
       Shelf4-big-round-middle: 21300260
-      Bar-round-corner: 21300216
+      Meat2: 21300106
       Bedsheet1: 21300110
+      Base-wall-plaster1_1: 2078290478
       Shelf-slot4: 21300186
+      Wall-column_1: 1112396834
       Meat-hanger3: 21300044
       Pillow1: 21300086
       Windows4: 21300232
@@ -3744,6 +3957,7 @@ TextureImporter:
       Shelf2-middle: 21300240
       Wall-top-corner-out: 21300288
       Rack1: 21300248
+      Base-wall-plaster1_2: 1504272996
       Shelf-slot5: 21300188
       Shelf3-middle: 21300264
       Floor4: 21300306
@@ -3766,10 +3980,14 @@ TextureImporter:
       Floor2: 21300300
       Candle3: 21300068
       Table6: 21300146
-      Base-wall-plaster2: 21300294
       Shelf-slot1: 21300180
+      Base-wall-plaster2_1: -134108620
       Chair3: 21300094
+      Base-wall-plaster2_3: 2047113548
+      Base-wall-plaster2_0: 21300294
+      Wall-column_0: 21300160
       Candle1: 21300064
+      Wall-column_2: -902576375
       Bar4-middle: 21300174
       Bag: 21300034
       Bed1: 21300126
@@ -3779,8 +3997,8 @@ TextureImporter:
       Basket2: 21300056
       Meat3: 21300104
       Table7: 21300148
-      Wall-column: 21300160
       Windows3: 21300230
+      Base-wall-wood_2: -400167996
       Doors: 21300250
       Scroll1: 21300026
       Shelf2-side: 21300238
@@ -3794,9 +4012,11 @@ TextureImporter:
       Shelf4-round-side: 21300274
       Chopping-block: 21300048
       Meat-hanger2: 21300080
+      Base-wall-stone_0: 21300296
       Bar1-side: 21300198
+      Base-wall-wood_1: -900840856
       Bar1-middle: 21300210
-      Base-wall-plaster1: 21300292
+      Base-wall-stone_2: -640651831
       Book2: 21300018
       Shelf4-big-round-side: 21300258
       Windows5: 21300234
@@ -3813,7 +4033,6 @@ TextureImporter:
       Bedsheet2: 21300136
       Table2: 21300116
       Bar-cover: 21300236
-      Base-wall-wood: 21300290
       Floor5: 21300308
       Shelf4-big-middle: 21300256
       Bed3: 21300118
@@ -3831,13 +4050,15 @@ TextureImporter:
       Round-shelf: 21300196
       Teapot: 21300032
       Wall-shelf2: 21300218
+      Base-wall-plaster1_0: 21300292
       Broom: 21300036
+      Base-wall-stone_1: -973092482
       Water-bucket: 21300100
       Cloth-hanger: 21300082
       Table5: 21300144
       Shelf4-round-middle: 21300276
       Bed4: 21300108
-      Base-wall-stone: 21300296
+      Floor-lift: 21300318
       Table8: 21300112
       Wall-bottom: 21300278
       Bottle1: 21300058
@@ -3846,11 +4067,10 @@ TextureImporter:
       Shelf-slot3: 21300184
       Chair1: 21300134
       Fireplace2: 21300224
-      Floor-lift: 21300318
       Candle4: 21300070
-      Wall-bottom-corner-in: 21300284
+      Jar2: 21300004
       Book1: 21300016
-      Wall-top-corner-in: 21300280
+      Bar-round-corner: 21300216
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
