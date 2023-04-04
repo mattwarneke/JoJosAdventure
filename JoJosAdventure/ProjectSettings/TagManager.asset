@@ -43,18 +43,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Floor
+    uniqueID: 659779333
+    locked: 0
+  - name: Background
+    uniqueID: 402902717
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Tileset
-    uniqueID: 659779333
-    locked: 0
-  - name: TreeLayer
+  - name: Units
     uniqueID: 2165290591
     locked: 0
   - name: Speech
     uniqueID: 1331450951
     locked: 0
-  - name: Above
+  - name: Forground
     uniqueID: 2158772485
     locked: 0
