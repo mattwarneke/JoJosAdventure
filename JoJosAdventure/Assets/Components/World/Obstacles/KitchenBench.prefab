@@ -117,7 +117,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2129676705
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300210, guid: 7cf2324a869c84179b1d4273fef7690d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -209,7 +209,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -228,7 +228,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2129676705
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300056, guid: 6bb2b3e576b7a4097b0f8b38ea8efa62, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -238,7 +238,7 @@ SpriteRenderer:
   m_Size: {x: 0.64, y: 0.78}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &3322993782291860608
@@ -293,7 +293,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -312,7 +312,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2129676705
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300032, guid: 7cf2324a869c84179b1d4273fef7690d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -401,7 +401,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2129676705
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300210, guid: 7cf2324a869c84179b1d4273fef7690d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -643,7 +643,7 @@ PrefabInstance:
     - target: {fileID: 212521173646485084, guid: 1a7a538ca61762d4bb8a5ee11d19b27a,
         type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212521173646485084, guid: 1a7a538ca61762d4bb8a5ee11d19b27a,
         type: 3}
@@ -658,7 +658,7 @@ PrefabInstance:
     - target: {fileID: 212575005452113380, guid: 1a7a538ca61762d4bb8a5ee11d19b27a,
         type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212575005452113380, guid: 1a7a538ca61762d4bb8a5ee11d19b27a,
         type: 3}
@@ -762,7 +762,7 @@ PrefabInstance:
     - target: {fileID: 61844822258293784, guid: 940268fae7a3a3a45823e6b74718459c,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.8
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 212562405046270036, guid: 940268fae7a3a3a45823e6b74718459c,
         type: 3}
@@ -863,7 +863,7 @@ PrefabInstance:
     - target: {fileID: 212616194230229788, guid: 0b557c1c3f63e354c8637a55fc183941,
         type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212616194230229788, guid: 0b557c1c3f63e354c8637a55fc183941,
         type: 3}
@@ -959,7 +959,7 @@ PrefabInstance:
     - target: {fileID: 212616194230229788, guid: 0b557c1c3f63e354c8637a55fc183941,
         type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212616194230229788, guid: 0b557c1c3f63e354c8637a55fc183941,
         type: 3}
@@ -1067,7 +1067,7 @@ PrefabInstance:
     - target: {fileID: 61844822258293784, guid: 940268fae7a3a3a45823e6b74718459c,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.8
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 212562405046270036, guid: 940268fae7a3a3a45823e6b74718459c,
         type: 3}
@@ -1168,7 +1168,7 @@ PrefabInstance:
     - target: {fileID: 212536107829474462, guid: fce4bd9dfb4196c478ec2e06737b90bf,
         type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212536107829474462, guid: fce4bd9dfb4196c478ec2e06737b90bf,
         type: 3}
@@ -1260,7 +1260,7 @@ PrefabInstance:
     - target: {fileID: 212616194230229788, guid: 0b557c1c3f63e354c8637a55fc183941,
         type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212616194230229788, guid: 0b557c1c3f63e354c8637a55fc183941,
         type: 3}
@@ -1356,7 +1356,7 @@ PrefabInstance:
     - target: {fileID: 61844822258293784, guid: 940268fae7a3a3a45823e6b74718459c,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.8
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 212562405046270036, guid: 940268fae7a3a3a45823e6b74718459c,
         type: 3}
