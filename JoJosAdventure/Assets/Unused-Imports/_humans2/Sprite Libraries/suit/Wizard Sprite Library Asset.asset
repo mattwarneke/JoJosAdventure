@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf7c34a0dc4e6348bea04faa70406ee, type: 3}
+  m_Name: Wizard Sprite Library Asset
+  m_EditorClassIdentifier: 
+  m_Labels:
+  - m_Name: Body
+    m_Hash: 2073732236
+    m_CategoryList:
+    - m_Name: Body
+      m_Hash: 2073732236
+      m_Sprite: {fileID: 21300000, guid: 1f636522c3ae2426b87e8ee80bab9b4f, type: 3}
+  - m_Name: Head
+    m_Hash: 130111906
+    m_CategoryList:
+    - m_Name: Head
+      m_Hash: 130111906
+      m_Sprite: {fileID: 21300000, guid: f8ffc825e9d3e4f58a3a2c1d1c6b5174, type: 3}
+  - m_Name: Back arm
+    m_Hash: -2064355656
+    m_CategoryList:
+    - m_Name: Straight
+      m_Hash: -1242686235
+      m_Sprite: {fileID: 21300000, guid: 11693e06a51ff49d6899a439cccaf280, type: 3}
+    - m_Name: Bend
+      m_Hash: -270228215
+      m_Sprite: {fileID: 21300000, guid: 680d212613baa46299bfa75415bd58d3, type: 3}
+  - m_Name: Front arm
+    m_Hash: 562816095
+    m_CategoryList:
+    - m_Name: Straight
+      m_Hash: -1242686235
+      m_Sprite: {fileID: 21300000, guid: f4ea254fb8e354400b6c6bf60785e496, type: 3}
+    - m_Name: Bend
+      m_Hash: -270228215
+      m_Sprite: {fileID: 21300000, guid: 2b90408357b754fefab0a63e19708576, type: 3}
+  - m_Name: Legs
+    m_Hash: 1563094196
+    m_CategoryList:
+    - m_Name: Leg1
+      m_Hash: -973550584
+      m_Sprite: {fileID: 21300000, guid: 3236b780abe7b4af79af3e5d9deac2a8, type: 3}
+    - m_Name: Leg2
+      m_Hash: 1559338418
+      m_Sprite: {fileID: 21300000, guid: e948efa40db51465ea6c81f87268a574, type: 3}
+    - m_Name: Leg3
+      m_Hash: 737586468
+      m_Sprite: {fileID: 21300000, guid: 5325e5e321dd84683a27145dad383813, type: 3}
+    - m_Name: Leg4
+      m_Hash: -1248708473
+      m_Sprite: {fileID: 21300000, guid: 22e9a9a635a954478aee6053bd278d02, type: 3}
+  - m_Name: Hat
+    m_Hash: -1438192983
+    m_CategoryList:
+    - m_Name: Hat
+      m_Hash: -1438192983
+      m_Sprite: {fileID: 21300000, guid: 62d6f8f5a53134fbe86f7333b591ed25, type: 3}

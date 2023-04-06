@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf7c34a0dc4e6348bea04faa70406ee, type: 3}
+  m_Name: Beard Sprite Library Asset
+  m_EditorClassIdentifier: 
+  m_Labels:
+  - m_Name: Beard
+    m_Hash: -164961241
+    m_CategoryList:
+    - m_Name: Beard1
+      m_Hash: 639660088
+      m_Sprite: {fileID: 21300000, guid: 6fe4533215f3a434f90f93ac05722e69, type: 3}
+    - m_Name: Beard2
+      m_Hash: -1087823486
+      m_Sprite: {fileID: 21300000, guid: 80c4ae502705f40249a61f4b140ff5f1, type: 3}
+    - m_Name: Beard3
+      m_Hash: -936505068
+      m_Sprite: {fileID: 21300000, guid: 99d799c8108304efc982776c2e24b724, type: 3}
+    - m_Name: Beard4
+      m_Hash: 1447724215
+      m_Sprite: {fileID: 21300000, guid: 51188fab4871744b0a62db990ddd2baa, type: 3}
+    - m_Name: Beard5
+      m_Hash: 558740513
+      m_Sprite: {fileID: 21300000, guid: addeca70f0a9b450b9846b63dc8890ce, type: 3}
+    - m_Name: None
+      m_Hash: -542986255
+      m_Sprite: {fileID: 21300000, guid: 234300cad7b0742dab90a77dacbe4dfa, type: 3}

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf7c34a0dc4e6348bea04faa70406ee, type: 3}
+  m_Name: Hair2 Sprite Library Asset
+  m_EditorClassIdentifier: 
+  m_Labels:
+  - m_Name: Hair
+    m_Hash: 1019596327
+    m_CategoryList:
+    - m_Name: Hair0
+      m_Hash: 1374531460
+      m_Sprite: {fileID: 21300000, guid: 4c98296d1657344938f560860f9932fb, type: 3}
+    - m_Name: Hair6
+      m_Hash: -1198650703
+      m_Sprite: {fileID: 21300000, guid: 7485b702c9b63483ea9117bd740d5b01, type: 3}
+    - m_Name: Hair7
+      m_Hash: -813090265
+      m_Sprite: {fileID: 21300000, guid: 128ec8ea18fe74c8f91bd693262fbb99, type: 3}
+    - m_Name: Hair8
+      m_Hash: 1597384630
+      m_Sprite: {fileID: 21300000, guid: 664cfaa2db13640f5baa561c46cfa974, type: 3}
+    - m_Name: Hair9
+      m_Hash: 674305824
+      m_Sprite: {fileID: 21300000, guid: e44e2ca0375d3402c957d8da20f8a294, type: 3}
+    - m_Name: Hair10
+      m_Hash: 121914614
+      m_Sprite: {fileID: 21300000, guid: 9681562b04ecb4b89a4a41b6590a5ade, type: 3}
+    - m_Name: None
+      m_Hash: -542986255
+      m_Sprite: {fileID: 21300000, guid: 234300cad7b0742dab90a77dacbe4dfa, type: 3}
