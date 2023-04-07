@@ -2,16 +2,25 @@ using UnityEngine;
 
 namespace JoJosAdventure.Weapons
 {
-    public class AgentAimWeapon : MonoBehaviour
+    public class AgentWeapon : MonoBehaviour
     {
         protected float desiredAngle;
 
         [SerializeField]
         protected WeaponRenderer weaponRenderer;
 
+        [SerializeField]
+        protected Weapon weapon;
+
         private void Awake()
         {
+            this.assignWeapon();
+        }
+
+        private void assignWeapon()
+        {
             this.weaponRenderer = this.GetComponentInChildren<WeaponRenderer>();
+            this.weapon = this.GetComponentInChildren<Weapon>();
         }
 
         public virtual void AimWeapon(Vector2 pointerPosition)
@@ -24,9 +33,28 @@ namespace JoJosAdventure.Weapons
             this.transform.rotation = Quaternion.AngleAxis(this.desiredAngle, Vector3.forward);
         }
 
-        private void AdjustWeaponRendering()
+        protected void AdjustWeaponRendering()
         {
-            this.weaponRenderer?.FlipSprite(this.desiredAngle > 90 || this.desiredAngle < -90);
+            if (this.weaponRenderer != null)
+            {
+                this.weaponRenderer.FlipSprite(this.desiredAngle > 90 || this.desiredAngle < -90);
+            }
+        }
+
+        public void Shoot()
+        {
+            if (this.weapon != null)
+            {
+                this.weapon.Shoot();
+            }
+        }
+
+        public void StopShooting()
+        {
+            if (this.weapon != null)
+            {
+                this.weapon.StopShooting();
+            }
         }
     }
 }

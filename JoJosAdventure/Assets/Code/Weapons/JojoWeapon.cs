@@ -1,6 +1,6 @@
 namespace JoJosAdventure.Weapons
 {
-    public class JojoAimWeapon : AgentAimWeapon
+    public class JojoWeapon : AgentWeapon
     {
     }
 }
