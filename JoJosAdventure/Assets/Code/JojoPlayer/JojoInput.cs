@@ -48,6 +48,7 @@ namespace JoJosAdventure.JojoPlayer
             {
                 if (this.fireButtonDown == true)
                 {
+                    this.fireButtonDown = false;
                     this.OnFireButtonReleased?.Invoke();
                 }
             }
@@ -63,20 +64,20 @@ namespace JoJosAdventure.JojoPlayer
 
         private void GetMovementInput()
         {
-            if (Input.touchSupported
-                && Input.touchCount > 0)
-            {
-                this.OnMovementPressed?.Invoke(
-                    this.getDirectionToInput(Input.GetTouch(0).position));
-            }
-            else if (Input.GetMouseButton(0))
-            {
-                this.OnMovementPressed?.Invoke(this.getDirectionToInput(Input.mousePosition));
-            }
-            else
-            {
-                this.OnMovementPressed?.Invoke(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")));
-            }
+            //if (Input.touchSupported
+            //    && Input.touchCount > 0)
+            //{
+            //    this.OnMovementPressed?.Invoke(
+            //        this.getDirectionToInput(Input.GetTouch(0).position));
+            //}
+            //else if (Input.GetMouseButton(0))
+            //{
+            //    this.OnMovementPressed?.Invoke(this.getDirectionToInput(Input.mousePosition));
+            //}
+            //else
+            //{
+            this.OnMovementPressed?.Invoke(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")));
+            //}
         }
 
         private Vector2 getDirectionToInput(Vector2 inputPosition)

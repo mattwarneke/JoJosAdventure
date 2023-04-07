@@ -45,7 +45,7 @@ namespace JoJosAdventure.Weapons
         {
             if (this.weapon != null)
             {
-                this.weapon.Shoot();
+                this.weapon.TryShooting();
             }
         }
 

@@ -19,7 +19,6 @@ namespace JoJosAdventure.JojoPlayer
             var direction = (Vector3)pointerInput - this.transform.position;
             // if angle is positive we are facing right, negative left
             var result = Vector3.Cross(Vector2.up, direction);
-            Debug.Log(result);
 
             bool needsToFlip =
                 (this.isFacingRight && result.z > 0)
