@@ -13,7 +13,7 @@ namespace JoJosAdventure.Animation
             switch (acting)
             {
                 case Acting.Idle:
-                    this.Animator.Play("idle");
+                    this.Animator.Play("Idle");
                     break;
 
                 case Acting.Walk:
