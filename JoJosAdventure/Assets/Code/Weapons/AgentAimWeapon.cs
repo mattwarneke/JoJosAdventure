@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace JoJosAdventure.Weapons
 {
-    public class AgentWeapon : MonoBehaviour
+    public class AgentAimWeapon : MonoBehaviour
     {
         protected float desiredAngle;
 
@@ -27,7 +27,6 @@ namespace JoJosAdventure.Weapons
         private void AdjustWeaponRendering()
         {
             this.weaponRenderer?.FlipSprite(this.desiredAngle > 90 || this.desiredAngle < -90);
-            this.weaponRenderer?.RenderBehindHead(this.desiredAngle < 180 && this.desiredAngle > 0);
         }
     }
 }

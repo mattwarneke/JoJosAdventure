@@ -5,18 +5,17 @@ namespace JoJosAdventure.Weapons
     [RequireComponent(typeof(SpriteRenderer))]
     public class WeaponRenderer : MonoBehaviour
     {
-        private bool _val = false;
+        private bool isFlipped = false;
 
         public void FlipSprite(bool val)
         {
-            int flipModifier = val ? -1 : 1;
-            if (this._val != val)
+            if (this.isFlipped != val)
             {
                 this.transform.localScale = new Vector3(
-                    this.transform.localScale.x * flipModifier,
-                    Mathf.Abs(this.transform.localScale.y) * flipModifier,
+                    this.transform.localScale.x * -1,
+                    this.transform.localScale.y * -1,
                     this.transform.localScale.z);
-                this._val = val;
+                this.isFlipped = val;
             }
         }
     }

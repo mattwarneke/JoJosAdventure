@@ -8,12 +8,19 @@ namespace JoJosAdventure.JojoPlayer
     public class JojoInput : MonoBehaviour
     {
         private Camera mainCamera;
+        private bool fireButtonDown = false;
 
         [field: SerializeField]
         public UnityEvent<Vector2> OnMovementPressed { get; set; }
 
         [field: SerializeField]
         public UnityEvent<Vector2> OnPointerPositionChanged { get; set; }
+
+        [field: SerializeField]
+        public UnityEvent OnFireButtonPressed { get; set; }
+
+        [field: SerializeField]
+        public UnityEvent OnFireButtonReleased { get; set; }
 
         private void Awake()
         {
@@ -24,6 +31,26 @@ namespace JoJosAdventure.JojoPlayer
         {
             this.GetMovementInput();
             this.GetPointerInput();
+            this.GetFireInput();
+        }
+
+        private void GetFireInput()
+        {
+            if (Input.GetAxisRaw("Fire1") > 0)
+            {
+                if (this.fireButtonDown == false)
+                {
+                    this.fireButtonDown = true;
+                    this.OnFireButtonPressed?.Invoke();
+                }
+            }
+            else
+            {
+                if (this.fireButtonDown == true)
+                {
+                    this.OnFireButtonReleased?.Invoke();
+                }
+            }
         }
 
         private void GetPointerInput()
