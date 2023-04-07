@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4715099792073184}
   - component: {fileID: 212841084270906326}
-  - component: {fileID: 114891228996794108}
   - component: {fileID: 61275985319800456}
   m_Layer: 7
   m_Name: Candle
@@ -86,18 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &114891228996794108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1002005204813246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22db20d75c10b2c47b416678db57a3f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &61275985319800456
 BoxCollider2D:
   m_ObjectHideFlags: 0

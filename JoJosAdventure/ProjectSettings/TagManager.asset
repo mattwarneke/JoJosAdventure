@@ -61,3 +61,6 @@ TagManager:
   - name: Forground
     uniqueID: 2158772485
     locked: 0
+  - name: Bullets
+    uniqueID: 4157703743
+    locked: 0
