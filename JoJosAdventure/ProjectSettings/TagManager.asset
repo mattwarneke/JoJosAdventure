@@ -13,15 +13,15 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Jojo
+  - JojoPlayer
   - Water
   - UI
   - Enemies
   - Obstacles
   - NPC
-  - 
-  - 
-  - 
+  - Bullets
+  - EnemyMovementCollider
+  - JojoMovementCollider
   - 
   - 
   - 
