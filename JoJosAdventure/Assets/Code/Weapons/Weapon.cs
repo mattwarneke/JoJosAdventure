@@ -41,9 +41,11 @@ namespace JoJosAdventure
         [field: SerializeField]
         public UnityEvent OnShootNoAmmo { get; set; }
 
+        private Quaternion initialShotPointAngle;
         public void Start()
         {
             this.Ammo = this.weaponData.AmmoCapacity;
+            this.initialShotPointAngle = this.ShotPoint.transform.rotation;
         }
 
         public void Update()
