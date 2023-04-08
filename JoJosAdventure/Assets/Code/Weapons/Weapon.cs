@@ -1,7 +1,9 @@
 using JoJosAdventure.ScriptableObjects;
+using JoJosAdventure.Weapons;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 namespace JoJosAdventure
 {
@@ -90,7 +92,21 @@ namespace JoJosAdventure
 
         private void ShootBullet()
         {
-            Debug.Log("shooting bullet");
+            this.SpawnBullet(this.ShotPoint.transform.position, this.CalculateAngle(this.ShotPoint));
+        }
+
+        private void SpawnBullet(Vector3 position, Quaternion rotation)
+        {
+            var bulletPrefab = Instantiate(this.weaponData.BulletData.BulletPrefab, position, rotation);
+            // set so that the inheritance bullet can set properly with inheritance
+            bulletPrefab.GetComponent<Bullet>().BulletData = this.weaponData.BulletData;
+        }
+
+        private Quaternion CalculateAngle(GameObject shotPoint)
+        {
+            float spread = Random.Range(-this.weaponData.SpreadAngle, this.weaponData.SpreadAngle);
+            Quaternion bulletSpreadRotation = Quaternion.Euler(new Vector3(0, 0, spread));
+            return shotPoint.transform.rotation * bulletSpreadRotation;
         }
 
         public void TryShooting()
