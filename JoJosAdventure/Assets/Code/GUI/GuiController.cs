@@ -15,13 +15,13 @@ namespace JoJosAdventure.GUI
         public CameraFollow CameraScript;
         public GameObject DialogCanvasGO;
 
-        private JojoMovement PlayerJojo;
+        private AgentMovement PlayerJojo;
         private MattScript MattScript;
         private PaigeScript PaigeScript;
 
         private void Start()
         {
-            this.PlayerJojo = this.Jojo.GetComponent<JojoMovement>();
+            this.PlayerJojo = this.Jojo.GetComponent<AgentMovement>();
             this.MattScript = this.Matt.GetComponent<MattScript>();
             this.PaigeScript = this.Paige.GetComponent<PaigeScript>();
         }

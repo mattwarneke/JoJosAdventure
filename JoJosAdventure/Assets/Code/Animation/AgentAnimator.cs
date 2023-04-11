@@ -3,11 +3,9 @@ using UnityEngine;
 namespace JoJosAdventure.Animation
 {
     [RequireComponent(typeof(Animator))]
-    public class JojoAnimations : MonoBehaviour
+    public class AgentAnimator : MonoBehaviour
     {
         protected Animator Animator;
-
-        public Acting Acting { get; protected set; }
 
         private void Awake()
         {

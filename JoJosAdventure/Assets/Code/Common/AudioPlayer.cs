@@ -1,9 +1,9 @@
 using UnityEngine;
 
-namespace JoJosAdventure.JojoPlayer
+namespace JoJosAdventure.Common
 {
     [RequireComponent(typeof(AudioSource))]
-    public class JojoStepAudioPlayer : MonoBehaviour
+    public abstract class AudioPlayer : MonoBehaviour
     {
         protected AudioSource audioSource;
 
@@ -11,9 +11,6 @@ namespace JoJosAdventure.JojoPlayer
         protected float pitchRandomness = 0.5f;
 
         protected float basePitch;
-
-        [SerializeField]
-        protected AudioClip stepClip;
 
         private void Awake()
         {
@@ -23,11 +20,6 @@ namespace JoJosAdventure.JojoPlayer
         private void Start()
         {
             this.basePitch = this.audioSource.pitch;
-        }
-
-        public void PlayStepSound()
-        {
-            this.PlayClipWithVariablePitch(this.stepClip);
         }
 
         protected void PlayClipWithVariablePitch(AudioClip clip)

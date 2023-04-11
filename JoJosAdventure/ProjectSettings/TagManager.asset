@@ -16,10 +16,10 @@ TagManager:
   - JojoPlayer
   - Water
   - UI
-  - Enemies
-  - Obstacles
+  - Enemy
+  - Obstacle
   - NPC
-  - Bullets
+  - Bullet
   - EnemyMovementCollider
   - JojoMovementCollider
   - 

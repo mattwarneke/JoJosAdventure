@@ -5,7 +5,7 @@ using UnityEngine.Events;
 namespace JoJosAdventure.JojoPlayer
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class JojoMovement : MonoBehaviour
+    public class AgentMovement : MonoBehaviour
     {
         protected Rigidbody2D rigidBody2d;
 

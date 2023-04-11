@@ -1,25 +1,23 @@
-using JoJosAdventure.Animation;
 using JoJosAdventure.Logic;
 using JoJosAdventure.Utils;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace JoJosAdventure.Enemies
 {
-    public class HumanScript : MonoBehaviour
+    public class EnemyScript : MonoBehaviour, IHittable
     {
-        public HumanAnimations humanAnimation;
         public FieldOfView fieldOfView;
         public SpeechBubble speechBubble;
 
         private bool IsFollowing = false;
         private Transform transformFollowing;
 
-        public float MoveSpeed = 1f;
-
         // Use this for initialization
         private void Start()
         {
-            if (this.humanAnimation == null) throw new ExpectedInspectorReferenceException();
+            this.Health = this.EnemyData.MaxHealth;
+
             if (this.fieldOfView == null) throw new ExpectedInspectorReferenceException();
 
             this.fieldOfView.OnPlayerSpotted += this.playerSpotted;
@@ -42,6 +40,28 @@ namespace JoJosAdventure.Enemies
             }
         }
 
+        [field: SerializeField]
+        public EnemyDataSO EnemyData { get; set; }
+
+        [field: SerializeField]
+        public int Health { get; private set; }
+
+        public GameObject FlipContainer;
+        private bool isFacingRight => this.FlipContainer.transform.eulerAngles.y < 180;
+
+        [field: SerializeField]
+        public UnityEvent OnGetHit { get; set; }
+
+        public void GetHit(int damage, GameObject damageDealer)
+        {
+            this.Health--;
+            this.OnGetHit?.Invoke();
+            if (this.Health <= 0)
+            {
+                Destroy(this.gameObject);
+            }
+        }
+
         private void playerSpotted(Transform transform)
         {
             if (!this.IsFollowing)
@@ -55,8 +75,6 @@ namespace JoJosAdventure.Enemies
             this.FollowTransform(transformToFollow);
 
             this.Speak(new Speech("Hug the kitty!!!", 2));
-
-            this.humanAnimation.SetAnimation(Acting.Walk, this.MoveSpeed);
         }
 
         private void FollowTransform(Transform transformToFollow)
@@ -69,7 +87,6 @@ namespace JoJosAdventure.Enemies
         {
             this.Speak(new Speech("Where did the kitty go?", 2));
             // Navigate back to patrol
-            this.humanAnimation.StopWalk();
             this.IsFollowing = false;
         }
 
@@ -78,7 +95,7 @@ namespace JoJosAdventure.Enemies
             // smarter routing with a queue? But then could stand still if player does or run wrong way
             //    this.walkingToSpot = this.followingPositions.Dequeue();
 
-            this.transform.position = Vector2.Lerp(this.transform.position, this.transformFollowing.position, Time.deltaTime * this.MoveSpeed);
+            //this.transform.position = Vector2.Lerp(this.transform.position, this.transformFollowing.position, Time.deltaTime * this.MoveSpeed);
 
             this.flipToFacePlayer();
 
@@ -102,9 +119,6 @@ namespace JoJosAdventure.Enemies
             }
         }
 
-        public GameObject FlipContainer;
-        private bool isFacingRight => this.FlipContainer.transform.eulerAngles.y < 180;
-
         private void Flip()
         {
             this.FlipContainer.transform.Rotate(0, 180, 0);
@@ -122,8 +136,6 @@ namespace JoJosAdventure.Enemies
         private void GrabJojo()
         {
             this.Speak(new Speech("Has kitty!!!", 2));
-
-            this.humanAnimation.SetAnimation(Acting.Grab);
         }
 
         private void Speak(Speech speech)

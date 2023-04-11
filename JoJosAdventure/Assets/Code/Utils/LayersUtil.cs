@@ -4,16 +4,18 @@ namespace JoJosAdventure.Utils
 {
     public class LayersUtil
     {
-        public const string PlayerLayerString = "Jojo";
+        public const string PlayerLayer = "Jojo";
+        public const string ObstacleLayer = "Obstacle";
+        public const string EnemyLayer = "Enemy";
 
         private static int? _playerLayer;
 
-        public static int PlayerLayer
+        public static int Player
         {
             get
             {
                 if (!_playerLayer.HasValue)
-                    _playerLayer = LayerMask.NameToLayer(PlayerLayerString);
+                    _playerLayer = LayerMask.NameToLayer(PlayerLayer);
                 return _playerLayer.Value;
             }
         }
@@ -28,12 +30,12 @@ namespace JoJosAdventure.Utils
 
         public static bool IsColliderPlayer(Collider2D collider)
         {
-            return collider.gameObject.layer == PlayerLayer;
+            return collider.gameObject.layer == Player;
         }
 
         public static bool IsTouchingPlayer(Collider2D collider)
         {
-            return collider.IsTouchingLayers(PlayerLayer);
+            return collider.IsTouchingLayers(Player);
         }
     }
 }
