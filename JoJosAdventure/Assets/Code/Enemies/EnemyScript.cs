@@ -1,5 +1,6 @@
 using JoJosAdventure.Logic;
 using JoJosAdventure.Utils;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -52,14 +53,24 @@ namespace JoJosAdventure.Enemies
         [field: SerializeField]
         public UnityEvent OnGetHit { get; set; }
 
+        [field: SerializeField]
+        public UnityEvent OnDie { get; set; }
+
         public void GetHit(int damage, GameObject damageDealer)
         {
             this.Health--;
             this.OnGetHit?.Invoke();
             if (this.Health <= 0)
             {
-                Destroy(this.gameObject);
+                this.OnDie?.Invoke();
+                this.StartCoroutine(this.WaitToDie());
             }
+        }
+
+        private IEnumerator WaitToDie()
+        {
+            yield return new WaitForSeconds(0.54f);
+            Destroy(this.gameObject);
         }
 
         private void playerSpotted(Transform transform)

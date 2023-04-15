@@ -131,15 +131,7 @@ namespace JoJosAdventure.Enemies
         private ViewCastInfo ViewCast(float globalAngle)
         {
             Vector3 dir = UtilClass.DirFromAngleGlobal(globalAngle);
-            RaycastHit2D hit;
-
-            if (FlagsUtil.DebugMode)
-            {
-                Ray testRay = new Ray(this.transform.position, dir * this.viewRadius);
-                Debug.DrawRay(testRay.origin, testRay.direction * this.viewRadius);
-            }
-
-            hit = Physics2D.Raycast(this.transform.position, dir, this.viewRadius, this.rayMask);
+            RaycastHit2D hit = Physics2D.Raycast(this.transform.position, dir, this.viewRadius, this.rayMask);
             if (hit.collider != null)
             {
                 if (LayersUtil.IsColliderPlayer(hit.collider))
