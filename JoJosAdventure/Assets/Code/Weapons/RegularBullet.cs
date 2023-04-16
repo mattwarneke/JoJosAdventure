@@ -1,3 +1,4 @@
+using JoJosAdventure.Common.Interfaces;
 using JoJosAdventure.ScriptableObjects;
 using JoJosAdventure.Utils;
 using UnityEngine;

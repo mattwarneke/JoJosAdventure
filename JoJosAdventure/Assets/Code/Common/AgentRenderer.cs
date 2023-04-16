@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace JoJosAdventure.JojoPlayer
+namespace JoJosAdventure.Common
 {
-    public class JojoRenderer : MonoBehaviour
+    public class AgentRenderer : MonoBehaviour
     {
         protected SpriteRenderer spriteRenderer;
 

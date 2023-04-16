@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace JoJosAdventure
+namespace JoJosAdventure.Common
 {
     public class GameManager : MonoBehaviour
     {

@@ -1084,6 +1084,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3514211732132738165}
   - component: {fileID: 7377930903931803480}
+  - component: {fileID: 747172065908077012}
   - component: {fileID: 1572945675552853406}
   - component: {fileID: 8479955829809876521}
   - component: {fileID: 7136543942833931871}
@@ -1198,6 +1199,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &747172065908077012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5265611619475893570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4900f87cd41ceb94a9f24e321144d34e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Health>k__BackingField: 0
+  <OnGetHit>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <OnDie>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1572945675552853406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2468,7 +2488,7 @@ MonoBehaviour:
   - {x: 0.012500822, y: 0.19375893, z: 0}
   m_ShapePathHash: 592514982
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1496
+  m_InstanceId: 28808
 --- !u!1 &8026986290964841682
 GameObject:
   m_ObjectHideFlags: 0

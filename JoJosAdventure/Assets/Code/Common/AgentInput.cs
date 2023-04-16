@@ -1,11 +1,12 @@
 ﻿using Assets.Code.Enums;
+using JoJosAdventure.Common.Interfaces;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace JoJosAdventure.JojoPlayer
+namespace JoJosAdventure.Common
 {
-    public class JojoInput : MonoBehaviour
+    public class AgentInput : MonoBehaviour, IAgentInput
     {
         private Camera mainCamera;
         private bool fireButtonDown = false;

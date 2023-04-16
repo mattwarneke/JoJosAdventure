@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace JoJosAdventure
+namespace JoJosAdventure.Common.Interfaces
 {
     public interface IHittable
     {

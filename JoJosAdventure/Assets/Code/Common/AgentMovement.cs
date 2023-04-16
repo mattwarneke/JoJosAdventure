@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace JoJosAdventure.JojoPlayer
+namespace JoJosAdventure.Common
 {
     [RequireComponent(typeof(Rigidbody2D))]
     public class AgentMovement : MonoBehaviour

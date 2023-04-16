@@ -203,6 +203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6880515666387451822}
   - component: {fileID: 4849806195834453381}
+  - component: {fileID: 6459389862425521920}
   - component: {fileID: 1516352095}
   - component: {fileID: 6696564281779708802}
   - component: {fileID: 3528108529511076969}
@@ -250,6 +251,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6459389862425521920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6646885460317337989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d44b6dd9ef2d924d852ed2d97dd0e8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1516352095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,7 +415,7 @@ MonoBehaviour:
   - {x: 0.39464378, y: -1.2853851, z: -0}
   m_ShapePathHash: 1074504485
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1318
+  m_InstanceId: 29126
 --- !u!1 &7422870658372659641
 GameObject:
   m_ObjectHideFlags: 0
@@ -1558,6 +1571,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7425970214379874471}
   - component: {fileID: 332379338191078650}
+  - component: {fileID: 3109229513435165556}
   - component: {fileID: 88122780578131952}
   - component: {fileID: 5604073003559896129}
   - component: {fileID: 2946207150414805931}
@@ -1652,6 +1666,55 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3109229513435165556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7423556049181144849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3363d8c369b7dd84eac32702db24d884, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Target>k__BackingField: {fileID: 0}
+  <OnFireButtonPressed>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <OnFireButtonReleased>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <OnMovementPressed>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 88122780578131952}
+        m_TargetAssemblyTypeName: JoJosAdventure.JojoPlayer.AgentMovement, JoJosAdventure
+        m_MethodName: Move
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  <OnPointerPositionChanged>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6459389862425521920}
+        m_TargetAssemblyTypeName: JoJosAdventure.Common.AgentRenderer, JoJosAdventure
+        m_MethodName: FaceDirection
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2299,7 +2362,7 @@ PrefabInstance:
     - target: {fileID: 6396802954453593527, guid: b890fb27a2e7a7048b91a43f46f42f73,
         type: 3}
       propertyPath: rayMask.m_Bits
-      value: 392
+      value: 3464
       objectReference: {fileID: 0}
     - target: {fileID: 7898079689707493006, guid: b890fb27a2e7a7048b91a43f46f42f73,
         type: 3}

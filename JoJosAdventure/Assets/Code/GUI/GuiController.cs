@@ -1,4 +1,4 @@
-﻿using JoJosAdventure.JojoPlayer;
+﻿using JoJosAdventure.Common;
 using JoJosAdventure.Logic;
 using System;
 using System.Collections;

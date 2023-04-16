@@ -1,7 +1,6 @@
-using JoJosAdventure.Common;
 using UnityEngine;
 
-namespace JoJosAdventure
+namespace JoJosAdventure.Common
 {
     public class AgentSounds : AudioPlayer
     {

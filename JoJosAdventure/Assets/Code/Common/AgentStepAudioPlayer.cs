@@ -1,7 +1,6 @@
-using JoJosAdventure.Common;
 using UnityEngine;
 
-namespace JoJosAdventure.JojoPlayer
+namespace JoJosAdventure.Common
 {
     public class AgentStepAudioPlayer : AudioPlayer
     {
