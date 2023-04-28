@@ -1,5 +1,4 @@
 using JoJosAdventure.Common.Interfaces;
-using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,6 +8,9 @@ namespace JoJosAdventure
     {
         [field: SerializeField]
         public GameObject Target { get; set; }
+
+        [field: SerializeField]
+        public AIState CurrentState { get; private set; }
 
         [field: SerializeField]
         public UnityEvent OnFireButtonPressed { get; set; }
@@ -22,14 +24,36 @@ namespace JoJosAdventure
         [field: SerializeField]
         public UnityEvent<Vector2> OnPointerPositionChanged { get; set; }
 
-        internal void ChangeToState(AIState positiveResult)
-        {
-            throw new NotImplementedException();
-        }
-
         private void Awake()
         {
             this.Target = FindObjectOfType<JojoPlayer>().gameObject;
+        }
+
+        private void Update()
+        {
+            if (this.Target == null)
+            {
+                // stop movement
+                this.OnMovementPressed?.Invoke(Vector2.zero);
+            }
+            // Run actions each frame
+            this.CurrentState.UpdateState();
+        }
+
+        public void Attack()
+        {
+            this.OnFireButtonPressed?.Invoke();
+        }
+
+        public void Move(Vector2 movementDirection, Vector2 targetPosition)
+        {
+            this.OnMovementPressed?.Invoke(movementDirection);
+            this.OnPointerPositionChanged?.Invoke(targetPosition);
+        }
+
+        internal void ChangeToState(AIState state)
+        {
+            this.CurrentState = state;
         }
     }
 }

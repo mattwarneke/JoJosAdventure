@@ -17,6 +17,7 @@ namespace JoJosAdventure
             this.AIActionData = this.transform.root.GetComponentInChildren<AIActionData>();
             this.AIMovementData = this.transform.root.GetComponentInChildren<AIMovementData>();
             // transform.root get the top most transform in heirarchy brain is there
+            // THIS WILL FAIL IF THE ENEMY IS IN A CONTAINER
             this.EnemyBrain = this.transform.root.GetComponent<EnemyAIBrain>();
         }
 
