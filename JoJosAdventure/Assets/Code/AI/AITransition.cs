@@ -23,5 +23,11 @@ namespace JoJosAdventure
         /// </summary>
         [field: SerializeField]
         public AIState NegativeResult { get; set; }
+
+        private void Awake()
+        {
+            this.Decisions.Clear();
+            this.Decisions = new List<AIDecision>(this.GetComponents<AIDecision>());
+        }
     }
 }

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fad5a304183be8459b4677dfc3cff9a, type: 3}
   m_Name: EnemyHumanMovementData
   m_EditorClassIdentifier: 
-  maxSpeed: 4
+  maxSpeed: 3
   acceleration: 15
   deacceleration: 15
