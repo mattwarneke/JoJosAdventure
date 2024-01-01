@@ -12,9 +12,6 @@ namespace JoJosAdventure.Enemies
         public FieldOfView fieldOfView;
         public SpeechBubble speechBubble;
 
-        private bool IsFollowing = false;
-        private Transform transformFollowing;
-
         [field: SerializeField]
         public EnemyDataSO EnemyData { get; set; }
 
@@ -37,8 +34,6 @@ namespace JoJosAdventure.Enemies
 
             if (this.fieldOfView == null) throw new ExpectedInspectorReferenceException();
 
-            this.fieldOfView.OnPlayerSpotted += this.playerSpotted;
-
             string repeatedSpeechText = "Here kitty, kitty, kitty!";
             this.Speak(new Speech(repeatedSpeechText, 2));
             this.Speak(new Speech(null, 1));
@@ -47,14 +42,6 @@ namespace JoJosAdventure.Enemies
 
         private void Update()
         {
-            if (this.IsFollowing)
-            {
-                this.FollowPlayerInSight();
-            }
-            else
-            {
-                // Patrol logic
-            }
         }
 
         public void GetHit(int damage, GameObject damageDealer)
@@ -74,66 +61,22 @@ namespace JoJosAdventure.Enemies
             Destroy(this.gameObject);
         }
 
-        private void playerSpotted(Transform transform)
-        {
-            if (!this.IsFollowing)
-            {
-                this.ActivateFollow(transform);
-            }
-        }
-
         private void ActivateFollow(Transform transformToFollow)
         {
-            this.FollowTransform(transformToFollow);
-
             this.Speak(new Speech("Hug the kitty!!!", 2));
-        }
-
-        private void FollowTransform(Transform transformToFollow)
-        {
-            this.IsFollowing = true;
-            this.transformFollowing = transformToFollow;
         }
 
         private void PlayerOutOfSite()
         {
             this.Speak(new Speech("Where did the kitty go?", 2));
-            // Navigate back to patrol
-            this.IsFollowing = false;
         }
 
         private void FollowPlayerInSight()
         {
-            // smarter routing with a queue? But then could stand still if player does or run wrong way
-            //    this.walkingToSpot = this.followingPositions.Dequeue();
-
-            //this.transform.position = Vector2.Lerp(this.transform.position, this.transformFollowing.position, Time.deltaTime * this.MoveSpeed);
-
-            this.flipToFacePlayer();
-
-            if (!this.fieldOfView.PlayerInSight)
+            if (!this.fieldOfView.IsPlayerInFieldOfView())
             {
                 this.PlayerOutOfSite();
             }
-        }
-
-        private void flipToFacePlayer()
-        {
-            if (this.transformFollowing.position.x >= this.transform.position.x
-                && !this.isFacingRight)
-            {
-                this.Flip();
-            }
-            else if (this.transformFollowing.position.x < this.transform.position.x
-                && this.isFacingRight)
-            {
-                this.Flip();
-            }
-        }
-
-        private void Flip()
-        {
-            this.FlipContainer.transform.Rotate(0, 180, 0);
         }
 
         private void OnCollisionEnter2D(Collision2D col)

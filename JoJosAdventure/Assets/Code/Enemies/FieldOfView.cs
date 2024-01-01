@@ -1,5 +1,4 @@
 using JoJosAdventure.Utils;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -33,10 +32,7 @@ namespace JoJosAdventure.Enemies
         public MeshFilter viewMeshFilter;
         private Mesh mesh;
 
-        public event Action<Transform> OnPlayerSpotted;
-
-        public bool PlayerInSight = false;
-        private Transform PlayerTransform = null;
+        private bool PlayerInSight = false;
         private Quaternion initialRotation;
 
         private void Start()
@@ -47,14 +43,18 @@ namespace JoJosAdventure.Enemies
             this.initialRotation = this.transform.rotation;
         }
 
-        private void LateUpdate()
+        public bool IsPlayerInFieldOfView()
         {
-            this.DrawFieldOfView();
+            return this.PlayerInSight;
+        }
 
-            if (this.PlayerInSight)
-            {
-                this.RotateIntoDirectionOfPlayer();
-            }
+        public bool LookForPlayer(Transform targetOfSearch)
+        {
+            this.PlayerInSight = false;
+
+            this.DrawFieldOfView(targetOfSearch);
+
+            return this.PlayerInSight;
         }
 
         // cache arrays for performance
@@ -63,10 +63,8 @@ namespace JoJosAdventure.Enemies
         private int[] triangles;
         private List<Vector3> viewPoints = new List<Vector3>();
 
-        private void DrawFieldOfView()
+        private void DrawFieldOfView(Transform targetOfSearch)
         {
-            this.PlayerInSight = false;
-
             int stepCount = Mathf.RoundToInt(this.viewAngle * this.meshResolution);
             float stepAngleSize = this.viewAngle / stepCount;
             this.viewPoints.Clear();
@@ -75,7 +73,7 @@ namespace JoJosAdventure.Enemies
             {
                 float angle = UtilClass.GetGlobalTransformAngleAddition(this.transform) - (this.viewAngle / 2) + (stepAngleSize * i);
 
-                ViewCastInfo newViewCast = this.ViewCast(angle);
+                ViewCastInfo newViewCast = this.ViewCast(angle, targetOfSearch);
                 this.viewPoints.Add(newViewCast.point);
             }
 
@@ -104,9 +102,9 @@ namespace JoJosAdventure.Enemies
             this.mesh.RecalculateNormals();
         }
 
-        private void RotateIntoDirectionOfPlayer()
+        public void RotateFOVToFollowPlayer(Transform target)
         {
-            Vector2 direction = this.PlayerTransform.position - this.transform.position;
+            Vector2 direction = target.position - this.transform.position;
             // We must flip the y for Unity, y points upwards, rather than down as the Mathf would calculate
             direction.y = -direction.y;
 
@@ -128,17 +126,15 @@ namespace JoJosAdventure.Enemies
             //this.transform.rotation = initialWorldRotation * newRotation;
         }
 
-        private ViewCastInfo ViewCast(float globalAngle)
+        private ViewCastInfo ViewCast(float globalAngle, Transform targetOfSearch)
         {
             Vector3 dir = UtilClass.DirFromAngleGlobal(globalAngle);
             RaycastHit2D hit = Physics2D.Raycast(this.transform.position, dir, this.viewRadius, this.rayMask);
             if (hit.collider != null)
             {
-                if (LayersUtil.IsColliderPlayer(hit.collider))
+                if (targetOfSearch == hit.collider.transform)
                 {
-                    this.OnPlayerSpotted.Invoke(hit.transform);
                     this.PlayerInSight = true;
-                    this.PlayerTransform = hit.transform;
                 }
 
                 return new ViewCastInfo(true, hit.point, hit.distance, globalAngle);

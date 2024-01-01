@@ -4,14 +4,15 @@ namespace JoJosAdventure.Common
 {
     public class AgentRenderer : MonoBehaviour
     {
+        [field: SerializeField]
+        public bool isFacingRight = true;
+
         protected SpriteRenderer spriteRenderer;
 
         private void Awake()
         {
             this.spriteRenderer = this.GetComponent<SpriteRenderer>();
         }
-
-        private bool isFacingRight = true;
 
         // called from UnityEvent
         public void FaceDirection(Vector2 pointerInput)

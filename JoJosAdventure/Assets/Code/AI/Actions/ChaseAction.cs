@@ -8,6 +8,7 @@ namespace JoJosAdventure
             this.AIMovementData.Direction = direction.normalized;
             this.AIMovementData.PointOfInterest = this.EnemyBrain.Target.transform.position;
             this.EnemyBrain.Move(this.AIMovementData.Direction, this.AIMovementData.PointOfInterest);
+            this.EnemyBrain.EnemyFOV.RotateFOVToFollowPlayer(this.EnemyBrain.Target.transform);
         }
     }
 }

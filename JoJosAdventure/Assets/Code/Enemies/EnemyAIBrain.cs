@@ -1,4 +1,5 @@
 using JoJosAdventure.Common.Interfaces;
+using JoJosAdventure.Enemies;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,6 +12,9 @@ namespace JoJosAdventure
 
         [field: SerializeField]
         public AIState CurrentState { get; private set; }
+
+        [field: SerializeField]
+        public FieldOfView EnemyFOV { get; private set; }
 
         [field: SerializeField]
         public UnityEvent OnFireButtonPressed { get; set; }
