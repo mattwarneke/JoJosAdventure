@@ -6081,6 +6081,11 @@ PrefabInstance:
       propertyPath: <Decisions>k__BackingField.Array.data[0]
       value: 
       objectReference: {fileID: 2078877619}
+    - target: {fileID: 5694637746011141340, guid: 57f014be22f23c2438018fa9a66fd2c7,
+        type: 3}
+      propertyPath: rayMask.m_Bits
+      value: 2440
+      objectReference: {fileID: 0}
     - target: {fileID: 6459389862425521920, guid: 57f014be22f23c2438018fa9a66fd2c7,
         type: 3}
       propertyPath: isFacingRight

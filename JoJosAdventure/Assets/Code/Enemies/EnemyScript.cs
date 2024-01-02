@@ -1,6 +1,5 @@
 using JoJosAdventure.Common.Interfaces;
 using JoJosAdventure.Logic;
-using JoJosAdventure.Utils;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -61,37 +60,20 @@ namespace JoJosAdventure.Enemies
             Destroy(this.gameObject);
         }
 
-        private void ActivateFollow(Transform transformToFollow)
-        {
-            this.Speak(new Speech("Hug the kitty!!!", 2));
-        }
+        //private void ActivateFollow(Transform transformToFollow)
+        //{
+        //    this.Speak(new Speech("Hug the kitty!!!", 2));
+        //}
 
-        private void PlayerOutOfSite()
-        {
-            this.Speak(new Speech("Where did the kitty go?", 2));
-        }
+        //private void PlayerOutOfSite()
+        //{
+        //    this.Speak(new Speech("Where did the kitty go?", 2));
+        //}
 
-        private void FollowPlayerInSight()
-        {
-            if (!this.fieldOfView.IsPlayerInFieldOfView())
-            {
-                this.PlayerOutOfSite();
-            }
-        }
-
-        private void OnCollisionEnter2D(Collision2D col)
-        {
-            // This means bumping into the back would capture
-            // An alternative is to check contact with player collider in follow
-            if (!LayersUtil.IsColliderPlayer(col.collider)) return;
-
-            this.GrabJojo();
-        }
-
-        private void GrabJojo()
-        {
-            this.Speak(new Speech("Has kitty!!!", 2));
-        }
+        //private void GrabJojo()
+        //{
+        //    this.Speak(new Speech("Has kitty!!!", 2));
+        //}
 
         private void Speak(Speech speech)
         {
