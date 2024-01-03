@@ -974,6 +974,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc2566e78bee44b45ae5e831527c092e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &3910659329240871081
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6149462435064150965}
+  - component: {fileID: 8961123693868373215}
+  m_Layer: 3
+  m_Name: JojoRenderer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6149462435064150965
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3910659329240871081}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -20}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8026986290877071008}
+  m_Father: {fileID: 3514211732132738165}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8961123693868373215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3910659329240871081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d44b6dd9ef2d924d852ed2d97dd0e8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFacingRight: 0
 --- !u!1 &4293264725761985417
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,7 +1132,6 @@ GameObject:
   - component: {fileID: 7377930903931803480}
   - component: {fileID: 747172065908077012}
   - component: {fileID: 1572945675552853406}
-  - component: {fileID: 8479955829809876521}
   - component: {fileID: 7136543942833931871}
   - component: {fileID: 7819985172680418109}
   m_Layer: 3
@@ -1109,7 +1154,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1048300864063476779}
-  - {fileID: 8026986290877071008}
+  - {fileID: 6149462435064150965}
   - {fileID: 4400657733003814522}
   - {fileID: 189648175}
   m_Father: {fileID: 0}
@@ -1145,8 +1190,8 @@ MonoBehaviour:
   <OnPointerPositionChanged>k__BackingField:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8479955829809876521}
-        m_TargetAssemblyTypeName: JoJosAdventure.JojoPlayer.JojoRenderer, JoJosAdventure
+      - m_Target: {fileID: 8961123693868373215}
+        m_TargetAssemblyTypeName: JoJosAdventure.Common.AgentRenderer, JoJosAdventure
         m_MethodName: FaceDirection
         m_Mode: 0
         m_Arguments:
@@ -1247,19 +1292,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8479955829809876521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5265611619475893570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d44b6dd9ef2d924d852ed2d97dd0e8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isFacingRight: 0
+      - m_Target: {fileID: 8961123693868373215}
+        m_TargetAssemblyTypeName: JoJosAdventure.Common.AgentRenderer, JoJosAdventure
+        m_MethodName: SortingZIndexBasedOnY
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!50 &7136543942833931871
 Rigidbody2D:
   serializedVersion: 4
@@ -2268,7 +2312,7 @@ GameObject:
   - component: {fileID: 3021547880869339581}
   - component: {fileID: 8508140263019613192}
   m_Layer: 0
-  m_Name: Jojo2
+  m_Name: JojoAnimator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2281,15 +2325,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8026986290877071009}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.137, y: -0.516, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.13700007, y: -0.51600134, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8026986291625889938}
   - {fileID: 5807361083167729306}
-  m_Father: {fileID: 3514211732132738165}
-  m_RootOrder: 1
+  m_Father: {fileID: 6149462435064150965}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &8432896916030232067
 Animator:

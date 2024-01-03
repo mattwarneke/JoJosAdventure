@@ -35,5 +35,12 @@ namespace JoJosAdventure.Common
                 //this.transform.parent.transform.Rotate(0, 180, 0);
             }
         }
+
+        // called from UnityEvent
+        public void SortingZIndexBasedOnY()
+        {
+            // Adjusts game object containers to set z index and therefore order based on Y position
+            this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, -1f * this.gameObject.transform.position.y);
+        }
     }
 }
