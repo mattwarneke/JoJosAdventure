@@ -20,8 +20,8 @@ TagManager:
   - Obstacle
   - NPC
   - Bullet
-  - EnemyMovementCollider
-  - JojoMovementCollider
+  - MovementCollider
+  - 
   - 
   - 
   - 

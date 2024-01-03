@@ -330,7 +330,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2085379671301051374}
   - component: {fileID: 5142809810673348283}
-  - component: {fileID: 240151396}
+  - component: {fileID: 2078877619}
   m_Layer: 6
   m_Name: TransitionIdle
   m_TagString: Untagged
@@ -366,10 +366,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Decisions>k__BackingField:
-  - {fileID: 240151396}
+  - {fileID: 2078877619}
   <PositiveResult>k__BackingField: {fileID: 0}
   <NegativeResult>k__BackingField: {fileID: 2227325926908003641}
---- !u!114 &240151396
+--- !u!114 &2078877619
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -378,7 +378,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3047117423091705259}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aaae8bf78c9aa445b30cc54506e4ce0, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c4c040cc8936ae419c3753d293ef2da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <Distance>k__BackingField: 5
@@ -392,7 +392,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6111875007135311307}
   - component: {fileID: 959966637550597578}
-  - component: {fileID: 240151395}
+  - component: {fileID: 861116429}
   m_Layer: 6
   m_Name: TransitionChase
   m_TagString: Untagged
@@ -428,10 +428,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Decisions>k__BackingField:
-  - {fileID: 240151395}
+  - {fileID: 861116429}
   <PositiveResult>k__BackingField: {fileID: 4767231051681031110}
   <NegativeResult>k__BackingField: {fileID: 0}
---- !u!114 &240151395
+--- !u!114 &861116429
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -440,7 +440,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3633561355092703571}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aaae8bf78c9aa445b30cc54506e4ce0, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c4c040cc8936ae419c3753d293ef2da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <Distance>k__BackingField: 5
@@ -489,7 +489,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a22817bb6f87f2d4bbe1d024aadac60f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Decisions>k__BackingField: []
+  <Decisions>k__BackingField:
+  - {fileID: 1425177582220495230}
   <PositiveResult>k__BackingField: {fileID: 416135633523212206}
   <NegativeResult>k__BackingField: {fileID: 0}
 --- !u!114 &1425177582220495230
@@ -639,6 +640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d44b6dd9ef2d924d852ed2d97dd0e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFacingRight: 0
 --- !u!114 &1516352095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -791,7 +793,7 @@ MonoBehaviour:
   - {x: 0.39464378, y: -1.2853851, z: -0}
   m_ShapePathHash: 1074504485
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1326
+  m_InstanceId: -1328
 --- !u!1 &7422870658372659641
 GameObject:
   m_ObjectHideFlags: 0
@@ -2065,6 +2067,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Target>k__BackingField: {fileID: 0}
   <CurrentState>k__BackingField: {fileID: 2227325926908003641}
+  <EnemyFOV>k__BackingField: {fileID: 5694637746011141340}
   <OnFireButtonPressed>k__BackingField:
     m_PersistentCalls:
       m_Calls: []
@@ -2715,6 +2718,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2425450763464535526}
   - component: {fileID: 1884520983945244963}
+  - component: {fileID: 942788670}
   m_Layer: 6
   m_Name: TransitionChase
   m_TagString: Untagged
@@ -2752,6 +2756,19 @@ MonoBehaviour:
   <Decisions>k__BackingField: []
   <PositiveResult>k__BackingField: {fileID: 0}
   <NegativeResult>k__BackingField: {fileID: 4767231051681031110}
+--- !u!114 &942788670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8246096087005531696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aaae8bf78c9aa445b30cc54506e4ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Distance>k__BackingField: 1
 --- !u!1 &8536857400447052503
 GameObject:
   m_ObjectHideFlags: 0
@@ -2854,7 +2871,7 @@ PrefabInstance:
     - target: {fileID: 6396802954453593527, guid: b890fb27a2e7a7048b91a43f46f42f73,
         type: 3}
       propertyPath: rayMask.m_Bits
-      value: 3464
+      value: 392
       objectReference: {fileID: 0}
     - target: {fileID: 7898079689707493006, guid: b890fb27a2e7a7048b91a43f46f42f73,
         type: 3}
