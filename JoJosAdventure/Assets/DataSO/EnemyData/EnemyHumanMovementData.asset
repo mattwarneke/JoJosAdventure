@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: EnemyHumanMovementData
   m_EditorClassIdentifier: 
   maxSpeed: 3
-  acceleration: 15
-  deacceleration: 15
+  acceleration: 5
+  deacceleration: 5

@@ -9,5 +9,10 @@ namespace JoJosAdventure
 
         [field: SerializeField]
         public Vector2 PointOfInterest { get; set; }
+
+        [field: SerializeField]
+        public GameObject[] PatrolPoints { get; set; }
+
+        public int CurrentPatrolIndex = 0;
     }
 }

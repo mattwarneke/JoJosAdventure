@@ -102,9 +102,9 @@ namespace JoJosAdventure.Enemies
             this.mesh.RecalculateNormals();
         }
 
-        public void RotateFOVToFollowPlayer(Transform target)
+        public void RotateFOVToFollowPlayer(Vector3 target)
         {
-            Vector2 direction = target.position - this.transform.position;
+            Vector2 direction = target - this.transform.position;
             // We must flip the y for Unity, y points upwards, rather than down as the Mathf would calculate
             direction.y = -direction.y;
 
