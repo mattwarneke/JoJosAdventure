@@ -10,7 +10,7 @@ namespace JoJosAdventure
             this.AIMovementData.Direction = direction.normalized;
             this.AIMovementData.PointOfInterest = this.AIMovementData.PatrolPoints[this.AIMovementData.CurrentPatrolIndex].transform.position;
 
-            this.EnemyBrain.Move(this.AIMovementData.Direction, this.AIMovementData.PointOfInterest);
+            this.EnemyBrain.Move(this.AIMovementData.Direction, this.AIMovementData.PointOfInterest, this.AIMovementData.PatrolSpeedMultiplier);
             this.EnemyBrain.EnemyFOV.RotateFOVToFollowPlayer(this.AIMovementData.PointOfInterest);
 
             // This could be moved to a decision but that feels clunky as it would effectively be a Patrol -> Patrol transition

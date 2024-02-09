@@ -1,3 +1,4 @@
+using JoJosAdventure.Common;
 using JoJosAdventure.Common.Interfaces;
 using JoJosAdventure.Enemies;
 using UnityEngine;
@@ -23,7 +24,7 @@ namespace JoJosAdventure
         public UnityEvent OnFireButtonReleased { get; set; }
 
         [field: SerializeField]
-        public UnityEvent<Vector2> OnMovementPressed { get; set; }
+        public UnityEvent<MoveEvent> OnMovementPressed { get; set; }
 
         [field: SerializeField]
         public UnityEvent<Vector2> OnPointerPositionChanged { get; set; }
@@ -35,12 +36,6 @@ namespace JoJosAdventure
 
         private void Update()
         {
-            if (this.Target == null)
-            {
-                // stop movement
-                this.OnMovementPressed?.Invoke(Vector2.zero);
-            }
-            // Run actions each frame
             this.CurrentState.UpdateState();
         }
 
@@ -49,9 +44,9 @@ namespace JoJosAdventure
             this.OnFireButtonPressed?.Invoke();
         }
 
-        public void Move(Vector2 movementDirection, Vector2 targetPosition)
+        public void Move(Vector2 movementDirection, Vector2 targetPosition, float maxSpeedMultiplier = 1)
         {
-            this.OnMovementPressed?.Invoke(movementDirection);
+            this.OnMovementPressed?.Invoke(new MoveEvent(movementDirection, maxSpeedMultiplier));
             this.OnPointerPositionChanged?.Invoke(targetPosition);
         }
 

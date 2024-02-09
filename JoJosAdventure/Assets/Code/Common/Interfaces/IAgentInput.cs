@@ -7,7 +7,7 @@ namespace JoJosAdventure.Common.Interfaces
     {
         UnityEvent OnFireButtonPressed { get; set; }
         UnityEvent OnFireButtonReleased { get; set; }
-        UnityEvent<Vector2> OnMovementPressed { get; set; }
+        UnityEvent<MoveEvent> OnMovementPressed { get; set; }
         UnityEvent<Vector2> OnPointerPositionChanged { get; set; }
     }
 }

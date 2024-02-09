@@ -14,5 +14,8 @@ namespace JoJosAdventure
         public GameObject[] PatrolPoints { get; set; }
 
         public int CurrentPatrolIndex = 0;
+
+        [field: SerializeField]
+        public float PatrolSpeedMultiplier { get; set; } = 0.5f;
     }
 }

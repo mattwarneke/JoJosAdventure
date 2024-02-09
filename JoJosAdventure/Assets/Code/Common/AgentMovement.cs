@@ -32,23 +32,23 @@ namespace JoJosAdventure.Common
         }
 
         // called from UnityEvent
-        public void Move(Vector2 movementInput)
+        public void Move(MoveEvent moveEvent)
         {
-            if (movementInput.magnitude > 0)
+            if (moveEvent.Input.magnitude > 0)
             {
                 // reset velocity if the player is changing direction
-                if (Vector2.Dot(movementInput.normalized, this.movementDirection) < 0)
+                if (Vector2.Dot(moveEvent.Input.normalized, this.movementDirection) < 0)
                 {
                     this.currentVelocity = 0;
                 }
-                this.movementDirection = movementInput.normalized;
+                this.movementDirection = moveEvent.Input.normalized;
             }
-            this.currentVelocity = this.CalculateSpeed(movementInput);
+            this.currentVelocity = this.CalculateSpeed(moveEvent);
         }
 
-        private float CalculateSpeed(Vector2 movementInput)
+        private float CalculateSpeed(MoveEvent moveEvent)
         {
-            if (movementInput.magnitude > 0)
+            if (moveEvent.Input.magnitude > 0)
             { // has any value
                 this.currentVelocity += this.movementData.acceleration * Time.deltaTime;
             }
@@ -56,7 +56,20 @@ namespace JoJosAdventure.Common
             {
                 this.currentVelocity -= this.movementData.deacceleration * Time.deltaTime;
             }
-            return Mathf.Clamp(this.currentVelocity, 0, this.movementData.maxSpeed);
+            return Mathf.Clamp(this.currentVelocity, 0, this.movementData.maxSpeed * moveEvent.SpeedModifer);
         }
+    }
+
+    public class MoveEvent
+    {
+        public MoveEvent(Vector2 movementInput, float movementSpeedModifer = 1)
+        {
+            this.Input = movementInput;
+            this.SpeedModifer = movementSpeedModifer;
+        }
+
+        public Vector2 Input { get; set; }
+
+        public float SpeedModifer { get; set; }
     }
 }

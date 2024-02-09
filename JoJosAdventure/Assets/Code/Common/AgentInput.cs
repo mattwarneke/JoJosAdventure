@@ -12,7 +12,7 @@ namespace JoJosAdventure.Common
         private bool fireButtonDown = false;
 
         [field: SerializeField]
-        public UnityEvent<Vector2> OnMovementPressed { get; set; }
+        public UnityEvent<MoveEvent> OnMovementPressed { get; set; }
 
         [field: SerializeField]
         public UnityEvent<Vector2> OnPointerPositionChanged { get; set; }
@@ -77,7 +77,7 @@ namespace JoJosAdventure.Common
             //}
             //else
             //{
-            this.OnMovementPressed?.Invoke(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")));
+            this.OnMovementPressed?.Invoke(new MoveEvent(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"))));
             //}
         }
 
