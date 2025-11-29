@@ -9,19 +9,9 @@ namespace JoJosAdventure.Common
     public class AgentInput : MonoBehaviour, IAgentInput
     {
         private Camera mainCamera;
-        private bool fireButtonDown = false;
 
         [field: SerializeField]
         public UnityEvent<MoveEvent> OnMovementPressed { get; set; }
-
-        [field: SerializeField]
-        public UnityEvent<Vector2> OnPointerPositionChanged { get; set; }
-
-        [field: SerializeField]
-        public UnityEvent OnFireButtonPressed { get; set; }
-
-        [field: SerializeField]
-        public UnityEvent OnFireButtonReleased { get; set; }
 
         private void Awake()
         {
@@ -31,54 +21,27 @@ namespace JoJosAdventure.Common
         private void Update()
         {
             this.GetMovementInput();
-            this.GetPointerInput();
-            this.GetFireInput();
         }
 
-        private void GetFireInput()
-        {
-            if (Input.GetAxisRaw("Fire1") > 0)
-            {
-                if (this.fireButtonDown == false)
-                {
-                    this.fireButtonDown = true;
-                    this.OnFireButtonPressed?.Invoke();
-                }
-            }
-            else
-            {
-                if (this.fireButtonDown == true)
-                {
-                    this.fireButtonDown = false;
-                    this.OnFireButtonReleased?.Invoke();
-                }
-            }
-        }
-
-        private void GetPointerInput()
-        {
-            Vector3 mousePos = Input.mousePosition;
-            mousePos.z = this.mainCamera.nearClipPlane;
-            var mouseInWorldSpace = this.mainCamera.ScreenToWorldPoint(mousePos);
-            this.OnPointerPositionChanged?.Invoke(mouseInWorldSpace);
-        }
+        private MoveEvent _moveEventCached = new MoveEvent(Vector2.zero);
 
         private void GetMovementInput()
         {
-            //if (Input.touchSupported
-            //    && Input.touchCount > 0)
-            //{
-            //    this.OnMovementPressed?.Invoke(
-            //        this.getDirectionToInput(Input.GetTouch(0).position));
-            //}
-            //else if (Input.GetMouseButton(0))
-            //{
-            //    this.OnMovementPressed?.Invoke(this.getDirectionToInput(Input.mousePosition));
-            //}
-            //else
-            //{
-            this.OnMovementPressed?.Invoke(new MoveEvent(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"))));
-            //}
+            if (Input.touchSupported
+                && Input.touchCount > 0)
+            {
+                this._moveEventCached.Input = Input.GetTouch(0).position;
+            }
+            else if (Input.GetMouseButton(0))
+            {
+                this._moveEventCached.Input = Input.mousePosition;
+            }
+            else
+            {
+                // Legacy: Support WASD keyboard if feeling like it on PC
+                this._moveEventCached.Input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            }
+            this.OnMovementPressed?.Invoke(this._moveEventCached);
         }
 
         private Vector2 getDirectionToInput(Vector2 inputPosition)
@@ -105,4 +68,3 @@ namespace JoJosAdventure.Common
             return new Vector2((float)inputDirections[0], (float)inputDirections[1]);
         }
     }
-}

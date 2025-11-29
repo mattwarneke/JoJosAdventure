@@ -60,7 +60,7 @@ namespace JoJosAdventure.Common
         }
     }
 
-    public class MoveEvent
+    public struct MoveEvent
     {
         public MoveEvent(Vector2 movementInput, float movementSpeedModifer = 1)
         {
