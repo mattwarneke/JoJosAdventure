@@ -1,13 +1,11 @@
-using UnityEngine;
-
 namespace JoJosAdventure
 {
     public class PatrolPointDecision : AIDecision
     {
         public override bool MakeADecision()
         {
-            Vector2 toTarget = this.AIMovementData.PointOfInterest - (Vector2)this.transform.position;
-            if (toTarget.magnitude < 0.25f)
+            if (this.AIMovementData.AgentMovement.IsAtDestination(
+                this.AIMovementData.PatrolPoints[this.AIMovementData.CurrentPatrolIndex].transform.position))
             {
                 this.AIMovementData.CurrentPatrolIndex = this.AIMovementData.CurrentPatrolIndex + 1 >= this.AIMovementData.PatrolPoints.Length
                     ? 0

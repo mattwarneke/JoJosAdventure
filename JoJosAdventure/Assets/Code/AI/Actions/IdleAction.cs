@@ -6,8 +6,7 @@ namespace JoJosAdventure
         {
             // TODO: Have a start location and return the AI to that location?
 
-            this.AIMovementData.PointOfInterest = this.transform.position;
-            this.EnemyBrain.Move(this.AIMovementData.PointOfInterest);
+            this.EnemyBrain.Move(this.transform.position);
         }
     }
 }

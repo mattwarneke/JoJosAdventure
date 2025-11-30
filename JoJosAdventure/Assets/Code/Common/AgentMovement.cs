@@ -28,6 +28,8 @@ namespace JoJosAdventure.Common
         [field: SerializeField]
         public UnityEvent<Vector2> OnDirectionChange { get; set; }
 
+        public bool IsAtTarget = false;
+
         private bool isStunned { get; set; }
 
         // Use this for initialization
@@ -43,15 +45,14 @@ namespace JoJosAdventure.Common
                 return;
             }
 
-            Vector2 toTarget = this.targetPosition.Value - (Vector2)this.transform.position;
-            if (toTarget.magnitude < this.ArriveBufferDistance)
+            if (this.IsAtDestination(this.targetPosition.Value))
             {
                 // reached target → stop
                 this.stopMovement();
             }
             else
             {
-                this.movementDirection = toTarget.normalized;
+                this.movementDirection = (this.targetPosition.Value - this.rigidBody2d.position).normalized;
                 this.setVelocity();
             }
         }
@@ -62,6 +63,12 @@ namespace JoJosAdventure.Common
             this.lastMoveEvent = moveEvent;
             this.targetPosition = moveEvent.InputWorldPosition;
             this.OnDirectionChange?.Invoke(moveEvent.InputWorldPosition);
+        }
+
+        public bool IsAtDestination(Vector2 position)
+        {
+            Vector2 toTarget = position - this.rigidBody2d.position;
+            return toTarget.magnitude < this.ArriveBufferDistance;
         }
 
         private void setVelocity()
