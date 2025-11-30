@@ -8,7 +8,7 @@ namespace JoJosAdventure
         {
             this.AIMovementData.Direction = Vector2.zero;
             this.AIMovementData.PointOfInterest = this.EnemyBrain.Target.transform.position;
-            this.EnemyBrain.Move(this.AIMovementData.Direction, this.AIMovementData.PointOfInterest);
+            this.EnemyBrain.Move(this.AIMovementData.PointOfInterest);
             this.AIActionData.Attack = true;
             this.EnemyBrain.Attack();
         }

@@ -26,9 +26,6 @@ namespace JoJosAdventure
         [field: SerializeField]
         public UnityEvent<MoveEvent> OnMovementPressed { get; set; }
 
-        [field: SerializeField]
-        public UnityEvent<Vector2> OnPointerPositionChanged { get; set; }
-
         private void Awake()
         {
             this.Target = FindObjectOfType<JojoPlayer>().gameObject;
@@ -44,10 +41,9 @@ namespace JoJosAdventure
             this.OnFireButtonPressed?.Invoke();
         }
 
-        public void Move(Vector2 movementDirection, Vector2 targetPosition, float maxSpeedMultiplier = 1)
+        public void Move(Vector2 targetPosition, float maxSpeedMultiplier = 1)
         {
-            this.OnMovementPressed?.Invoke(new MoveEvent(movementDirection, maxSpeedMultiplier));
-            this.OnPointerPositionChanged?.Invoke(targetPosition);
+            this.OnMovementPressed?.Invoke(new MoveEvent(targetPosition, maxSpeedMultiplier));
         }
 
         internal void ChangeToState(AIState state)

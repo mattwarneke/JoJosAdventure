@@ -306,8 +306,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Direction>k__BackingField: {x: 0, y: 0}
   <PointOfInterest>k__BackingField: {x: 0, y: 0}
-  <PatrolPath>k__BackingField: []
+  <PatrolPoints>k__BackingField:
+  - {fileID: 0}
+  - {fileID: 0}
   CurrentPatrolIndex: 0
+  <PatrolSpeedMultiplier>k__BackingField: 0.5
 --- !u!114 &2659381519593720644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,7 +338,7 @@ GameObject:
   - component: {fileID: 5142809810673348283}
   - component: {fileID: 2078877619}
   m_Layer: 6
-  m_Name: TransitionIdle
+  m_Name: TransitionPatrol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -371,7 +374,7 @@ MonoBehaviour:
   <Decisions>k__BackingField:
   - {fileID: 2078877619}
   <PositiveResult>k__BackingField: {fileID: 0}
-  <NegativeResult>k__BackingField: {fileID: 2227325926908003641}
+  <NegativeResult>k__BackingField: {fileID: 161586651169998183}
 --- !u!114 &2078877619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -858,7 +861,7 @@ MonoBehaviour:
   - {x: 0.39464378, y: -1.2853851, z: -0}
   m_ShapePathHash: 1074504485
   m_Mesh: {fileID: 0}
-  m_InstanceId: 30136
+  m_InstanceId: -1328
 --- !u!1 &6976892618407817833
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,7 +872,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8555668314094691911}
   - component: {fileID: 161586651169998183}
-  - component: {fileID: 6288448250739447084}
+  - component: {fileID: 822273671}
   m_Layer: 6
   m_Name: PatrolState
   m_TagString: Untagged
@@ -906,10 +909,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 6288448250739447084}
+  - {fileID: 822273671}
   transitions:
   - {fileID: 5926598521408232961}
---- !u!114 &6288448250739447084
+--- !u!114 &822273671
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -918,7 +921,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6976892618407817833}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c57681b966aa7bc4aa563974c4934334, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f9a8168980b29f46aca0ed5b8c212d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7422870658372659641
@@ -2193,7 +2196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Target>k__BackingField: {fileID: 0}
-  <CurrentState>k__BackingField: {fileID: 2227325926908003641}
+  <CurrentState>k__BackingField: {fileID: 161586651169998183}
   <EnemyFOV>k__BackingField: {fileID: 5694637746011141340}
   <OnFireButtonPressed>k__BackingField:
     m_PersistentCalls:
@@ -2205,8 +2208,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 88122780578131952}
-        m_TargetAssemblyTypeName: JoJosAdventure.JojoPlayer.AgentMovement, JoJosAdventure
-        m_MethodName: Move
+        m_TargetAssemblyTypeName: JoJosAdventure.Common.AgentMovement, JoJosAdventure
+        m_MethodName: SetDestination
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2260,18 +2263,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6459389862425521920}
-        m_TargetAssemblyTypeName: JoJosAdventure.Common.AgentRenderer, JoJosAdventure
-        m_MethodName: SortingZIndexBasedOnY
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  <OnDirectionChange>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!70 &5604073003559896129
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2991,6 +2985,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Field of view
+      objectReference: {fileID: 0}
+    - target: {fileID: 1693233381256538637, guid: b890fb27a2e7a7048b91a43f46f42f73,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6396802954453593527, guid: b890fb27a2e7a7048b91a43f46f42f73,
         type: 3}
