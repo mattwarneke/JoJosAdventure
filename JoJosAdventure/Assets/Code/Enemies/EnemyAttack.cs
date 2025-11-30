@@ -8,7 +8,7 @@ namespace JoJosAdventure
         protected EnemyAIBrain enemyBrain;
 
         [field: SerializeField]
-        public float AttackDelay { get; private set; } = 1;
+        public float AttackDelay { get; private set; }
 
         protected bool waitBeforeNextAttack;
 

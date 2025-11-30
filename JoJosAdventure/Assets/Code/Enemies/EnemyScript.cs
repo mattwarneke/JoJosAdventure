@@ -1,3 +1,4 @@
+using JoJosAdventure.Common;
 using JoJosAdventure.Common.Interfaces;
 using JoJosAdventure.Logic;
 using System.Collections;
@@ -6,7 +7,7 @@ using UnityEngine.Events;
 
 namespace JoJosAdventure.Enemies
 {
-    public class EnemyScript : MonoBehaviour, IHittable, IAgent
+    public class EnemyScript : MonoBehaviour, IHittable, IAgent, IStunnable
     {
         public FieldOfView fieldOfView;
         public SpeechBubble speechBubble;
@@ -28,12 +29,15 @@ namespace JoJosAdventure.Enemies
         [field: SerializeField]
         public UnityEvent OnDie { get; set; }
 
+        private AgentMovement agentMovement;
+
         private void Awake()
         {
             if (this.EnemyAttack == null)
             {
                 this.EnemyAttack = this.GetComponent<EnemyAttack>();
             }
+            this.agentMovement = this.GetComponent<AgentMovement>();
         }
 
         private void Start()
@@ -72,7 +76,14 @@ namespace JoJosAdventure.Enemies
             if (this.dead) return;
 
             this.Speak(new Speech("HUG KITTY!!", 1));
+
             this.EnemyAttack.Attack(this.EnemyData.Damage);
+            this.GetStunned(this.EnemyAttack.AttackDelay);
+        }
+
+        public void GetStunned(float duration)
+        {
+            this.agentMovement.GetStunned(duration);
         }
 
         private void Speak(Speech speech)

@@ -1,3 +1,4 @@
+using JoJosAdventure.Common;
 using JoJosAdventure.Common.Interfaces;
 using System.Collections;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine.Events;
 
 namespace JoJosAdventure
 {
-    public class JojoPlayer : MonoBehaviour, IAgent, IHittable
+    public class JojoPlayer : MonoBehaviour, IAgent, IHittable, IStunnable
     {
         [field: SerializeField]
         public int Health { get; private set; }
@@ -17,6 +18,13 @@ namespace JoJosAdventure
 
         [field: SerializeField]
         public UnityEvent OnDie { get; set; }
+
+        private AgentMovement agentMovement;
+
+        private void Awake()
+        {
+            this.agentMovement = this.GetComponent<AgentMovement>();
+        }
 
         public void GetHit(int damage, GameObject damageDealer)
         {
@@ -30,6 +38,11 @@ namespace JoJosAdventure
                 this.dead = true;
                 this.StartCoroutine(this.WaitToDie());
             }
+        }
+
+        public void GetStunned(float duration)
+        {
+            this.agentMovement.GetStunned(duration);
         }
 
         private IEnumerator WaitToDie()

@@ -732,7 +732,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -741,9 +741,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 10
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -776,7 +776,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -828,7 +828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28eb5ef383cfd9e4c9cbce9ea820dc67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pitchRandomness: 0.1
+  pitchRandomness: 0.2
   stepClip: {fileID: 8300000, guid: 69d2370c3670d84488bb4dbb1b3ecaba, type: 3}
 --- !u!114 &1516352096
 MonoBehaviour:
@@ -860,7 +860,7 @@ MonoBehaviour:
   - {x: 0.39464378, y: -1.2853851, z: -0}
   m_ShapePathHash: 1074504485
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1328
+  m_InstanceId: 73482
 --- !u!1 &6976892618407817833
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,6 +892,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5303288957788701727}
+  - {fileID: 1675563839792318120}
   m_Father: {fileID: 61638502346697803}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2242,6 +2243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <movementData>k__BackingField: {fileID: 11400000, guid: afc3ab2767dbebe428b9d4c5720692fb,
     type: 2}
+  <ArriveBufferDistance>k__BackingField: 0.2
   <OnVelocityChange>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -2284,7 +2286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6464df6a415ad5f4e88ce52a4795bf58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <AttackDelay>k__BackingField: 1
+  <AttackDelay>k__BackingField: 3
 --- !u!70 &5604073003559896129
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2981,6 +2983,67 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c57681b966aa7bc4aa563974c4934334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &8747181814594752082
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1675563839792318120}
+  - component: {fileID: 1526487859905052599}
+  - component: {fileID: 1482978785309989521}
+  m_Layer: 6
+  m_Name: TransitionPatrol
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1675563839792318120
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8747181814594752082}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8555668314094691911}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1526487859905052599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8747181814594752082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a22817bb6f87f2d4bbe1d024aadac60f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Decisions>k__BackingField:
+  - {fileID: 0}
+  <PositiveResult>k__BackingField: {fileID: 161586651169998183}
+  <NegativeResult>k__BackingField: {fileID: 0}
+--- !u!114 &1482978785309989521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8747181814594752082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 546c55838a716e448bdf00af24066a77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1711764502688979307
