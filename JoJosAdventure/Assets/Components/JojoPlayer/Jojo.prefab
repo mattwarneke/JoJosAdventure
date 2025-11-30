@@ -565,7 +565,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3910659329240871081}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -20}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -742,66 +742,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1572945675552853406}
-        m_TargetAssemblyTypeName: Assets.Code.JojoMovement, JoJosAdventure
-        m_MethodName: Move
+        m_TargetAssemblyTypeName: JoJosAdventure.Common.AgentMovement, JoJosAdventure
+        m_MethodName: SetDestination
         m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  <OnPointerPositionChanged>k__BackingField:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8961123693868373215}
-        m_TargetAssemblyTypeName: JoJosAdventure.Common.AgentRenderer, JoJosAdventure
-        m_MethodName: FaceDirection
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: JoJosAdventure.Weapons.AgentAimWeapon, JoJosAdventure
-        m_MethodName: AimWeapon
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  <OnFireButtonPressed>k__BackingField:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: JoJosAdventure.Weapons.AgentWeapon, JoJosAdventure
-        m_MethodName: Shoot
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  <OnFireButtonReleased>k__BackingField:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: JoJosAdventure.Weapons.AgentWeapon, JoJosAdventure
-        m_MethodName: StopShooting
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -862,6 +805,21 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: JoJosAdventure.Common.AgentRenderer, JoJosAdventure
         m_MethodName: SortingZIndexBasedOnY
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  <OnDirectionChange>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8961123693868373215}
+        m_TargetAssemblyTypeName: JoJosAdventure.Common.AgentRenderer, JoJosAdventure
+        m_MethodName: FaceDirection
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1056,7 +1014,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0025637795, y: -0.2887359}
+  m_Offset: {x: 0, y: -0.2887359}
   m_Size: {x: 0.77914447, y: 0.30713275}
   m_Direction: 1
 --- !u!1 &8026986289993865507
@@ -2094,7 +2052,7 @@ MonoBehaviour:
   - {x: -0.31482315, y: 0.4034996, z: 0}
   m_ShapePathHash: 1715280231
   m_Mesh: {fileID: 0}
-  m_InstanceId: 47424
+  m_InstanceId: -1596
 --- !u!1 &8026986290964841682
 GameObject:
   m_ObjectHideFlags: 0

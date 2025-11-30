@@ -17,6 +17,7 @@ namespace JoJosAdventure.Animation
             this.Animator.SetBool("Walk", val);
         }
 
+        // called from UnityEvent -> AgentMovement:OnVelocityChange
         public void AnimatePlayer(float velocity)
         {
             this.SetWalkAnimation(velocity > 0);

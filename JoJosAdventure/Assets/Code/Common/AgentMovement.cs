@@ -22,6 +22,9 @@ namespace JoJosAdventure.Common
         [field: SerializeField]
         public UnityEvent<float> OnVelocityChange { get; set; }
 
+        [field: SerializeField]
+        public UnityEvent<Vector2> OnDirectionChange { get; set; }
+
         // Use this for initialization
         private void Awake()
         {
@@ -47,9 +50,12 @@ namespace JoJosAdventure.Common
                 this.movementDirection = toTarget.normalized;
             }
 
-            this.currentVelocity = this.CalculateSpeed(this.movementDirection, this.lastMoveEvent.SpeedModifer);
-
-            this.OnVelocityChange?.Invoke(this.currentVelocity);
+            float tmpVelocity = this.CalculateSpeed(this.movementDirection, this.lastMoveEvent.SpeedModifer);
+            if (this.currentVelocity != tmpVelocity)
+            {
+                this.currentVelocity = tmpVelocity;
+                this.OnVelocityChange?.Invoke(this.currentVelocity);
+            }
 
             this.rigidBody2d.velocity = this.currentVelocity * this.movementDirection.normalized;
         }
@@ -59,17 +65,18 @@ namespace JoJosAdventure.Common
         {
             this.lastMoveEvent = moveEvent;
             this.targetPosition = moveEvent.InputWorldPosition;
+            this.OnDirectionChange?.Invoke(moveEvent.InputWorldPosition);
         }
 
         private float CalculateSpeed(Vector2 target, float speedMultiplier)
         {
             if (target.sqrMagnitude > 0)
             { // has any value
-                this.currentVelocity += this.movementData.acceleration * Time.deltaTime;
+                this.currentVelocity += this.movementData.acceleration * Time.fixedDeltaTime;
             }
             else
             {
-                this.currentVelocity -= this.movementData.deacceleration * Time.deltaTime;
+                this.currentVelocity -= this.movementData.deacceleration * Time.fixedDeltaTime;
             }
             return Mathf.Clamp(this.currentVelocity, 0, this.movementData.maxSpeed * speedMultiplier);
         }

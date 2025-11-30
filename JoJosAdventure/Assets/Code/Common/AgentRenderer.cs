@@ -14,10 +14,10 @@ namespace JoJosAdventure.Common
             this.spriteRenderer = this.GetComponent<SpriteRenderer>();
         }
 
-        // called from UnityEvent
-        public void FaceDirection(Vector2 pointerInput)
+        // called from UnityEvent - AgentMovement: OnDirectionChange
+        public void FaceDirection(Vector2 destination)
         {
-            var direction = (Vector3)pointerInput - this.transform.position;
+            var direction = (Vector3)destination - this.transform.position;
             // if angle is positive we are facing right, negative left
             var result = Vector3.Cross(Vector2.up, direction);
 
@@ -36,7 +36,7 @@ namespace JoJosAdventure.Common
             }
         }
 
-        // called from UnityEvent
+        // called from UnityEvent - AgentMovement: OnVelocityChange
         public void SortingZIndexBasedOnY()
         {
             // Adjusts game object containers to set z index and therefore order based on Y position
