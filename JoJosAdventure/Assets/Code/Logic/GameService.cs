@@ -29,11 +29,11 @@
         }
 
         public int CollectableCount { get; private set; }
-        public GuiController GuiController;
+        public GameManager GameManager;
 
         public void HandleEvent(EventEnum eventTriggered)
         {
-            if (this.GuiController == null)// game unload
+            if (this.GameManager == null)// game unload
                 return;
 
             switch (eventTriggered)
@@ -65,12 +65,12 @@
 
         public void MattFollowJoJo()
         {
-            this.GuiController.SetMattFollowJojo();
+            this.GameManager.SetMattFollowJojo();
             // should prob split speech in 2 so can do after speech callback
-            this.GuiController.MattSpeak(SpeechRepository.GetMattFollowJoJoSpeech());
-            this.GuiController.DoActionAfterXTime(3.5f, () =>
+            this.GameManager.MattSpeak(SpeechRepository.GetMattFollowJoJoSpeech());
+            this.GameManager.DoActionAfterXTime(3.5f, () =>
             {
-                this.GuiController.PanToPaigeWithCallBack(() =>
+                this.GameManager.PanToPaigeWithCallBack(() =>
                 {
                     //this.GuiController.RestartJoJoMovement()
                 });
@@ -80,10 +80,10 @@
         public void ExitLounge()
         {
             //this.GuiController.PauseJojoMovement();
-            this.GuiController.MattSpeakWithCallBack(SpeechRepository.GetExitLoungeSpeechNoneCollected(), () =>
+            this.GameManager.MattSpeakWithCallBack(SpeechRepository.GetExitLoungeSpeechNoneCollected(), () =>
             {
-                this.GuiController.PanToDemons();
-                this.GuiController.DoActionAfterPanFinished(() =>
+                this.GameManager.PanToDemons();
+                this.GameManager.DoActionAfterPanFinished(() =>
                 {
                     //this.GuiController.RestartJoJoMovement()
                 });
@@ -96,16 +96,16 @@
 
             if (this.CollectableCount > 0)
             {
-                this.GuiController.MattSpeak(SpeechRepository.GetDemonDied());
+                this.GameManager.MattSpeak(SpeechRepository.GetDemonDied());
                 return;
             }
 
             //this.GuiController.PauseJojoMovement();
-            this.GuiController.RemoveBedroomDoor();
-            this.GuiController.PanToBedroomDoor();
-            this.GuiController.DoActionAfterPanFinished(() =>
+            this.GameManager.RemoveBedroomDoor();
+            this.GameManager.PanToBedroomDoor();
+            this.GameManager.DoActionAfterPanFinished(() =>
             {
-                this.GuiController.MattSpeak(SpeechRepository.GetNoMoreDemons());
+                this.GameManager.MattSpeak(SpeechRepository.GetNoMoreDemons());
                 //this.GuiController.RestartJoJoMovement();
             });
         }
@@ -113,9 +113,9 @@
         public void EnterBedroom()
         {
             //this.GuiController.PauseJojoMovement();
-            this.GuiController.PanToPaigeWithCallBack(() =>
+            this.GameManager.PanToPaigeWithCallBack(() =>
             {
-                this.GuiController.MattSpeakWithCallBack(
+                this.GameManager.MattSpeakWithCallBack(
                     SpeechRepository.GetEnterBedroomSpeech(),
                     () =>
                     {
@@ -130,12 +130,12 @@
 
             // double swip
             // swip over do speech and ring
-            this.GuiController.DoActionAfterXTime(1.5f, () =>
+            this.GameManager.DoActionAfterXTime(1.5f, () =>
             {
-                this.GuiController.MattSpeakWithCallBack(SpeechRepository.GetJoJoBreakJarFailedSpeech(), () =>
+                this.GameManager.MattSpeakWithCallBack(SpeechRepository.GetJoJoBreakJarFailedSpeech(), () =>
                 {
-                    this.GuiController.ShowRingAnimation();
-                    this.GuiController.DoActionAfterXTime(4, () => this.GuiController.ShowMarryMeCanvasDialog());
+                    this.GameManager.ShowRingAnimation();
+                    this.GameManager.DoActionAfterXTime(4, () => this.GameManager.ShowMarryMeCanvasDialog());
                     // another chained call paige is free! and Huh is that a ring?
                     // will you marry me paige - speech.
                     // could probably do something more elegant callbacks on animations or something.. but w.e
@@ -145,8 +145,8 @@
 
         public void SheSaidYesFuckYeah()
         {
-            this.GuiController.RemoveJar();
-            this.GuiController.MattSpeak(SpeechRepository.SheSaidYesFuckYeah());
+            this.GameManager.RemoveJar();
+            this.GameManager.MattSpeak(SpeechRepository.SheSaidYesFuckYeah());
         }
 
         public void AddCollectable()

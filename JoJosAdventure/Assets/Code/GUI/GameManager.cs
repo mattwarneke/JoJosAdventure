@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace JoJosAdventure.GUI
 {
-    public class GuiController : MonoBehaviour
+    public class GameManager : MonoBehaviour
     {
         public GameObject Jojo;
         public GameObject Matt;

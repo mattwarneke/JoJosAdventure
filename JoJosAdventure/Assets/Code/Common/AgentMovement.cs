@@ -14,7 +14,7 @@ namespace JoJosAdventure.Common
 
         protected Vector2 movementDirection;
         protected float currentVelocity = 0;
-        protected float arriveBufferDistance = 0.01f;
+        protected float arriveBufferDistance = 0.2f;
 
         private MoveEvent lastMoveEvent { get; set; }
         private Vector2? targetPosition { get; set; }
@@ -54,7 +54,7 @@ namespace JoJosAdventure.Common
             this.rigidBody2d.velocity = this.currentVelocity * this.movementDirection.normalized;
         }
 
-        // called from UnityEvent
+        // called from UnityEvent -> AgentInput.cs Click/Touch
         public void SetDestination(MoveEvent moveEvent)
         {
             this.lastMoveEvent = moveEvent;
