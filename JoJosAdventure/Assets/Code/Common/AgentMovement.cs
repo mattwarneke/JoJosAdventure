@@ -14,6 +14,10 @@ namespace JoJosAdventure.Common
 
         protected Vector2 movementDirection;
         protected float currentVelocity = 0;
+        protected float arriveBufferDistance = 0.01f;
+
+        private MoveEvent lastMoveEvent { get; set; }
+        private Vector2? targetPosition { get; set; }
 
         [field: SerializeField]
         public UnityEvent<float> OnVelocityChange { get; set; }
@@ -26,29 +30,40 @@ namespace JoJosAdventure.Common
 
         private void FixedUpdate()
         {
+            if (!this.targetPosition.HasValue)
+                return;
+
+            Vector2 toTarget = this.targetPosition.Value - (Vector2)this.transform.position;
+
+            if (toTarget.magnitude < this.arriveBufferDistance)
+            {
+                // reached target → stop
+                this.targetPosition = null;
+                this.currentVelocity = 0f;
+                this.movementDirection = Vector2.zero;
+            }
+            else
+            {
+                this.movementDirection = toTarget.normalized;
+            }
+
+            this.currentVelocity = this.CalculateSpeed(this.movementDirection, this.lastMoveEvent.SpeedModifer);
+
             this.OnVelocityChange?.Invoke(this.currentVelocity);
 
             this.rigidBody2d.velocity = this.currentVelocity * this.movementDirection.normalized;
         }
 
         // called from UnityEvent
-        public void Move(MoveEvent moveEvent)
+        public void SetDestination(MoveEvent moveEvent)
         {
-            if (moveEvent.Input.magnitude > 0)
-            {
-                // reset velocity if the player is changing direction
-                if (Vector2.Dot(moveEvent.Input.normalized, this.movementDirection) < 0)
-                {
-                    this.currentVelocity = 0;
-                }
-                this.movementDirection = moveEvent.Input.normalized;
-            }
-            this.currentVelocity = this.CalculateSpeed(moveEvent);
+            this.lastMoveEvent = moveEvent;
+            this.targetPosition = moveEvent.InputWorldPosition;
         }
 
-        private float CalculateSpeed(MoveEvent moveEvent)
+        private float CalculateSpeed(Vector2 target, float speedMultiplier)
         {
-            if (moveEvent.Input.magnitude > 0)
+            if (target.sqrMagnitude > 0)
             { // has any value
                 this.currentVelocity += this.movementData.acceleration * Time.deltaTime;
             }
@@ -56,7 +71,7 @@ namespace JoJosAdventure.Common
             {
                 this.currentVelocity -= this.movementData.deacceleration * Time.deltaTime;
             }
-            return Mathf.Clamp(this.currentVelocity, 0, this.movementData.maxSpeed * moveEvent.SpeedModifer);
+            return Mathf.Clamp(this.currentVelocity, 0, this.movementData.maxSpeed * speedMultiplier);
         }
     }
 
@@ -64,11 +79,11 @@ namespace JoJosAdventure.Common
     {
         public MoveEvent(Vector2 movementInput, float movementSpeedModifer = 1)
         {
-            this.Input = movementInput;
+            this.InputWorldPosition = movementInput;
             this.SpeedModifer = movementSpeedModifer;
         }
 
-        public Vector2 Input { get; set; }
+        public Vector2 InputWorldPosition { get; set; }
 
         public float SpeedModifer { get; set; }
     }
