@@ -13,14 +13,11 @@ namespace JoJosAdventure
             // The target of AI system vs ourselves
             if (Vector3.Distance(this.EnemyBrain.Target.transform.position, this.transform.position) < this.Distance)
             {
-                if (this.AIActionData.TargetSpotted == false)
-                {
-                    this.AIActionData.TargetSpotted = true;
-                }
+                this.AIActionData.Attack = true;
             }
             else
             {
-                this.AIActionData.TargetSpotted = false;
+                this.AIActionData.Attack = false;
             }
             return this.AIActionData.TargetSpotted;
         }

@@ -6,8 +6,6 @@ namespace JoJosAdventure
     {
         public override void TakeAction()
         {
-            var direction = this.AIMovementData.PatrolPoints[this.AIMovementData.CurrentPatrolIndex].transform.position - this.transform.position;
-            this.AIMovementData.Direction = direction.normalized;
             this.AIMovementData.PointOfInterest = this.AIMovementData.PatrolPoints[this.AIMovementData.CurrentPatrolIndex].transform.position;
 
             this.EnemyBrain.Move(this.AIMovementData.PointOfInterest, this.AIMovementData.PatrolSpeedMultiplier);

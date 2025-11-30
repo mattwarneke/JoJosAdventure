@@ -304,7 +304,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c016a306148e7b43a3f509a0429263a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Direction>k__BackingField: {x: 0, y: 0}
   <PointOfInterest>k__BackingField: {x: 0, y: 0}
   <PatrolPoints>k__BackingField:
   - {fileID: 0}
@@ -2081,6 +2080,7 @@ GameObject:
   - component: {fileID: 332379338191078650}
   - component: {fileID: 3109229513435165556}
   - component: {fileID: 88122780578131952}
+  - component: {fileID: 7074045448235745376}
   - component: {fileID: 5604073003559896129}
   - component: {fileID: 2946207150414805931}
   m_Layer: 6
@@ -2128,7 +2128,7 @@ MonoBehaviour:
   <EnemyData>k__BackingField: {fileID: 11400000, guid: a62e6c7cc8ccb8241b6957a8a5d7bf2e,
     type: 2}
   <Health>k__BackingField: 2
-  FlipContainer: {fileID: 6646885460317337989}
+  <EnemyAttack>k__BackingField: {fileID: 0}
   <OnGetHit>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -2200,17 +2200,11 @@ MonoBehaviour:
   <EnemyFOV>k__BackingField: {fileID: 5694637746011141340}
   <OnFireButtonPressed>k__BackingField:
     m_PersistentCalls:
-      m_Calls: []
-  <OnFireButtonReleased>k__BackingField:
-    m_PersistentCalls:
-      m_Calls: []
-  <OnMovementPressed>k__BackingField:
-    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 88122780578131952}
-        m_TargetAssemblyTypeName: JoJosAdventure.Common.AgentMovement, JoJosAdventure
-        m_MethodName: SetDestination
-        m_Mode: 0
+      - m_Target: {fileID: 332379338191078650}
+        m_TargetAssemblyTypeName: JoJosAdventure.Enemies.EnemyScript, JoJosAdventure
+        m_MethodName: PerformAttack
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2219,12 +2213,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  <OnPointerPositionChanged>k__BackingField:
+  <OnMovementPressed>k__BackingField:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6459389862425521920}
-        m_TargetAssemblyTypeName: JoJosAdventure.Common.AgentRenderer, JoJosAdventure
-        m_MethodName: FaceDirection
+      - m_Target: {fileID: 88122780578131952}
+        m_TargetAssemblyTypeName: JoJosAdventure.Common.AgentMovement, JoJosAdventure
+        m_MethodName: SetDestination
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2265,7 +2259,32 @@ MonoBehaviour:
         m_CallState: 2
   <OnDirectionChange>k__BackingField:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6459389862425521920}
+        m_TargetAssemblyTypeName: JoJosAdventure.Common.AgentRenderer, JoJosAdventure
+        m_MethodName: FaceDirection
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7074045448235745376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7423556049181144849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6464df6a415ad5f4e88ce52a4795bf58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <AttackDelay>k__BackingField: 1
 --- !u!70 &5604073003559896129
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

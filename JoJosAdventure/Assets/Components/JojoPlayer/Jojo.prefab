@@ -142,8 +142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pitchRandomness: 0.1
-  hitClip: {fileID: 0}
-  deathClip: {fileID: 0}
+  hitClip: {fileID: 8300000, guid: 7939038a4795bcb408c16ffff2c6928f, type: 3}
+  deathClip: {fileID: 8300000, guid: 899d3dd71c6a3c548aed7705fc278106, type: 3}
   voiceLineClip: {fileID: 0}
 --- !u!1 &194117922
 GameObject:
@@ -768,10 +768,34 @@ MonoBehaviour:
   <Health>k__BackingField: 0
   <OnGetHit>k__BackingField:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 189648176}
+        m_TargetAssemblyTypeName: JoJosAdventure.Common.AgentSounds, JoJosAdventure
+        m_MethodName: PlayHitSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   <OnDie>k__BackingField:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 189648176}
+        m_TargetAssemblyTypeName: JoJosAdventure.Common.AgentSounds, JoJosAdventure
+        m_MethodName: PlayDeathSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1572945675552853406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2052,7 +2076,7 @@ MonoBehaviour:
   - {x: -0.31482315, y: 0.4034996, z: 0}
   m_ShapePathHash: 1715280231
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1596
+  m_InstanceId: 99704
 --- !u!1 &8026986290964841682
 GameObject:
   m_ObjectHideFlags: 0

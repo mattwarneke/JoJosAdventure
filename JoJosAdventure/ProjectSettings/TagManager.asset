@@ -6,7 +6,6 @@ TagManager:
   tags:
   - LargeTile
   - LevelChanger
-  - GuiController
   - healthbar
   - Jojo
   layers:

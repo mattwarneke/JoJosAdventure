@@ -21,9 +21,6 @@ namespace JoJosAdventure
         public UnityEvent OnFireButtonPressed { get; set; }
 
         [field: SerializeField]
-        public UnityEvent OnFireButtonReleased { get; set; }
-
-        [field: SerializeField]
         public UnityEvent<MoveEvent> OnMovementPressed { get; set; }
 
         private void Awake()
@@ -33,7 +30,8 @@ namespace JoJosAdventure
 
         private void Update()
         {
-            this.CurrentState.UpdateState();
+            if (this.Target != null)
+                this.CurrentState.UpdateState();
         }
 
         public void Attack()

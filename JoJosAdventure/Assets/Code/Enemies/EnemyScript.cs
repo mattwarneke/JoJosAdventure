@@ -17,8 +17,10 @@ namespace JoJosAdventure.Enemies
         [field: SerializeField]
         public int Health { get; private set; }
 
-        public GameObject FlipContainer;
-        private bool isFacingRight => this.FlipContainer.transform.eulerAngles.y < 180;
+        [field: SerializeField]
+        public EnemyAttack EnemyAttack { get; set; }
+
+        private bool dead = false;
 
         [field: SerializeField]
         public UnityEvent OnGetHit { get; set; }
@@ -26,17 +28,20 @@ namespace JoJosAdventure.Enemies
         [field: SerializeField]
         public UnityEvent OnDie { get; set; }
 
-        // Use this for initialization
+        private void Awake()
+        {
+            if (this.EnemyAttack == null)
+            {
+                this.EnemyAttack = this.GetComponent<EnemyAttack>();
+            }
+        }
+
         private void Start()
         {
             this.Health = this.EnemyData.MaxHealth;
 
             if (this.fieldOfView == null) throw new ExpectedInspectorReferenceException();
-
-            string repeatedSpeechText = "Here kitty, kitty, kitty!";
-            this.Speak(new Speech(repeatedSpeechText, 2));
-            this.Speak(new Speech(null, 1));
-            this.Speak(new Speech(repeatedSpeechText, 2));
+            this.StartUpSpeech();
         }
 
         private void Update()
@@ -45,6 +50,8 @@ namespace JoJosAdventure.Enemies
 
         public void GetHit(int damage, GameObject damageDealer)
         {
+            if (this.dead) return;
+
             this.Health--;
             this.OnGetHit?.Invoke();
             if (this.Health <= 0)
@@ -60,24 +67,25 @@ namespace JoJosAdventure.Enemies
             Destroy(this.gameObject);
         }
 
-        //private void ActivateFollow(Transform transformToFollow)
-        //{
-        //    this.Speak(new Speech("Hug the kitty!!!", 2));
-        //}
+        public void PerformAttack()
+        {
+            if (this.dead) return;
 
-        //private void PlayerOutOfSite()
-        //{
-        //    this.Speak(new Speech("Where did the kitty go?", 2));
-        //}
-
-        //private void GrabJojo()
-        //{
-        //    this.Speak(new Speech("Has kitty!!!", 2));
-        //}
+            this.Speak(new Speech("HUG KITTY!!", 1));
+            this.EnemyAttack.Attack(this.EnemyData.Damage);
+        }
 
         private void Speak(Speech speech)
         {
             this.speechBubble.AddToSpeechQueue(speech);
+        }
+
+        private void StartUpSpeech()
+        {
+            string repeatedSpeechText = "Here kitty, kitty, kitty!";
+            this.Speak(new Speech(repeatedSpeechText, 2));
+            this.Speak(new Speech(null, 1));
+            this.Speak(new Speech(repeatedSpeechText, 2));
         }
     }
 }

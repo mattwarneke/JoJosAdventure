@@ -5,10 +5,12 @@ using UnityEngine.Events;
 
 namespace JoJosAdventure
 {
-    public class JojoPlayer : MonoBehaviour, IAgent
+    public class JojoPlayer : MonoBehaviour, IAgent, IHittable
     {
         [field: SerializeField]
         public int Health { get; private set; }
+
+        private bool dead = false;
 
         [field: SerializeField]
         public UnityEvent OnGetHit { get; set; }
@@ -18,11 +20,14 @@ namespace JoJosAdventure
 
         public void GetHit(int damage, GameObject damageDealer)
         {
+            if (this.dead) return;
+
             this.Health--;
             this.OnGetHit?.Invoke();
             if (this.Health <= 0)
             {
                 this.OnDie?.Invoke();
+                this.dead = true;
                 this.StartCoroutine(this.WaitToDie());
             }
         }
