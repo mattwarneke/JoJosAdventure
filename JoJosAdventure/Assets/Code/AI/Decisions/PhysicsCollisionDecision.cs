@@ -8,7 +8,7 @@ namespace JoJosAdventure
         public override bool MakeADecision()
         {
             // Enemy has touched Jojo
-            if (this.EnemyBrain.EnemyHitBox.HitBoxCollider.IsTouching(this.EnemyBrain.TargetHitBox.HitBoxCollider))
+            if (this.EnemyBrain.EnemyHitBox.Collider2D.IsTouching(this.EnemyBrain.TargetHitBox.Collider2D))
             {
                 this.AIActionData.Attack = true;
                 return true;

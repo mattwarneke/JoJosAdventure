@@ -14,13 +14,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Walk
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -208,7 +208,7 @@ AnimatorStateMachine:
     m_Position: {x: 552, y: 132, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102520366213492602}
-    m_Position: {x: 276, y: 252, z: 0}
+    m_Position: {x: 280, y: 250, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

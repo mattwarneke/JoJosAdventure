@@ -6,6 +6,6 @@ namespace JoJosAdventure.Common
     public class HitBox : MonoBehaviour
     {
         [field: SerializeField]
-        public Collider2D HitBoxCollider { get; set; }
+        public Collider2D Collider2D { get; set; }
     }
 }

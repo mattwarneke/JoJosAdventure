@@ -48,11 +48,11 @@ namespace JoJosAdventure.Enemies
             return this.PlayerInSight;
         }
 
-        public bool LookForPlayer(Transform targetOfSearch)
+        public bool LookForPlayer(Collider2D targetCollider)
         {
             this.PlayerInSight = false;
 
-            this.DrawFieldOfView(targetOfSearch);
+            this.DrawFieldOfView(targetCollider);
 
             return this.PlayerInSight;
         }
@@ -63,7 +63,7 @@ namespace JoJosAdventure.Enemies
         private int[] triangles;
         private List<Vector3> viewPoints = new List<Vector3>();
 
-        private void DrawFieldOfView(Transform targetOfSearch)
+        private void DrawFieldOfView(Collider2D targetCollider)
         {
             int stepCount = Mathf.RoundToInt(this.viewAngle * this.meshResolution);
             float stepAngleSize = this.viewAngle / stepCount;
@@ -73,7 +73,7 @@ namespace JoJosAdventure.Enemies
             {
                 float angle = UtilClass.GetGlobalTransformAngleAddition(this.transform) - (this.viewAngle / 2) + (stepAngleSize * i);
 
-                ViewCastInfo newViewCast = this.ViewCast(angle, targetOfSearch);
+                ViewCastInfo newViewCast = this.ViewCast(angle, targetCollider);
                 this.viewPoints.Add(newViewCast.point);
             }
 
@@ -126,13 +126,13 @@ namespace JoJosAdventure.Enemies
             //this.transform.rotation = initialWorldRotation * newRotation;
         }
 
-        private ViewCastInfo ViewCast(float globalAngle, Transform targetOfSearch)
+        private ViewCastInfo ViewCast(float globalAngle, Collider2D targetCollider)
         {
             Vector3 dir = UtilClass.DirFromAngleGlobal(globalAngle);
             RaycastHit2D hit = Physics2D.Raycast(this.transform.position, dir, this.viewRadius, this.rayMask);
             if (hit.collider != null)
             {
-                if (targetOfSearch == hit.collider.transform)
+                if (hit.collider.Equals(targetCollider))
                 {
                     this.PlayerInSight = true;
                 }

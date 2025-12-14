@@ -1068,7 +1068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c30280ab65864571954579e10e4b947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <HitBoxCollider>k__BackingField: {fileID: 5528896678006837395}
+  <Collider2D>k__BackingField: {fileID: 5528896678006837395}
 --- !u!1 &8026986289993865507
 GameObject:
   m_ObjectHideFlags: 0

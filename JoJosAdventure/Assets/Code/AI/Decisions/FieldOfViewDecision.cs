@@ -10,7 +10,7 @@ namespace JoJosAdventure
 
         public override bool MakeADecision()
         {
-            bool playerSpotted = this.EnemyBrain.EnemyFOV.LookForPlayer(this.EnemyBrain.Target.transform);
+            bool playerSpotted = this.EnemyBrain.EnemyFOV.LookForPlayer(this.EnemyBrain.TargetHitBox.Collider2D);
             if (playerSpotted)
             {
                 this.AIActionData.TargetSpotted = true;
