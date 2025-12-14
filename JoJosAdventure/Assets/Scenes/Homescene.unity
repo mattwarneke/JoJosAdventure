@@ -6288,11 +6288,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jojo
       objectReference: {fileID: 0}
-    - target: {fileID: 5528896678006837395, guid: c79d2dc635199bb4bb3dbffab13e46a9,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8508140263019613192, guid: c79d2dc635199bb4bb3dbffab13e46a9,
         type: 3}
       propertyPath: m_Mesh

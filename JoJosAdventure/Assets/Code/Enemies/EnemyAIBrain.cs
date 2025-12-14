@@ -35,7 +35,7 @@ namespace JoJosAdventure
                 this.TargetHitBox = this.Target.GetComponentInChildren<HitBox>();
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             if (this.Target != null)
                 this.CurrentState.UpdateState();
