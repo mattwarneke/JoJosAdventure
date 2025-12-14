@@ -8,16 +8,18 @@ TagManager:
   - LevelChanger
   - healthbar
   - Jojo
+  - GuiController
+  - HitBox
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - JojoPlayer
+  - PlayerHitbox
   - Water
   - UI
-  - Enemy
-  - Obstacle
-  - NPC
+  - EnemyHitBox
+  - WorldCollider
+  - 
   - Bullet
   - MovementCollider
   - 

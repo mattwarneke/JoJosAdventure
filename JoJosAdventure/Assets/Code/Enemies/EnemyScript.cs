@@ -9,7 +9,6 @@ namespace JoJosAdventure.Enemies
 {
     public class EnemyScript : MonoBehaviour, IHittable, IAgent, IStunnable
     {
-        public FieldOfView fieldOfView;
         public SpeechBubble speechBubble;
 
         [field: SerializeField]
@@ -44,7 +43,6 @@ namespace JoJosAdventure.Enemies
         {
             this.Health = this.EnemyData.MaxHealth;
 
-            if (this.fieldOfView == null) throw new ExpectedInspectorReferenceException();
             this.StartUpSpeech();
         }
 

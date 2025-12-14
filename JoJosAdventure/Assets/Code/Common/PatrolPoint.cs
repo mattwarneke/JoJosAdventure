@@ -1,5 +1,8 @@
 using UnityEngine;
 
-public class PatrolPoint : MonoBehaviour
+namespace JoJosAdventure.Common
 {
+    public class PatrolPoint : MonoBehaviour
+    {
+    }
 }

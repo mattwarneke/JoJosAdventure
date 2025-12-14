@@ -10,6 +10,10 @@ namespace JoJosAdventure
     {
         [field: SerializeField]
         public GameObject Target { get; set; }
+        public HitBox TargetHitBox { get; private set; }
+
+        [field: SerializeField]
+        public HitBox EnemyHitBox { get; set; }
 
         [field: SerializeField]
         public AIState CurrentState { get; private set; }
@@ -25,7 +29,10 @@ namespace JoJosAdventure
 
         private void Awake()
         {
-            this.Target = FindObjectOfType<JojoPlayer>().gameObject;
+            if (this.Target == null)
+                this.Target = FindObjectOfType<JojoPlayer>().gameObject;
+            if (this.TargetHitBox == null)
+                this.TargetHitBox = this.Target.GetComponentInChildren<HitBox>();
         }
 
         private void Update()

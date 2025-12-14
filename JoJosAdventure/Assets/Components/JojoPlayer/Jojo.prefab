@@ -359,7 +359,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3514211732132738165}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3730186903434979672
 MonoBehaviour:
@@ -571,7 +571,7 @@ Transform:
   m_Children:
   - {fileID: 8026986290877071008}
   m_Father: {fileID: 3514211732132738165}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8961123693868373215
 MonoBehaviour:
@@ -699,8 +699,8 @@ GameObject:
   - component: {fileID: 747172065908077012}
   - component: {fileID: 1572945675552853406}
   - component: {fileID: 7136543942833931871}
-  - component: {fileID: 7819985172680418109}
-  m_Layer: 3
+  - component: {fileID: 4727733836925237047}
+  m_Layer: 10
   m_Name: Jojo
   m_TagString: Jojo
   m_Icon: {fileID: 0}
@@ -719,9 +719,9 @@ Transform:
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1048300864063476779}
   - {fileID: 6149462435064150965}
   - {fileID: 4400657733003814522}
+  - {fileID: 6039153605355427787}
   - {fileID: 189648175}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -765,7 +765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4900f87cd41ceb94a9f24e321144d34e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Health>k__BackingField: 0
+  <Health>k__BackingField: 3
   <OnGetHit>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -778,6 +778,18 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 747172065908077012}
+        m_TargetAssemblyTypeName: JoJosAdventure.JojoPlayer, JoJosAdventure
+        m_MethodName: GetStunned
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 2
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -810,6 +822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <movementData>k__BackingField: {fileID: 11400000, guid: c1c2bb07d23154d4288aa72ecb165b06,
     type: 2}
+  <ArriveBufferDistance>k__BackingField: 0.2
   <OnVelocityChange>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -852,6 +865,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  IsAtTarget: 0
 --- !u!50 &7136543942833931871
 Rigidbody2D:
   serializedVersion: 4
@@ -873,8 +887,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!60 &7819985172680418109
-PolygonCollider2D:
+--- !u!70 &4727733836925237047
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -886,29 +900,9 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.32545662, y: 0.26740265}
-      - {x: 0.23792839, y: 0.34292603}
-      - {x: 0.10494232, y: 0.38620758}
-      - {x: -0.23469925, y: 0.6420975}
-      - {x: -0.5961609, y: 0.51129913}
-      - {x: -0.73672485, y: 0.08937454}
-      - {x: -0.45556253, y: -0.11241785}
-      - {x: -0.34958506, y: -0.26268268}
-      - {x: 0.011018753, y: -0.35474396}
-      - {x: 0.34665298, y: -0.23273468}
-      - {x: 0.40845984, y: 0.04958558}
+  m_Offset: {x: 0, y: -0.2887359}
+  m_Size: {x: 0.77914447, y: 0.30713275}
+  m_Direction: 1
 --- !u!1 &6270062853570200844
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,7 +987,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &7928979415802170406
+--- !u!1 &7785393102203160560
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1001,46 +995,80 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1048300864063476779}
-  - component: {fileID: 4611856733662460168}
-  m_Layer: 10
-  m_Name: MovementCollider
-  m_TagString: Untagged
+  - component: {fileID: 6039153605355427787}
+  - component: {fileID: 5528896678006837395}
+  - component: {fileID: 260271353}
+  m_Layer: 3
+  m_Name: HitBox
+  m_TagString: HitBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1048300864063476779
+--- !u!4 &6039153605355427787
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7928979415802170406}
+  m_GameObject: {fileID: 7785393102203160560}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3514211732132738165}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &4611856733662460168
-CapsuleCollider2D:
+--- !u!60 &5528896678006837395
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7928979415802170406}
+  m_GameObject: {fileID: 7785393102203160560}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.2887359}
-  m_Size: {x: 0.77914447, y: 0.30713275}
-  m_Direction: 1
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.32545662, y: 0.26740265}
+      - {x: 0.23792839, y: 0.34292603}
+      - {x: 0.10494232, y: 0.38620758}
+      - {x: -0.23469925, y: 0.6420975}
+      - {x: -0.5961609, y: 0.51129913}
+      - {x: -0.73672485, y: 0.08937454}
+      - {x: -0.45556253, y: -0.11241785}
+      - {x: -0.34958506, y: -0.26268268}
+      - {x: 0.011018753, y: -0.35474396}
+      - {x: 0.34665298, y: -0.23273468}
+      - {x: 0.40845984, y: 0.04958558}
+--- !u!114 &260271353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7785393102203160560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c30280ab65864571954579e10e4b947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <HitBoxCollider>k__BackingField: {fileID: 5528896678006837395}
 --- !u!1 &8026986289993865507
 GameObject:
   m_ObjectHideFlags: 0
@@ -1955,7 +1983,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 69d2370c3670d84488bb4dbb1b3ecaba, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2076,7 +2104,7 @@ MonoBehaviour:
   - {x: -0.31482315, y: 0.4034996, z: 0}
   m_ShapePathHash: 1715280231
   m_Mesh: {fileID: 0}
-  m_InstanceId: 99704
+  m_InstanceId: -1934
 --- !u!1 &8026986290964841682
 GameObject:
   m_ObjectHideFlags: 0
