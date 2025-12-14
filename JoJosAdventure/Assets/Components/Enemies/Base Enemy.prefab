@@ -671,7 +671,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6698042163516942856}
+  - {fileID: 361955679981376228}
   m_Father: {fileID: 7425970214379874471}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -860,7 +860,7 @@ MonoBehaviour:
   - {x: 0.39464378, y: -1.2853851, z: -0}
   m_ShapePathHash: 1074504485
   m_Mesh: {fileID: 0}
-  m_InstanceId: 128662
+  m_InstanceId: 63928
 --- !u!1 &6976892618407817833
 GameObject:
   m_ObjectHideFlags: 0
@@ -1114,7 +1114,7 @@ GameObject:
   - component: {fileID: 7074045448235745376}
   - component: {fileID: 2946207150414805931}
   m_Layer: 6
-  m_Name: HumanGO
+  m_Name: Base Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1762,7 +1762,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1711764502688979307}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &3419925944243004149
+--- !u!1001 &8541025699396491801
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1827,13 +1827,13 @@ PrefabInstance:
     - target: {fileID: 8328937384044587841, guid: a389f218f679249fd92fdde8977b7cec,
         type: 3}
       propertyPath: m_Name
-      value: MaleBase
+      value: BaseBody
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a389f218f679249fd92fdde8977b7cec, type: 3}
---- !u!4 &6698042163516942856 stripped
+--- !u!4 &361955679981376228 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8323282522380896509, guid: a389f218f679249fd92fdde8977b7cec,
     type: 3}
-  m_PrefabInstance: {fileID: 3419925944243004149}
+  m_PrefabInstance: {fileID: 8541025699396491801}
   m_PrefabAsset: {fileID: 0}
