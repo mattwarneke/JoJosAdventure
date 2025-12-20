@@ -3,9 +3,9 @@ using UnityEngine.UI;
 
 namespace JoJosAdventure
 {
-    public class FearMeter : MonoBehaviour
+    public class FearMeterUI : MonoBehaviour
     {
-        private Slider fearSlider;
+        private Slider fearSlider { get; set; }
 
         protected void Awake()
         {
