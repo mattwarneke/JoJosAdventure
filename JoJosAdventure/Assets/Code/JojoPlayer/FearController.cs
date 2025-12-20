@@ -9,18 +9,23 @@ namespace JoJosAdventure
         [field: SerializeField]
         public UnityEvent<FearEvent> OnFearChanged { get; set; }
 
-        private float fear = 0f;
-        private int maxFear = 100;
+        private float Fear = 0f;
+        private int MaxFear = 100;
 
         protected void Start()
         {
-            this.setFear(this.fear);
+            this.setFear(this.Fear);
+        }
+
+        public void AddFear(float fear)
+        {
+            this.setFear(this.Fear + fear);
         }
 
         private void setFear(float fear)
         {
-            this.fear = fear;
-            this.OnFearChanged.Invoke(new FearEvent(this.fear, this.maxFear));
+            this.Fear = fear;
+            this.OnFearChanged.Invoke(new FearEvent(this.Fear, this.MaxFear));
         }
     }
 

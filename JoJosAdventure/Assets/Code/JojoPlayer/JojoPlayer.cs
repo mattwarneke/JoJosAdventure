@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 namespace JoJosAdventure
 {
-    public class JojoPlayer : MonoBehaviour, IAgent, IHittable, IStunnable
+    public class JojoPlayer : MonoBehaviour, IAgent, IHittable
     {
         [field: SerializeField]
         public UnityEvent OnGetHit { get; set; }
@@ -17,18 +17,27 @@ namespace JoJosAdventure
         [field: SerializeField]
         private LivesController LivesController { get; set; }
 
+        [field: SerializeField]
+        private FearController FearController { get; set; }
+
         private AgentMovement agentMovement;
+
+        private float fearOnHit = 25f;
 
         private void Awake()
         {
             this.agentMovement = this.GetComponent<AgentMovement>();
         }
 
-        public void GetHit(int damage, GameObject damageDealer)
+        public void GetHit(int damage, float? stunDuration)
         {
             if (!this.LivesController.IsAlive()) return;
 
             this.LivesController.TakeDamage(damage);
+            this.FearController.AddFear(this.fearOnHit);
+            if (stunDuration.HasValue)
+                this.agentMovement.GetStunned(stunDuration.Value);
+
             this.OnGetHit?.Invoke();
 
             if (!this.LivesController.IsAlive())
@@ -36,11 +45,6 @@ namespace JoJosAdventure
                 this.OnDie?.Invoke();
                 this.StartCoroutine(this.WaitToDie());
             }
-        }
-
-        public void GetStunned(float duration)
-        {
-            this.agentMovement.GetStunned(duration);
         }
 
         private IEnumerator WaitToDie()

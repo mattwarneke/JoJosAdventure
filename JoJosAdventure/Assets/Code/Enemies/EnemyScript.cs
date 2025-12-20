@@ -7,7 +7,7 @@ using UnityEngine.Events;
 
 namespace JoJosAdventure.Enemies
 {
-    public class EnemyScript : MonoBehaviour, IHittable, IAgent, IStunnable
+    public class EnemyScript : MonoBehaviour, IHittable, IAgent
     {
         public SpeechBubble speechBubble;
 
@@ -50,12 +50,16 @@ namespace JoJosAdventure.Enemies
         {
         }
 
-        public void GetHit(int damage, GameObject damageDealer)
+        public void GetHit(int damage, float? stunDuration)
         {
             if (this.dead) return;
 
             this.Health--;
+            if (stunDuration.HasValue)
+                this.agentMovement.GetStunned(stunDuration.Value);
+
             this.OnGetHit?.Invoke();
+
             if (this.Health <= 0)
             {
                 this.OnDie?.Invoke();
@@ -76,12 +80,7 @@ namespace JoJosAdventure.Enemies
             this.Speak(new Speech("HUG KITTY!!", 1));
 
             this.EnemyAttack.Attack(this.EnemyData.Damage);
-            this.GetStunned(this.EnemyAttack.AttackDelay);
-        }
-
-        public void GetStunned(float duration)
-        {
-            this.agentMovement.GetStunned(duration);
+            this.agentMovement.GetStunned(this.EnemyAttack.AttackDelay);
         }
 
         private void Speak(Speech speech)

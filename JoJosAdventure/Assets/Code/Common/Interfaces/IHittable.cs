@@ -3,10 +3,10 @@ using UnityEngine.Events;
 
 namespace JoJosAdventure.Common.Interfaces
 {
-public interface IHittable
+    public interface IHittable
     {
         UnityEvent OnGetHit { get; set; }
 
-        void GetHit(int damage, GameObject damageDealer);
+        void GetHit(int damage, float? stunDuration);
     }
 }

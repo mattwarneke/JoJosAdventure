@@ -9,7 +9,7 @@ namespace JoJosAdventure
             if (this.waitBeforeNextAttack == false)
             {
                 var hittable = this.GetTarget().GetComponent<IHittable>();
-                hittable?.GetHit(damage, this.gameObject);
+                hittable?.GetHit(damage, 2f);
                 this.StartCoroutine(this.WaitBeforeAttackCoroutine());
             }
         }
