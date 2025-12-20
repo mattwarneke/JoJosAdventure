@@ -5,7 +5,7 @@ namespace JoJosAdventure
 {
     public class FearMeter : MonoBehaviour
     {
-        protected Slider fearSlider;
+        private Slider fearSlider;
 
         protected void Awake()
         {
@@ -13,9 +13,9 @@ namespace JoJosAdventure
         }
 
         // called from UnityEvent ->
-        protected void UpdateFearMeter(float fear)
+        public void UpdateFearMeter(FearEvent fearEvent)
         {
-            this.fearSlider.value = fear;
+            this.fearSlider.value = fearEvent.Fear/ (float)fearEvent.MaxFear;
         }
     }
 }
