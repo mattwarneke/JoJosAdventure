@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 namespace JoJosAdventure.Common.Interfaces
 {
-    public interface IHittable
+public interface IHittable
     {
         UnityEvent OnGetHit { get; set; }
 

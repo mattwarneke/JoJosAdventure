@@ -9,15 +9,13 @@ namespace JoJosAdventure
     public class JojoPlayer : MonoBehaviour, IAgent, IHittable, IStunnable
     {
         [field: SerializeField]
-        public int Health { get; private set; }
-
-        private bool dead = false;
-
-        [field: SerializeField]
         public UnityEvent OnGetHit { get; set; }
 
         [field: SerializeField]
         public UnityEvent OnDie { get; set; }
+
+        [field: SerializeField]
+        private LivesController LivesController { get; set; }
 
         private AgentMovement agentMovement;
 
@@ -28,14 +26,14 @@ namespace JoJosAdventure
 
         public void GetHit(int damage, GameObject damageDealer)
         {
-            if (this.dead) return;
+            if (!this.LivesController.IsAlive()) return;
 
-            this.Health--;
+            this.LivesController.TakeDamage(damage);
             this.OnGetHit?.Invoke();
-            if (this.Health <= 0)
+
+            if (!this.LivesController.IsAlive())
             {
                 this.OnDie?.Invoke();
-                this.dead = true;
                 this.StartCoroutine(this.WaitToDie());
             }
         }
