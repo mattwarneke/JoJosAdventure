@@ -1,5 +1,4 @@
-﻿using JoJosAdventure.Logic;
-using JoJosAdventure.Utils;
+﻿using JoJosAdventure.Utils;
 using UnityEngine;
 
 public class CollectableBounce : MonoBehaviour
@@ -32,7 +31,6 @@ public class CollectableBounce : MonoBehaviour
     private void Start()
     {
         this.StartingScale = this.transform.localScale.x;
-        GameService.Instance.AddCollectable();
     }
 
     // Update is called once per frame
@@ -65,8 +63,6 @@ public class CollectableBounce : MonoBehaviour
         this.transform.localScale = new Vector3(this.StartingScale * this.ScaleXY, this.StartingScale * this.ScaleXY, this.transform.localScale.z);
     }
 
-    public EventEnum eventRaisedOnDestroy;
-
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (LayersUtil.IsColliderPlayer(collider))
@@ -74,10 +70,5 @@ public class CollectableBounce : MonoBehaviour
             //GameService.Instance.JoJoSwip();
             Destroy(this.gameObject, 0.5f);
         }
-    }
-
-    private void OnDestroy()
-    {
-        GameService.Instance.HandleEvent(this.eventRaisedOnDestroy);
     }
 }

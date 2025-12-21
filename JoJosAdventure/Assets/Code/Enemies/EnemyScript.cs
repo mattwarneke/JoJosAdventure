@@ -1,9 +1,10 @@
 using JoJosAdventure.Common;
 using JoJosAdventure.Common.Interfaces;
-using JoJosAdventure.Logic;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using JoJosAdventure.NPC;
+using JoJosAdventure.GUI;
 
 namespace JoJosAdventure.Enemies
 {

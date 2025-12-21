@@ -1,105 +1,108 @@
-﻿using JoJosAdventure.Logic;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using JoJosAdventure.NPC;
 
-public class SpeechBubble : MonoBehaviour
+namespace JoJosAdventure.GUI
 {
-    public GameObject speechBubbleContainer;
-    public Text speechBubbleText;
-
-    // Use this for initialization
-    private void Start()
+    public class SpeechBubble : MonoBehaviour
     {
-    }
+        public GameObject speechBubbleContainer;
+        public Text speechBubbleText;
 
-    // Update is called once per frame
-    private void Update()
-    {
-        if (this.currentlyPlayingSpeech == null && this.SpeechQueue.Count == 0)
-            return;
-
-        if (this.HasSpeechTimePassed())
+        // Use this for initialization
+        private void Start()
         {
-            if (this.SpeechQueue.Count > 0)
-                this.PlayNextSpeech();
-            else
-                this.FinishSpeech();
         }
-    }
 
-    private Speech currentlyPlayingSpeech { get; set; }
-    private float lastSpeechTime;
+        // Update is called once per frame
+        private void Update()
+        {
+            if (this.currentlyPlayingSpeech == null && this.SpeechQueue.Count == 0)
+                return;
 
-    private bool HasSpeechTimePassed()
-    {
-        float timeSpeechPlaying = Time.time - this.lastSpeechTime;
-        return timeSpeechPlaying > this.currentlyPlayingSpeech.SpeechTimeSeconds;
-    }
+            if (this.HasSpeechTimePassed())
+            {
+                if (this.SpeechQueue.Count > 0)
+                    this.PlayNextSpeech();
+                else
+                    this.FinishSpeech();
+            }
+        }
 
-    private Queue<Speech> SpeechQueue = new Queue<Speech>();
+        private Speech currentlyPlayingSpeech { get; set; }
+        private float lastSpeechTime;
 
-    public void AddToSpeechQueue(Speech speech)
-    {
-        this.SpeechQueue.Enqueue(speech);
+        private bool HasSpeechTimePassed()
+        {
+            float timeSpeechPlaying = Time.time - this.lastSpeechTime;
+            return timeSpeechPlaying > this.currentlyPlayingSpeech.SpeechTimeSeconds;
+        }
 
-        this.PlayNextSpeech();
-    }
+        private Queue<Speech> SpeechQueue = new Queue<Speech>();
 
-    public void AddToSpeechQueue(List<Speech> speechs)
-    {
-        foreach (Speech speech in speechs)
+        public void AddToSpeechQueue(Speech speech)
+        {
             this.SpeechQueue.Enqueue(speech);
 
-        this.PlayNextSpeech();
-    }
+            this.PlayNextSpeech();
+        }
 
-    private void PlayNextSpeech()
-    {
-        Speech speech = this.SpeechQueue.Dequeue();
-        if (speech == null)
-            return;
-
-        this.currentlyPlayingSpeech = speech;
-        this.lastSpeechTime = Time.time;
-
-        if (this.speechBubbleContainer == null)
-            return;
-
-        if (!string.IsNullOrEmpty(speech.SpeechText))
+        public void AddToSpeechQueue(List<Speech> speechs)
         {
-            this.speechBubbleContainer.SetActive(true);
-            this.speechBubbleText.text = speech.SpeechText;
+            foreach (Speech speech in speechs)
+                this.SpeechQueue.Enqueue(speech);
+
+            this.PlayNextSpeech();
         }
-        else
-        {   // empty speech is a pause.
+
+        private void PlayNextSpeech()
+        {
+            Speech speech = this.SpeechQueue.Dequeue();
+            if (speech == null)
+                return;
+
+            this.currentlyPlayingSpeech = speech;
+            this.lastSpeechTime = Time.time;
+
+            if (this.speechBubbleContainer == null)
+                return;
+
+            if (!string.IsNullOrEmpty(speech.SpeechText))
+            {
+                this.speechBubbleContainer.SetActive(true);
+                this.speechBubbleText.text = speech.SpeechText;
+            }
+            else
+            {   // empty speech is a pause.
+                this.speechBubbleContainer.SetActive(false);
+            }
+        }
+
+        private void FinishSpeech()
+        {
             this.speechBubbleContainer.SetActive(false);
+            this.currentlyPlayingSpeech = null;
         }
-    }
 
-    private void FinishSpeech()
-    {
-        this.speechBubbleContainer.SetActive(false);
-        this.currentlyPlayingSpeech = null;
-    }
+        public void EmptySpeechQueue()
+        {
+            this.currentlyPlayingSpeech = null;
+            this.speechBubbleContainer.SetActive(false);
+            this.SpeechQueue.Clear();
+        }
 
-    public void EmptySpeechQueue()
-    {
-        this.currentlyPlayingSpeech = null;
-        this.speechBubbleContainer.SetActive(false);
-        this.SpeechQueue.Clear();
-    }
+        public void RunActionOnSpeechFinished(Action callback)
+        {
+            this.StartCoroutine(this.RunActionOnSpeechFinishedCoroutine(callback));
+        }
 
-    public void RunActionOnSpeechFinished(Action callback)
-    {
-        this.StartCoroutine(this.RunActionOnSpeechFinishedCoroutine(callback));
-    }
-
-    private IEnumerator RunActionOnSpeechFinishedCoroutine(Action callback)
-    {
-        yield return new WaitWhile(() => this.currentlyPlayingSpeech != null);
-        callback();
+        private IEnumerator RunActionOnSpeechFinishedCoroutine(Action callback)
+        {
+            yield return new WaitWhile(() => this.currentlyPlayingSpeech != null);
+            callback();
+        }
     }
 }
